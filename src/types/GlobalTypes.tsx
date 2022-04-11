@@ -68,3 +68,46 @@ export interface Npc {
 	description: string;
 	cr: number;
 }
+
+export interface PC {
+	name: string;
+	image?: string;
+	species: string;
+	class: string;
+	statblock: Statblock;
+	description?: string;
+	skills: Skillblock;
+	speed: number;
+	maxHealth: number;
+	currentHealth: number;
+	tempHealth?: number;
+}
+
+export interface Statblock {
+	cha: number;
+	con: number;
+	dex: number;
+	int: number;
+	str: number;
+	wis: number;
+}
+export interface Skillblock {
+	acrobatics: number;
+	animalHandling: number;
+	arcana: number;
+	athletics: number;
+	deception: number;
+	history: number;
+	insight: number;
+	intimidation: number;
+	investigation: number;
+	medicine: number;
+	nature: number;
+	perception: number;
+	performance: number;
+	persuasion: number;
+	religion: number;
+	sleightOfHand: number;
+	stealth: number;
+	survival: number;
+}

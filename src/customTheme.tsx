@@ -112,6 +112,22 @@ customTheme = createTheme(customTheme, {
 				},
 			},
 		},
+		MuiLinearProgress: {
+			styleOverrides: {
+				root: {
+					height: "20px",
+					borderRadius: "5px",
+					"& .MuiLinearProgress-dashed": {
+						background: customTheme.palette.info.light,
+						animation: "none",
+					},
+					"& .MuiLinearProgress-colorSuccess": {
+						background: customTheme.palette.error.dark,
+						animation: "none",
+					},
+				},
+			},
+		},
 	},
 });
 

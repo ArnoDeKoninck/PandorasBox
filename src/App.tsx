@@ -6,6 +6,7 @@ import PartyInformation from "./components/partyInformation/PartyInformation";
 import Generators from "./components/generators/Generators";
 import { Encounter, Encounter_Variant } from "./types/EncounterTypes";
 import { Item } from "./types/ItemTypes";
+import PartyDetails from "./components/partyInformation/PartyDetails";
 
 function App() {
 	const [encounter, getEncounter] = React.useState<Encounter | Encounter_Variant | undefined>();
@@ -34,6 +35,9 @@ function App() {
 					</Grid>
 					<Grid item xs={8}>
 						<Generators encounter={encounter} loot={loot} partyLevel={partyLevel} getEncounter={getEncounter} getLoot={getLoot} />
+					</Grid>
+					<Grid item xs={12}>
+						<PartyDetails partySize={partySize} partyLevel={partyLevel} />
 					</Grid>
 				</Grid>
 			</Grid>

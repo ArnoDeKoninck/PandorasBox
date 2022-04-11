@@ -13,10 +13,12 @@ interface props{
    
 function GeneratedOutput({encounter, loot}:props) {
   return (
-    <Grid container >
+    <Grid container spacing={2}>
       {encounter && <EncounterCard encounter={encounter}/>}
-      {loot && loot.map((item)=> 
+      {loot && loot.map((item)=>
+      <Grid item xs={3}>
         <TreasureCard item={item}/>
+      </Grid>
       )}
   </Grid>
   );

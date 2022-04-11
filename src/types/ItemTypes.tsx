@@ -1,3 +1,5 @@
+import { SavingThrows } from "./GlobalTypes";
+
 export interface Item {
     name: string;
     description?: string;
@@ -7,6 +9,11 @@ export interface Item {
     uses?: number;
     link?: string;
     amount?: number
+    savingThrow? : SavingThrows
+    dc?: number;
+    onPass?: string;
+    onFail?: string;
+    
   }
   export interface Item_variant extends Item {
     name: string;

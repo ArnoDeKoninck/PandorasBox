@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { grey } from "@mui/material/colors";
+import { grey, pink } from "@mui/material/colors";
 import { createStyles, makeStyles } from "@mui/styles";
 import { Theme } from "@mui/system";
 
@@ -51,6 +51,20 @@ customTheme = createTheme(customTheme, {
 				root: {
 					borderColor: customTheme.palette.secondary.main,
 					color: customTheme.palette.secondary.main,
+					":active .MuiOutlinedInput-notchedOutline": {
+						borderWidth: "1px",
+						borderColor: customTheme.palette.secondary.main,
+						color: customTheme.palette.secondary.main,
+					},
+					":hover .MuiOutlinedInput-notchedOutline": {
+						borderWidth: "1px",
+						borderColor: customTheme.palette.secondary.main,
+						color: customTheme.palette.secondary.main,
+					},
+					":focused .MuiOutlinedInput-notchedOutline": {
+						borderColor: customTheme.palette.secondary.main,
+						color: customTheme.palette.secondary.main,
+					},
 				},
 				notchedOutline: {
 					borderColor: customTheme.palette.secondary.main,
@@ -58,7 +72,7 @@ customTheme = createTheme(customTheme, {
 			},
 		},
 
-		MuiInputLabel: {
+		MuiFieldSet: {
 			styleOverrides: {
 				root: {
 					borderColor: customTheme.palette.secondary.main,
@@ -66,11 +80,61 @@ customTheme = createTheme(customTheme, {
 				},
 			},
 		},
+		MuiInputLabel: {
+			styleOverrides: {
+				root: {
+					borderColor: customTheme.palette.secondary.main,
+					color: customTheme.palette.secondary.main,
+					"&.Mui-focused": {
+						borderColor: customTheme.palette.secondary.main,
+						color: customTheme.palette.secondary.main,
+					},
+				},
+			},
+		},
+
 		MuiSelect: {
 			styleOverrides: {
 				root: {
 					borderColor: customTheme.palette.secondary.main,
 					color: customTheme.palette.secondary.main,
+					backgroundColor: customTheme.palette.primary.dark,
+				},
+				icon: {
+					color: customTheme.palette.secondary.main,
+				},
+			},
+		},
+		MuiTextField: {
+			styleOverrides: {
+				root: {
+					borderColor: customTheme.palette.secondary.main,
+					color: customTheme.palette.secondary.main,
+					backgroundColor: customTheme.palette.primary.dark,
+					"&:hover": {
+						borderColor: customTheme.palette.secondary.main,
+					},
+				},
+
+				icon: {
+					color: customTheme.palette.secondary.main,
+				},
+			},
+		},
+		MuiMenuItem: {
+			styleOverrides: {
+				root: {
+					borderBottom: `1px solid`,
+				},
+			},
+		},
+
+		MuiPaper: {
+			styleOverrides: {
+				root: {
+					borderColor: customTheme.palette.secondary.main,
+					color: customTheme.palette.secondary.main,
+					backgroundColor: customTheme.palette.primary.dark,
 				},
 				icon: {
 					color: customTheme.palette.secondary.main,
@@ -95,6 +159,13 @@ customTheme = createTheme(customTheme, {
 			styleOverrides: {
 				root: {
 					background: customTheme.palette.primary.light,
+				},
+			},
+		},
+		MuiChip: {
+			styleOverrides: {
+				root: {
+					background: pink[800],
 				},
 			},
 		},
@@ -157,6 +228,10 @@ export const useStyles = makeStyles((theme: Theme) =>
 		},
 		itemCard: {
 			backgroundColor: customTheme.palette.primary.dark + "!important",
+		},
+		link: {
+			borderBottom: `1px solid ${customTheme.palette.secondary.main}`,
+			"&:hover": { cursor: "pointer" },
 		},
 	})
 );

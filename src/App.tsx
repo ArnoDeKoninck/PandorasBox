@@ -7,12 +7,15 @@ import Generators from "./components/generators/Generators";
 import { Encounter, Encounter_Variant } from "./types/EncounterTypes";
 import { Item } from "./types/ItemTypes";
 import PartyDetails from "./components/partyInformation/PartyDetails";
+import EditPcDialog from "./components/partyInformation/EditPcDialog";
+import { PC } from "./types/GlobalTypes";
 
 function App() {
 	const [encounter, getEncounter] = React.useState<Encounter | Encounter_Variant | undefined>();
 	const [loot, getLoot] = React.useState<Item[] | undefined>();
 	const [partyLevel, setPartyLevel] = React.useState(1);
 	const [partySize, setPartySize] = React.useState(1);
+	const [openEditPcDialog, setOpenEditPcDialog] = React.useState<PC | undefined>(undefined);
 	const classes = useStyles();
 
 	return (
@@ -37,9 +40,10 @@ function App() {
 						<Generators encounter={encounter} loot={loot} partyLevel={partyLevel} getEncounter={getEncounter} getLoot={getLoot} />
 					</Grid>
 					<Grid item xs={12}>
-						<PartyDetails partySize={partySize} partyLevel={partyLevel} />
+						<PartyDetails partySize={partySize} partyLevel={partyLevel} setOpenEditPcDialog={setOpenEditPcDialog} />
 					</Grid>
 				</Grid>
+				{openEditPcDialog && <EditPcDialog pc={openEditPcDialog} setOpenEditPcDialog={setOpenEditPcDialog} />}
 			</Grid>
 		</ThemeProvider>
 	);

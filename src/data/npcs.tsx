@@ -37,7 +37,7 @@ export const npcs = [
 	},
 	{
 		name: "Amalthia",
-		image: "amalthia.png",
+		image: "amalthia.webp",
 		species: "Human",
 		age: "Early-20s",
 		alignment: "True Neutral",
@@ -55,7 +55,7 @@ export const npcs = [
 	},
 	{
 		name: "Anna Krezkova",
-		image: "anna_krezkova.png",
+		image: "anna_krezkova.webp",
 		species: "Human",
 		age: "Late-40s",
 		alignment: "True Neutral",
@@ -73,7 +73,7 @@ export const npcs = [
 	},
 	{
 		name: "Arahja",
-		image: "arahja.png",
+		image: "arahja.webp",
 		species: "Human ",
 		age: "Early-30s",
 		alignment: "True Neutral",
@@ -136,7 +136,7 @@ export const npcs = [
 	},
 	{
 		name: "Bethel Bayaeva",
-		image: "bethel_bayaeva.png",
+		image: "bethel_bayaeva.webp",
 		species: "Human",
 		age: "Early-50s",
 		alignment: "Lawful Good",
@@ -163,7 +163,7 @@ export const npcs = [
 	},
 	{
 		name: "Bluto Krogarov",
-		image: "bluto_krogarov.png",
+		image: "bluto_krogarov.webp",
 		species: "Human",
 		age: "Late-30s",
 		alignment: "Chaotic Evil",
@@ -181,7 +181,7 @@ export const npcs = [
 	},
 	{
 		name: "Claudia Kalashnik",
-		image: "claudia_kalashnik.png",
+		image: "claudia_kalashnik.webp",
 		species: "Human",
 		age: "Mid-50s",
 		alignment: "Neutral Good",
@@ -226,7 +226,7 @@ export const npcs = [
 	},
 	{
 		name: "Davian Martikov",
-		image: "davian_martikov.jpg",
+		image: "davian_martikov.webp",
 		species: "Human",
 		age: "Late-60s",
 		alignment: "Lawful Good",
@@ -352,7 +352,7 @@ export const npcs = [
 	},
 	{
 		name: "Vasilka",
-		image: "vasilka.jpg",
+		image: "vasilka.webp",
 		species: "Flesh construct",
 		age: "Around 10 years old",
 		alignment: "Lawful Neutral",

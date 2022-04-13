@@ -2,7 +2,7 @@ import { PC } from "../../types/GlobalTypes";
 
 export const Ghesh_Ebonrock: PC = {
 	name: "Ghesh Ebonrock",
-	image: "abbot.webp",
+	image: "ghesh_ebonrock.webp",
 	class: "Death Knight",
 	currentHealth: 75,
 	maxHealth: 75,

@@ -36,10 +36,10 @@ function PartyDetails({ partySize, partyLevel, setOpenEditPcDialog }: props) {
 	return (
 		<ThemeProvider theme={customTheme}>
 			<Card>
-				<Grid container padding={2}>
-					<Grid item xs={6}>
+				<Grid container padding={2} rowGap={2}>
+					<Grid item xs={12}>
 						<Grid container spacing={2}>
-							<Grid item xs={6}>
+							<Grid item xs={3}>
 								<FormControl fullWidth>
 									<TextField className={classes.headerTitle} select id="pcs" defaultValue={selectedPc} label="Add PCs to the party" onChange={(e) => addSelectedPcToParty(e.target.value)}>
 										<MenuItem value={"Select the PC to add to the party"}>Select a PC to add to the party</MenuItem>
@@ -51,7 +51,7 @@ function PartyDetails({ partySize, partyLevel, setOpenEditPcDialog }: props) {
 									</TextField>
 								</FormControl>
 							</Grid>
-							<Grid item xs={6}>
+							<Grid item xs={9}>
 								<Grid container spacing={1}>
 									{party &&
 										party.map((pc) => (
@@ -64,10 +64,10 @@ function PartyDetails({ partySize, partyLevel, setOpenEditPcDialog }: props) {
 						</Grid>
 					</Grid>
 					<Grid item xs={12}>
-						<Grid container spacing={2}>
+						<Grid container>
 							{party &&
 								party.map((pc) => (
-									<Grid key={pc.name} item xs={3}>
+									<Grid key={pc.name} item xs={3} padding={1}>
 										<PcDetailCard partyLevel={partyLevel} pc={pc} setOpenEditPcDialog={setOpenEditPcDialog} />
 									</Grid>
 								))}

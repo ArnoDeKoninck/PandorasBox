@@ -33,6 +33,12 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 			e.target.value = "";
 		}
 	};
+	const onSubmit = () => {
+		pc.currentHealth = currentHp;
+		pc.tempHealth = tempHp ?? 0;
+		pc.status = status ?? undefined;
+		handleClose();
+	};
 
 	return (
 		<Dialog open={pc ? true : false} onClose={handleClose} fullWidth maxWidth={"lg"}>
@@ -44,11 +50,11 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 					<Grid container padding={4} alignItems="center" justifyContent={"flex-end"}>
 						<Grid item xs={5}>
 							<Grid container spacing={1}>
-								<Grid item xs={10}>
+								<Grid item xs={9}>
 									<LinearProgress color="success" variant="buffer" value={100 / (pc.maxHealth / currentHp)} valueBuffer={currentHp + tempHp} />
 								</Grid>
-								<Grid item xs={2}>
-									<Typography>{`${currentHp + tempHp}${tempHp ? "(+" + tempHp + "Temp)" : ""}/${pc.maxHealth} HP`}</Typography>
+								<Grid item xs={3}>
+									<Typography>{`${currentHp + tempHp}${tempHp ? "(+" + tempHp + ")" : ""}/${pc.maxHealth} HP`}</Typography>
 								</Grid>
 								<Grid item xs={12}>
 									<Grid container spacing={2}>
@@ -90,7 +96,9 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 				<Button variant={"contained"} onClick={handleClose}>
 					Cancel
 				</Button>
-				<Button variant={"contained"}>Save</Button>
+				<Button variant={"contained"} onClick={onSubmit}>
+					Save
+				</Button>
 			</DialogActions>
 		</Dialog>
 	);

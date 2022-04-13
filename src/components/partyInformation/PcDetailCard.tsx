@@ -35,11 +35,11 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 								{/* Health bar container*/}
 								<Grid item xs={12}>
 									<Grid container spacing={1}>
-										<Grid item xs={9}>
-											<LinearProgress color="success" variant="buffer" value={100 / (pc.maxHealth / pc.currentHealth)} valueBuffer={pc.tempHealth ?? 0} />
+										<Grid item xs={7}>
+											<LinearProgress color="success" variant="buffer" value={100 / (pc.maxHealth / pc.currentHealth)} valueBuffer={pc.currentHealth + (pc.tempHealth ?? 0)} />
 										</Grid>
-										<Grid item xs={3}>
-											<Typography>{`${pc.currentHealth}/${pc.maxHealth} HP`}</Typography>
+										<Grid item xs={5}>
+											<Typography>{`${pc.currentHealth + (pc.tempHealth ?? 0)}${pc.tempHealth ? "(+" + pc.tempHealth + ")" : ""}/${pc.maxHealth} HP`}</Typography>
 										</Grid>
 									</Grid>
 								</Grid>

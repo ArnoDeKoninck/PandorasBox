@@ -190,6 +190,7 @@ customTheme = createTheme(customTheme, {
 					borderRadius: "5px",
 					"& .MuiLinearProgress-dashed": {
 						background: customTheme.palette.error.dark,
+						animation: "none",
 					},
 					"& .MuiLinearProgress-colorSuccess": {
 						background: customTheme.palette.info.light,

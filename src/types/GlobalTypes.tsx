@@ -125,6 +125,7 @@ export interface PC {
 	maxHealth: number;
 	currentHealth: number;
 	tempHealth?: number;
+	status?: Status | string;
 }
 
 export interface Statblock {

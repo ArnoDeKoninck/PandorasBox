@@ -189,12 +189,10 @@ customTheme = createTheme(customTheme, {
 					height: "20px",
 					borderRadius: "5px",
 					"& .MuiLinearProgress-dashed": {
-						background: customTheme.palette.info.light,
-						animation: "none",
+						background: customTheme.palette.error.dark,
 					},
 					"& .MuiLinearProgress-colorSuccess": {
-						background: customTheme.palette.error.dark,
-						animation: "none",
+						background: customTheme.palette.info.light,
 					},
 				},
 			},

@@ -11,4 +11,5 @@ export const Ghesh_Ebonrock: PC = {
 	speed: 25,
 	statblock: { cha: 3, con: 3, dex: 1, int: -1, str: 1, wis: 1 },
 	description: "Ghesh Lore is epic",
+	initiative: 5,
 };

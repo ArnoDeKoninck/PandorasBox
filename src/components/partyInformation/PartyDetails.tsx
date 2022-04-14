@@ -7,26 +7,24 @@ import { ThemeProvider } from "@mui/styles";
 import PcDetailCard from "./PcDetailCard";
 
 interface props {
+	party: PC[];
 	partyLevel: number;
 	partySize: number;
 	setOpenEditPcDialog: (input: PC | undefined) => void;
+	setParty: (input: React.SetStateAction<PC[]>) => void;
 }
-function PartyDetails({ partySize, partyLevel, setOpenEditPcDialog }: props) {
-	const [party, setParty] = React.useState<PC[]>([]);
+function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setParty }: props) {
 	const [selectedPc, setSelectedPc] = React.useState<PC | string>("");
 	const classes = useStyles();
-	console.log(party);
 
 	async function addSelectedPcToParty(pcName: string) {
 		console.log("click");
 		PCs.map((pc) => {
-			console.log(pcName);
-			console.log(pc.name);
 			if (pcName === pc.name) {
 				setSelectedPc(pc);
-
 				setParty((oldParty) => [...oldParty, pc]);
 			}
+			return pc;
 		});
 	}
 	function removePcFromParty(pc: PC) {

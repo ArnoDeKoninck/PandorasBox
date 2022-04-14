@@ -1,3 +1,5 @@
+import { Encounter } from "./EncounterTypes";
+
 export enum SavingThrows {
 	CHA,
 	CON,
@@ -126,8 +128,8 @@ export interface PC {
 	currentHealth: number;
 	tempHealth?: number;
 	status?: Status | string;
+	initiative: number;
 }
-
 export interface Statblock {
 	cha: number;
 	con: number;
@@ -155,4 +157,15 @@ export interface Skillblock {
 	sleightOfHand: number;
 	stealth: number;
 	survival: number;
+}
+export interface Combat {
+	encounter: Encounter;
+	party: PC[];
+}
+export interface Monster {
+	name: string;
+	image?: string;
+	statBlock: Statblock;
+	abilities?: string;
+	exp: number;
 }

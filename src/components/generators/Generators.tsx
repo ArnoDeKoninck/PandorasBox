@@ -13,9 +13,10 @@ interface props {
 	loot: Item[] | undefined;
 	getEncounter: (input: any) => void;
 	getLoot: (input: any) => void;
+	rollInitiative: () => void;
 }
 
-function Generators({ partyLevel, getEncounter, getLoot, encounter, loot }: props) {
+function Generators({ partyLevel, getEncounter, getLoot, encounter, loot, rollInitiative }: props) {
 	return (
 		<Card>
 			<CardContent>
@@ -33,6 +34,11 @@ function Generators({ partyLevel, getEncounter, getLoot, encounter, loot }: prop
 						<Grid item>
 							<Button onClick={() => getLoot(generateRandomTreasure(getLevelRangeIndex(partyLevel)))}>
 								<Typography color={customTheme.palette.secondary.main}>Generate Treasure</Typography>
+							</Button>
+						</Grid>
+						<Grid item>
+							<Button onClick={() => rollInitiative()}>
+								<Typography color={customTheme.palette.secondary.main}>Roll Initiative</Typography>
 							</Button>
 						</Grid>
 						<Grid item xs={12}>

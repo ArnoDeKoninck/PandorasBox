@@ -1,4 +1,5 @@
-import { Encounter } from "./types/EncounterTypes";
+import { Encounter } from "../../types/EncounterTypes";
+import { peasant } from "../Monsters/Monsters";
 
 export const dayTimeEncounterList: Encounter[] = [
 	{
@@ -9,12 +10,14 @@ export const dayTimeEncounterList: Encounter[] = [
 				description: "The sound of snapping twigs draws your attention to several dark shapes in the fog. They carry torches and pitchforks.",
 				minAmount: 3,
 				maxAmount: 18,
+				monster: peasant,
 			},
 			{
 				name: "Barovian scouts",
 				description: "You see a dark firgure crouched low and perfectly still, aiming a crossbow in you direction. Notes: They drop their weapons upon and approach the party asking to help them find the missing barovians. If they decline they point the party to the nearest settlement and move on.",
 				minAmount: 1,
 				maxAmount: 6,
+				monster: peasant,
 			},
 		],
 	},

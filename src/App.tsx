@@ -20,6 +20,7 @@ function App() {
 	const [party, setParty] = React.useState<PC[]>([]);
 	const [openEditPcDialog, setOpenEditPcDialog] = React.useState<PC | undefined>(undefined);
 	const [combat, setCombat] = React.useState<(PC | Encounter)[]>([]);
+	const [combatTurn, setCombatTurn] = React.useState<number>(0);
 	const classes = useStyles();
 
 	const getCombatParticipants = (party: PC[], encounter: Encounter | Encounter_Variant) => {
@@ -59,7 +60,7 @@ function App() {
 						<PartyDetails party={party} setParty={setParty} partySize={partySize} partyLevel={partyLevel} setOpenEditPcDialog={setOpenEditPcDialog} />
 					</Grid>
 					<Grid item xs={2}>
-						<InitiativeTracker combat={combat} />
+						<InitiativeTracker combat={combat} combatTurn={combatTurn} onChangeTurn={setCombatTurn} />
 					</Grid>
 				</Grid>
 				{openEditPcDialog && <EditPcDialog pc={openEditPcDialog} setOpenEditPcDialog={setOpenEditPcDialog} />}

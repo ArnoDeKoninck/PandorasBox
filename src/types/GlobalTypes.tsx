@@ -24,28 +24,30 @@ export enum DamageTypes {
 	THUNDER,
 }
 export enum Status {
-	BLINDED,
-	CHARMED,
-	DEAFENED,
-	FRIGHTENED,
-	GRAPPLED,
-	INCAPACITATED,
-	INVISIBLE,
-	PARALYZED,
-	PETRIFIED,
-	POISONED,
-	PRONE,
-	RESTRAINED,
-	STUNNED,
-	UNCONCIOUS,
-	EXHAUSTION_1,
-	EXHAUSTION_2,
-	EXHAUSTION_3,
-	EXHAUSTION_4,
-	EXHAUSTION_5,
-	EXHAUSTION_6,
+	NONE = "NONE",
+	BLINDED = "BLINDED",
+	CHARMED = "CHARMED",
+	DEAFENED = "DEAFENED",
+	FRIGHTENED = "FRIGHTENED",
+	GRAPPLED = "GRAPPLED",
+	INCAPACITATED = "INCAPACITATED",
+	INVISIBLE = "INVISIBLE",
+	PARALYZED = "PARALYZED",
+	PETRIFIED = "PETRIFIED",
+	POISONED = "POISONED",
+	PRONE = "PRONE",
+	RESTRAINED = "RESTRAINED",
+	STUNNED = "STUNNED",
+	UNCONCIOUS = "UNCONCIOUS",
+	EXHAUSTION_1 = "EXHAUSTION_1",
+	EXHAUSTION_2 = "EXHAUSTION_2",
+	EXHAUSTION_3 = "EXHAUSTION_3",
+	EXHAUSTION_4 = "EXHAUSTION_4",
+	EXHAUSTION_5 = "EXHAUSTION_5",
+	EXHAUSTION_6 = "EXHAUSTION_6",
 }
 export const allStatuses = [
+	Status.NONE,
 	Status.BLINDED,
 	Status.CHARMED,
 	Status.DEAFENED,
@@ -73,19 +75,19 @@ export enum Action {
 	REACTION,
 }
 export enum Classes {
-	ARTIFICER,
-	BARBARIAN,
-	BARD,
-	CLERIC,
-	DRUID,
-	FIGHTER,
-	MONK,
-	PALADIN,
-	RANGER,
-	ROGUE,
-	SORCERER,
-	WARLOCK,
-	WIZARD,
+	ARTIFICER = "Artificer",
+	BARBARIAN = "Barbarian",
+	BARD = "Bard",
+	CLERIC = "Cleric",
+	DRUID = "Druid",
+	FIGHTER = "Fighter",
+	MONK = "Monk",
+	PALADIN = "Paladin",
+	RANGER = "Ranger",
+	ROGUE = "Rogue",
+	SORCERER = "Sorcerer",
+	WARLOCK = "Warlock",
+	WIZARD = "Wizard",
 }
 
 export interface Requirements {
@@ -127,8 +129,9 @@ export interface PC {
 	maxHealth: number;
 	currentHealth: number;
 	tempHealth?: number;
-	status?: Status | string;
+	status: Status[];
 	initiative: number;
+	spellSlots?: number[];
 }
 export interface Statblock {
 	cha: number;

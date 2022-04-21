@@ -15,7 +15,7 @@ function GeneratedOutput({ encounter, loot }: props) {
 			{encounter && <EncounterCard encounter={encounter} />}
 			{loot &&
 				loot.map((item) => (
-					<Grid item xs={3}>
+					<Grid key={item.name} item xs={3}>
 						<TreasureCard item={item} />
 					</Grid>
 				))}

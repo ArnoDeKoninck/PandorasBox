@@ -1,7 +1,10 @@
-import { Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button, Grid, LinearProgress, Typography, FormControl, Divider, MenuItem } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, Divider, CardMedia, Typography, TextField } from "@mui/material";
 import React from "react";
-import customTheme, { useStyles } from "../../customTheme";
-import { allStatuses, PC, Status } from "../../types/GlobalTypes";
+
+import { PC, Status } from "../../types/GlobalTypes";
+import HealthBarControls from "../HealthBar/HealthBarControls";
+import SetStatus from "../Status/SetStatus";
+import StatusChip from "../Status/StatusChip";
 
 interface EditPcDialogProps {
 	setOpenEditPcDialog: (input: PC | undefined) => void;
@@ -10,33 +13,23 @@ interface EditPcDialogProps {
 function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 	const [currentHp, setCurrentHp] = React.useState<number>(pc.currentHealth);
 	const [tempHp, setTempHp] = React.useState<number>(pc.tempHealth ?? 0);
-	const [status, setStatus] = React.useState<Status | string>("");
-	const classes = useStyles();
+	const [status, setStatus] = React.useState<Status[]>(pc.status);
+	const [initiative, setInitiative] = React.useState<string>(pc.initiative.toString());
+
 	const handleClose = () => {
 		setOpenEditPcDialog(undefined);
 	};
-	const onEnterDmg = (e: any) => {
-		if (e.key === "Enter") {
-			setCurrentHp(currentHp - parseInt(e.target.value));
-			e.target.value = "";
-		}
+
+	const removeStatus = (statusToRemove: Status) => {
+		const newStatusArray = status.filter((status) => status !== statusToRemove);
+		setStatus(newStatusArray);
 	};
-	const onEnterHealing = (e: any) => {
-		if (e.key === "Enter") {
-			setCurrentHp(currentHp + parseInt(e.target.value));
-			e.target.value = "";
-		}
-	};
-	const onEnterTempHealth = (e: any) => {
-		if (e.key === "Enter") {
-			setTempHp(parseInt(e.target.value));
-			e.target.value = "";
-		}
-	};
+
 	const onSubmit = () => {
 		pc.currentHealth = currentHp;
 		pc.tempHealth = tempHp ?? 0;
 		pc.status = status ?? undefined;
+		pc.initiative = parseInt(initiative);
 		handleClose();
 	};
 
@@ -46,47 +39,44 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 			<Divider />
 			<DialogContent>
 				<Grid container>
+					<Grid item xs={2}>
+						<CardMedia component="img" height={200} src={`/images/${pc.image}`} />
+					</Grid>
 					{/* Health bar container*/}
-					<Grid container padding={4} alignItems="center" justifyContent={"flex-end"}>
-						<Grid item xs={5}>
-							<Grid container spacing={1}>
-								<Grid item xs={9}>
-									<LinearProgress color="success" variant="buffer" value={100 / (pc.maxHealth / currentHp)} valueBuffer={currentHp + tempHp} />
-								</Grid>
-								<Grid item xs={3}>
-									<Typography>{`${currentHp + tempHp}${tempHp ? "(+" + tempHp + ")" : ""}/${pc.maxHealth} HP`}</Typography>
-								</Grid>
-								<Grid item xs={12}>
-									<Grid container spacing={2}>
-										<Grid item xs={2}>
-											<FormControl>
-												<TextField inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} label={"DMG"} onKeyDown={onEnterDmg} />
-											</FormControl>
-										</Grid>
-										<Grid item xs={2}>
-											<FormControl>
-												<TextField inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} label={"+HP"} onKeyDown={onEnterHealing} />
-											</FormControl>
-										</Grid>
-										<Grid item xs={3}>
-											<FormControl>
-												<TextField inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} label={"+THP"} onKeyDown={onEnterTempHealth} />
-											</FormControl>
-										</Grid>
-										<Grid item xs={5}>
-											<FormControl fullWidth>
-												<TextField SelectProps={{ MenuProps: { PaperProps: { sx: { maxHeight: 100 } } } }} className={classes.headerTitle} select id="status" defaultValue={status} label="Status" onChange={(e) => setStatus(e.target.value)}>
-													<MenuItem value={"None"}>None</MenuItem>
-													{allStatuses.map((status) => (
-														<MenuItem key={status} value={status}>
-															{Status[status]}
-														</MenuItem>
-													))}
-												</TextField>
-											</FormControl>
+					<Grid item xs={10}>
+						<Grid container padding={4} alignItems="center" rowSpacing={2}>
+							<Grid item xs={7}>
+								<HealthBarControls currentHp={currentHp} tempHp={tempHp} maxHealth={pc.maxHealth} onCurrentHpChange={setCurrentHp} onTempChange={setTempHp} />
+							</Grid>
+							<Grid item xs={5}>
+								<Grid container rowGap={4}>
+									<Grid item xs={12}>
+										<Typography>Status:</Typography>
+										<Grid container>
+											{status &&
+												status.map(
+													(status: Status) =>
+														status !== Status.NONE && (
+															<Grid item key={status}>
+																<StatusChip removable onRemoveStatus={removeStatus} status={status} />
+															</Grid>
+														)
+												)}
 										</Grid>
 									</Grid>
+									<Grid item>
+										<SetStatus status={status} onChangeStatus={setStatus} />
+									</Grid>
 								</Grid>
+							</Grid>
+							<Grid item xs={1}>
+								<TextField
+									label={"Initiative"}
+									value={initiative}
+									onChange={(e: any) => {
+										setInitiative(e.target.value);
+									}}
+								/>
 							</Grid>
 						</Grid>
 					</Grid>

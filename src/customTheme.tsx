@@ -65,9 +65,19 @@ customTheme = createTheme(customTheme, {
 						borderColor: customTheme.palette.secondary.main,
 						color: customTheme.palette.secondary.main,
 					},
+					"&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
+						borderColor: customTheme.palette.secondary.main,
+						color: customTheme.palette.secondary.main,
+					},
 				},
 				notchedOutline: {
 					borderColor: customTheme.palette.secondary.main,
+				},
+				input: {
+					"&.Mui-disabled ": {
+						WebkitTextFillColor: customTheme.palette.secondary.main,
+						color: customTheme.palette.secondary.main,
+					},
 				},
 			},
 		},
@@ -86,6 +96,10 @@ customTheme = createTheme(customTheme, {
 					borderColor: customTheme.palette.secondary.main,
 					color: customTheme.palette.secondary.main,
 					"&.Mui-focused": {
+						borderColor: customTheme.palette.secondary.main,
+						color: customTheme.palette.secondary.main,
+					},
+					"&.Mui-disabled": {
 						borderColor: customTheme.palette.secondary.main,
 						color: customTheme.palette.secondary.main,
 					},

@@ -14,14 +14,14 @@ interface props {
 	setParty: (input: React.SetStateAction<PC[]>) => void;
 }
 function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setParty }: props) {
-	const [selectedPc, setSelectedPc] = React.useState<PC | string>("");
+	const [selectedPc, setSelectedPc] = React.useState<PC | string>("Select the PC to add to the party");
 	const classes = useStyles();
 
 	async function addSelectedPcToParty(pcName: string) {
 		console.log("click");
 		PCs.map((pc) => {
 			if (pcName === pc.name) {
-				setSelectedPc(pc);
+				setSelectedPc(pc.name);
 				setParty((oldParty) => [...oldParty, pc]);
 			}
 			return pc;
@@ -39,7 +39,7 @@ function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setPa
 						<Grid container spacing={2}>
 							<Grid item xs={3}>
 								<FormControl fullWidth>
-									<TextField className={classes.headerTitle} select id="pcs" defaultValue={selectedPc} label="Add PCs to the party" onChange={(e) => addSelectedPcToParty(e.target.value)}>
+									<TextField className={classes.headerTitle} select id="pcs" value={selectedPc} label="Add PCs to the party" onChange={(e) => addSelectedPcToParty(e.target.value)}>
 										<MenuItem value={"Select the PC to add to the party"}>Select a PC to add to the party</MenuItem>
 										{PCs.map((pc) => (
 											<MenuItem key={pc.name} value={pc.name}>
@@ -53,8 +53,8 @@ function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setPa
 								<Grid container spacing={1}>
 									{party &&
 										party.map((pc) => (
-											<Grid item>
-												<Chip key={pc.name} label={pc.name} onDelete={() => removePcFromParty(pc)} />
+											<Grid item key={pc.name}>
+												<Chip label={pc.name} onDelete={() => removePcFromParty(pc)} />
 											</Grid>
 										))}
 								</Grid>

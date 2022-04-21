@@ -19,9 +19,9 @@ function EncounterCard({ encounter }: props) {
 							<Typography component={"span"}>
 								{amount} {name}
 							</Typography>
-							{description && <Typography component={"p"}>{description}</Typography>}
+							{description && <Typography component={"span"}>{description}</Typography>}
 							{savingThrow && (
-								<Typography component={"p"}>
+								<Typography component={"span"}>
 									DC {dc} {savingThrow}
 								</Typography>
 							)}

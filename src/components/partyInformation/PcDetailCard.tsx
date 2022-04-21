@@ -1,6 +1,7 @@
-import { Card, CardContent, Grid, CardMedia, Typography, LinearProgress } from "@mui/material";
-import { useStyles } from "../../customTheme";
-import { PC } from "../../types/GlobalTypes";
+import { Card, CardContent, Grid, CardMedia, Typography, LinearProgress, TextField } from "@mui/material";
+import customTheme, { useStyles } from "../../customTheme";
+import { PC, Status } from "../../types/GlobalTypes";
+import StatusChip from "../Status/StatusChip";
 
 interface PcDetailCardProps {
 	pc: PC;
@@ -49,12 +50,35 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 					<Grid container alignContent={"space-between"}>
 						<Grid item xs={11}>
 							{/* Initiative and status container*/}
-							<Grid container>
-								<Grid item xs={4}>
-									<Typography>Initiative:</Typography>
+							<Grid container rowGap={2}>
+								<Grid item xs={12}>
+									<Typography>Status:</Typography>
+									<Grid container>
+										{pc.status &&
+											pc.status.map(
+												(status: Status) =>
+													status !== Status.NONE && (
+														<Grid item key={status}>
+															<StatusChip status={status} />
+														</Grid>
+													)
+											)}
+									</Grid>
 								</Grid>
-								<Grid item xs={8}>
-									<Typography>Status: </Typography>
+								<Grid></Grid>
+								<Grid item xs={12}>
+									<Grid container rowGap={1}>
+										<Grid item xs={12}>
+											<Typography>Spellslots:</Typography>
+										</Grid>
+
+										{pc.spellSlots &&
+											pc.spellSlots.map((spellSlot: number, index: number) => (
+												<Grid key={spellSlot} item xs={2}>
+													<TextField className={classes.headerTitle} disabled label={index + 1} value={spellSlot} />
+												</Grid>
+											))}
+									</Grid>
 								</Grid>
 							</Grid>
 						</Grid>

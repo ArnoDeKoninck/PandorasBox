@@ -34,9 +34,9 @@ function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setPa
 	return (
 		<ThemeProvider theme={customTheme}>
 			<Card>
-				<Grid container padding={2} rowGap={2}>
+				<Grid container padding={3} gap={2}>
 					<Grid item xs={12}>
-						<Grid container spacing={2}>
+						<Grid container alignItems={"center"}>
 							<Grid item xs={3}>
 								<FormControl fullWidth>
 									<TextField className={classes.headerTitle} select id="pcs" value={selectedPc} label="Add PCs to the party" onChange={(e) => addSelectedPcToParty(e.target.value)}>
@@ -50,10 +50,10 @@ function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setPa
 								</FormControl>
 							</Grid>
 							<Grid item xs={9}>
-								<Grid container spacing={1}>
+								<Grid container>
 									{party &&
 										party.map((pc) => (
-											<Grid item key={pc.name}>
+											<Grid item key={pc.name} marginLeft={1}>
 												<Chip label={pc.name} onDelete={() => removePcFromParty(pc)} />
 											</Grid>
 										))}

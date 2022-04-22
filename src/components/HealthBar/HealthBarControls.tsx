@@ -33,12 +33,12 @@ function HealthBarControls({ onCurrentHpChange, onTempChange, currentHp, tempHp,
 		}
 	};
 	return (
-		<Grid container>
+		<Grid container rowGap={2}>
 			<Grid item xs={12}>
 				<HealthBar currentHp={currentHp} maxHealth={maxHealth} tempHp={tempHp} />
 			</Grid>
 			<Grid item xs={12}>
-				<Grid container spacing={2}>
+				<Grid container gap={2}>
 					<Grid item xs={2}>
 						<FormControl>
 							<TextField inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} label={"DMG"} onKeyDown={onEnterDmg} />

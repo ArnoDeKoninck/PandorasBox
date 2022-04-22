@@ -30,10 +30,6 @@ customTheme = createTheme(customTheme, {
 				root: {
 					marginLeft: "0px",
 					marginTop: "0px",
-					/* "& .MuiGrid-item": {
-            paddingTop: "0px",
-            paddingLeft: "0px",
-          },*/
 				},
 			},
 		},
@@ -193,7 +189,7 @@ customTheme = createTheme(customTheme, {
 		MuiDivider: {
 			styleOverrides: {
 				root: {
-					background: customTheme.palette.secondary.main,
+					borderColor: customTheme.palette.secondary.main,
 				},
 			},
 		},

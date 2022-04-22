@@ -44,7 +44,7 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 					</Grid>
 					{/* Health bar container*/}
 					<Grid item xs={10}>
-						<Grid container padding={4} alignItems="center" rowSpacing={2}>
+						<Grid container alignItems="center" columnSpacing={2} rowSpacing={2}>
 							<Grid item xs={7}>
 								<HealthBarControls currentHp={currentHp} tempHp={tempHp} maxHealth={pc.maxHealth} onCurrentHpChange={setCurrentHp} onTempChange={setTempHp} />
 							</Grid>
@@ -71,6 +71,7 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 							</Grid>
 							<Grid item xs={1}>
 								<TextField
+									inputProps={{ min: 0, style: { textAlign: "center" } }}
 									label={"Initiative"}
 									value={initiative}
 									onChange={(e: any) => {

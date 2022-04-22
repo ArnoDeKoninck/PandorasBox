@@ -11,7 +11,7 @@ interface props {
 
 function GeneratedOutput({ encounter, loot }: props) {
 	return (
-		<Grid container spacing={2}>
+		<Grid container>
 			{encounter && <EncounterCard encounter={encounter} />}
 			{loot &&
 				loot.map((item) => (

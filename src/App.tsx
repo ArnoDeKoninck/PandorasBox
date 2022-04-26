@@ -1,6 +1,6 @@
 import { Card, CardContent, Container, Divider, Grid, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 import { customTheme, useStyles } from "./customTheme";
 import PartyInformation from "./components/partyInformation/PartyInformation";
 import Generators from "./components/generators/Generators";
@@ -8,10 +8,12 @@ import { Encounter, Encounter_Variant } from "./types/EncounterTypes";
 import { Item } from "./types/ItemTypes";
 import PartyDetails from "./components/partyInformation/PartyDetails";
 import EditPcDialog from "./components/partyInformation/EditPcDialog";
-import { PC } from "./types/GlobalTypes";
+import { Monster, PC } from "./types/GlobalTypes";
 import InitiativeTracker from "./components/InitiativeTracker/InitiativeTracker";
 import { dayTimeEncounterList } from "./data/Encounters/Encounters";
 import { pink } from "@mui/material/colors";
+import EnemyDetails from "./components/enemyDetails/EnemyDetails";
+import EditEnemyDialog from "./components/enemyDetails/EditEnemyDialog";
 
 function App() {
 	const [encounter, getEncounter] = React.useState<Encounter | Encounter_Variant | undefined>(dayTimeEncounterList[0].variant![0]);
@@ -19,24 +21,23 @@ function App() {
 	const [partyLevel, setPartyLevel] = React.useState(1);
 	const [partySize, setPartySize] = React.useState(1);
 	const [party, setParty] = React.useState<PC[]>([]);
+	const [enemies, setEnemies] = React.useState<Monster[]>([]);
 	const [openEditPcDialog, setOpenEditPcDialog] = React.useState<PC | undefined>(undefined);
-	const [combat, setCombat] = React.useState<(PC | Encounter)[]>([]);
+	const [openEditEnemyDialog, setOpenEditEnemyDialog] = React.useState<Monster | undefined>(undefined);
+	const [combat, setCombat] = React.useState<(PC | Monster)[]>([]);
 	const [combatTurn, setCombatTurn] = React.useState<number>(0);
+
 	const classes = useStyles();
 
-	const getCombatParticipants = (party: PC[], encounter: Encounter | Encounter_Variant) => {
-		encounter.amount = 3;
-		encounter.initiative = 0;
-		const enemies: Encounter[] = Array(encounter.amount).fill(encounter);
-		const participants = [...party, ...enemies];
-		setCombat(participants);
-	};
+	useEffect(() => {
+		setCombat([...enemies, ...party].sort((a, b) => b.initiative! - a.initiative!));
+	}, [party, enemies]);
+
 	const rollInitiative = () => {
 		if (encounter) {
-			getCombatParticipants(party, encounter);
+			return true;
 		}
 	};
-
 	return (
 		<Container maxWidth={false} sx={{ paddingLeft: "0 !important" }}>
 			<ThemeProvider theme={customTheme}>
@@ -69,17 +70,17 @@ function App() {
 										<Divider variant="middle" sx={{ padding: "1rem", color: pink[800], borderColor: pink[800], "&::before": { borderColor: pink[800] }, "&::after": { borderColor: pink[800] } }}>
 											Versus
 										</Divider>
-										<PartyDetails party={party} setParty={setParty} partySize={partySize} partyLevel={partyLevel} setOpenEditPcDialog={setOpenEditPcDialog} />
+										<EnemyDetails enemies={enemies} setEnemies={setEnemies} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
 									</Grid>
 								)}
 							</Grid>
 						</Grid>
-
 						<Grid item xs={2}>
 							<InitiativeTracker combat={combat} combatTurn={combatTurn} onChangeTurn={setCombatTurn} />
 						</Grid>
 					</Grid>
 					{openEditPcDialog && <EditPcDialog pc={openEditPcDialog} setOpenEditPcDialog={setOpenEditPcDialog} />}
+					{openEditEnemyDialog && <EditEnemyDialog enemy={openEditEnemyDialog} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />}
 				</Grid>
 			</ThemeProvider>
 		</Container>

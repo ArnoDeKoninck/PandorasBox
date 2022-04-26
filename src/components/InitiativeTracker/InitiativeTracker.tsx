@@ -11,11 +11,9 @@ interface InitiativeProps {
 	combatTurn: number;
 	onChangeTurn: (input: number) => void;
 }
+
 function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps) {
 	const classes = useStyles();
-	useEffect(() => {
-		combat!.sort((a, b) => b.initiative! - a.initiative!);
-	}, [JSON.stringify(combat)]);
 
 	const onNextTurn = () => {
 		if (combatTurn + 1 > combat!.length - 1) {
@@ -24,6 +22,7 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 			onChangeTurn(combatTurn + 1);
 		}
 	};
+
 	const onPreviousTurn = () => {
 		if (combatTurn - 1 < 0) {
 			onChangeTurn(combat!.length - 1);
@@ -31,10 +30,11 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 			onChangeTurn(combatTurn - 1);
 		}
 	};
+
 	const onResetTurns = () => {
 		combat = [];
 	};
-	console.log(combat);
+
 	return (
 		<Card>
 			<CardContent>
@@ -45,10 +45,10 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 								<Typography variant={"h6"}>Initiative Tracker</Typography>
 							</Grid>
 							<Grid item flexShrink={2}>
-								<IconButton disabled={combat.length > 0} size="small" color={"secondary"} onClick={() => onPreviousTurn()}>
+								<IconButton disabled={combat.length < 1} size="small" color={"secondary"} onClick={() => onPreviousTurn()}>
 									<FastRewind fontSize="inherit" />
 								</IconButton>
-								<IconButton disabled={combat.length > 0} size="small" color={"secondary"} onClick={() => onNextTurn()}>
+								<IconButton disabled={combat.length < 1} size="small" color={"secondary"} onClick={() => onNextTurn()}>
 									<FastForward fontSize="inherit" />
 								</IconButton>
 								<IconButton size="small" color={"secondary"} onClick={() => onResetTurns()}>
@@ -64,22 +64,25 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 							{combat.length > 0 &&
 								combat.map((entity, index) => {
 									return (
-										<Grid key={entity.name} item xs={12}>
-											{console.log(`This is the index: ${index}, combatTurn: ${combatTurn}`)}
+										<Grid key={index} item xs={12}>
 											<Card className={classes.itemCard} style={combatTurn === index ? { boxShadow: `0px 0px 10px 4px ${green[500]}` } : {}}>
 												<CardContent>
-													<Grid container alignItems={"center"} gap={"5px"}>
+													<Grid container alignItems={"center"}>
 														<Grid item flexGrow={4}>
 															{entity.image && <CardMedia component="img" height={80} src={`/images/${entity.image}`} />}
 														</Grid>
 														<Grid item xs={8}>
 															<Grid container rowGap={1} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
 																<Grid item>
-																	<Typography align="center">{entity.name}</Typography>
+																	<Typography sx={{ fontSize: "15px" }} align="center">
+																		{entity.name}
+																	</Typography>
 																</Grid>
 																<Grid item>
-																	<Typography align="center">initiative:</Typography>
-																	<Typography align="center" variant={"h6"}>
+																	<Typography variant={"h6"} align="center">
+																		initiative:
+																	</Typography>
+																	<Typography sx={{ fontSize: "25px" }} align="center" variant={"h1"}>
 																		{entity.initiative ?? 0}
 																	</Typography>
 																</Grid>

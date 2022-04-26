@@ -183,6 +183,7 @@ customTheme = createTheme(customTheme, {
 			styleOverrides: {
 				root: {
 					color: customTheme.palette.secondary.main,
+					fontSize: "12px",
 				},
 			},
 		},

@@ -133,6 +133,26 @@ export interface PC {
 	initiative: number;
 	spellSlots?: number[];
 }
+
+export interface Monster {
+	name: string;
+	image?: string;
+	species: string;
+	statBlock: Statblock;
+	abilities?: string;
+	exp: number;
+	cr: number;
+	statblock: Statblock;
+	description?: string;
+	speed: number;
+	maxHealth: number;
+	currentHealth: number;
+	tempHealth?: number;
+	status: Status[];
+	initiative: number;
+	spellSlots?: number[];
+}
+
 export interface Statblock {
 	cha: number;
 	con: number;
@@ -164,11 +184,4 @@ export interface Skillblock {
 export interface Combat {
 	encounter: Encounter;
 	party: PC[];
-}
-export interface Monster {
-	name: string;
-	image?: string;
-	statBlock: Statblock;
-	abilities?: string;
-	exp: number;
 }

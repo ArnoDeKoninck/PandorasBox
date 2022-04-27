@@ -25,9 +25,8 @@ function EnemyDetails({ enemies, setOpenEditEnemyDialog, setEnemies }: props) {
 			return enemy;
 		});
 	}
-
-	function removeEnemy(enemy: Monster) {
-		setEnemies(enemies.filter((entity) => entity.name !== enemy.name));
+	function removeEnemy(index: number) {
+		setEnemies([...enemies.slice(0, index), ...enemies.slice(index + 1, enemies.length)]);
 	}
 
 	return (
@@ -51,9 +50,9 @@ function EnemyDetails({ enemies, setOpenEditEnemyDialog, setEnemies }: props) {
 							<Grid item xs={9}>
 								<Grid container>
 									{enemies &&
-										enemies.map((enemy, i) => (
-											<Grid item key={i} marginLeft={1}>
-												<Chip label={enemy.name} onDelete={() => removeEnemy(enemy)} />
+										enemies.map((enemy, index) => (
+											<Grid item key={index} marginLeft={1}>
+												<Chip label={enemy.name} onDelete={() => removeEnemy(index)} />
 											</Grid>
 										))}
 								</Grid>

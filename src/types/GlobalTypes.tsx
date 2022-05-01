@@ -1,4 +1,11 @@
 import { Encounter } from "./EncounterTypes";
+import { Weapon } from "./ItemTypes";
+
+export enum ViewModules {
+	COMBAT = "Combat",
+	NPCS = "Npcs",
+	GENERATORS = "Generators",
+}
 
 export enum SavingThrows {
 	CHA,
@@ -8,6 +15,7 @@ export enum SavingThrows {
 	STR,
 	WIS,
 }
+
 export enum DamageTypes {
 	ACID,
 	BLUDGEONING,
@@ -23,6 +31,7 @@ export enum DamageTypes {
 	SLASHING,
 	THUNDER,
 }
+
 export enum Status {
 	NONE = "NONE",
 	BLINDED = "BLINDED",
@@ -46,6 +55,7 @@ export enum Status {
 	EXHAUSTION_5 = "EXHAUSTION_5",
 	EXHAUSTION_6 = "EXHAUSTION_6",
 }
+
 export const allStatuses = [
 	Status.NONE,
 	Status.BLINDED,
@@ -69,11 +79,13 @@ export const allStatuses = [
 	Status.EXHAUSTION_5,
 	Status.EXHAUSTION_6,
 ];
+
 export enum Action {
 	ACTION,
 	BONUSACTION,
 	REACTION,
 }
+
 export enum Classes {
 	ARTIFICER = "Artificer",
 	BARBARIAN = "Barbarian",
@@ -107,6 +119,7 @@ export interface Spell {
 	duration?: string;
 	link?: string;
 }
+
 export interface Npc {
 	name: string;
 	image: string;
@@ -139,10 +152,12 @@ export interface Monster {
 	image?: string;
 	species: string;
 	statBlock: Statblock;
-	abilities?: string;
+	skills?: string[];
+	abilities?: string[];
+	actions?: string[];
 	exp: number;
 	cr: number;
-	statblock: Statblock;
+	ac: number;
 	description?: string;
 	speed: number;
 	maxHealth: number;
@@ -151,6 +166,9 @@ export interface Monster {
 	status: Status[];
 	initiative: number;
 	spellSlots?: number[];
+	weapon?: Weapon;
+	damage?: Damage;
+	onHit?: number;
 }
 
 export interface Statblock {
@@ -161,6 +179,7 @@ export interface Statblock {
 	str: number;
 	wis: number;
 }
+
 export interface Skillblock {
 	acrobatics: number;
 	animalHandling: number;
@@ -181,7 +200,14 @@ export interface Skillblock {
 	stealth: number;
 	survival: number;
 }
+
 export interface Combat {
 	encounter: Encounter;
 	party: PC[];
+}
+
+export interface Damage {
+	dice: number;
+	amount: number;
+	type: DamageTypes;
 }

@@ -1,19 +1,16 @@
-import { Card, CardContent, Container, Divider, Grid, Typography } from "@mui/material";
+import { Button, ButtonGroup, Card, CardContent, Container, Divider, Grid, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
 import React, { useEffect } from "react";
 import { customTheme, useStyles } from "./customTheme";
-import PartyInformation from "./components/partyInformation/PartyInformation";
+import PartyInformation from "./components/ModuleSelector/CombatModule/partyInformation/PartyInformation";
 import Generators from "./components/generators/Generators";
 import { Encounter, Encounter_Variant } from "./types/EncounterTypes";
 import { Item } from "./types/ItemTypes";
-import PartyDetails from "./components/partyInformation/PartyDetails";
-import EditPcDialog from "./components/partyInformation/EditPcDialog";
-import { Monster, PC } from "./types/GlobalTypes";
-import InitiativeTracker from "./components/InitiativeTracker/InitiativeTracker";
+import { Monster, PC, ViewModules } from "./types/GlobalTypes";
 import { dayTimeEncounterList } from "./data/Encounters/Encounters";
-import { pink } from "@mui/material/colors";
-import EnemyDetails from "./components/enemyDetails/EnemyDetails";
-import EditEnemyDialog from "./components/enemyDetails/EditEnemyDialog";
+import ModuleSelector from "./components/ModuleSelector/ModuleSelector";
+import { CombatModuleProps } from "./components/ModuleSelector/CombatModule/CombatModule";
+import ReactPlayer from "react-player";
 
 function App() {
 	const [encounter, getEncounter] = React.useState<Encounter | Encounter_Variant | undefined>(dayTimeEncounterList[0].variant![0]);
@@ -26,6 +23,7 @@ function App() {
 	const [openEditEnemyDialog, setOpenEditEnemyDialog] = React.useState<Monster | undefined>(undefined);
 	const [combat, setCombat] = React.useState<(PC | Monster)[]>([]);
 	const [combatTurn, setCombatTurn] = React.useState<number>(0);
+	const [currentModule, setCurrentModule] = React.useState<ViewModules>(ViewModules.COMBAT);
 
 	const classes = useStyles();
 
@@ -38,6 +36,23 @@ function App() {
 			return true;
 		}
 	};
+
+	const combatProps: CombatModuleProps = {
+		combat,
+		enemies,
+		combatTurn,
+		openEditEnemyDialog,
+		openEditPcDialog,
+		party,
+		partyLevel,
+		setCombat,
+		setCombatTurn,
+		setEnemies,
+		setOpenEditEnemyDialog,
+		setOpenEditPcDialog,
+		setParty,
+	};
+
 	return (
 		<Container maxWidth={false} sx={{ paddingLeft: "0 !important" }}>
 			<ThemeProvider theme={customTheme}>
@@ -46,41 +61,36 @@ function App() {
 						<Grid item xs={4}>
 							<Card>
 								<CardContent>
-									<Grid item xs={12} rowSpacing={8}>
-										<Typography variant="h4" className={classes.headerTitle}>
-											Pandora's Box
-										</Typography>
-									</Grid>
-									<Grid item xs={12} rowSpacing={8}>
-										<PartyInformation partySize={partySize} partyLevel={partyLevel} setPartyLevel={setPartyLevel} setPartySize={setPartySize} />
+									<Grid container rowGap={2}>
+										<Grid item xs={12}>
+											<PartyInformation partySize={partySize} partyLevel={partyLevel} setPartyLevel={setPartyLevel} setPartySize={setPartySize} />
+										</Grid>
+										<Grid item xs={12}>
+											<ReactPlayer className={classes.audioControls} width="100%" height="3rem" controls url={"audio/StrahdsVengeance.mp3"} />
+										</Grid>
 									</Grid>
 								</CardContent>
 							</Card>
 						</Grid>
+
 						<Grid item xs={8}>
 							<Generators rollInitiative={rollInitiative} encounter={encounter} loot={loot} partyLevel={partyLevel} getEncounter={getEncounter} getLoot={getLoot} />
 						</Grid>
-						<Grid item xs={10}>
-							<Grid container flexDirection={"column"}>
-								<Grid item xs={12}>
-									<PartyDetails party={party} setParty={setParty} partySize={partySize} partyLevel={partyLevel} setOpenEditPcDialog={setOpenEditPcDialog} />
-								</Grid>
-								{combat && (
-									<Grid item xs={12}>
-										<Divider variant="middle" sx={{ padding: "1rem", color: pink[800], borderColor: pink[800], "&::before": { borderColor: pink[800] }, "&::after": { borderColor: pink[800] } }}>
-											Versus
-										</Divider>
-										<EnemyDetails enemies={enemies} setEnemies={setEnemies} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
-									</Grid>
-								)}
-							</Grid>
-						</Grid>
-						<Grid item xs={2}>
-							<InitiativeTracker combat={combat} combatTurn={combatTurn} onChangeTurn={setCombatTurn} />
+						<Grid item xs={12}>
+							<ButtonGroup variant="text" aria-label="outlined primary button group">
+								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomLeftRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.COMBAT)}>
+									Combat
+								</Button>
+								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.GENERATORS)}>
+									Generators
+								</Button>
+								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.NPCS)}>
+									Npcs
+								</Button>
+							</ButtonGroup>
+							<ModuleSelector moduleToShow={currentModule} combatProps={combatProps} />
 						</Grid>
 					</Grid>
-					{openEditPcDialog && <EditPcDialog pc={openEditPcDialog} setOpenEditPcDialog={setOpenEditPcDialog} />}
-					{openEditEnemyDialog && <EditEnemyDialog enemy={openEditEnemyDialog} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />}
 				</Grid>
 			</ThemeProvider>
 		</Container>

@@ -1,4 +1,3 @@
-import { ThemeContext } from "@emotion/react";
 import { Card, CardContent, Grid, Link, Typography } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import customTheme, { useStyles } from "../../../customTheme";
@@ -11,7 +10,7 @@ interface props {
 
 function TreasureCard({ item }: props) {
 	const classes = useStyles();
-	const { name, description, amount, link, weight, uses, spellScroll } = item.variant && item.spellScroll ? generateRandomItem(item.variant) : item;
+	const { name, description, amount, link, weight, uses, spellScroll } = item.variant && item.spellScroll ? (generateRandomItem(item.variant) as Item) : item;
 	return (
 		<Card style={{ backgroundColor: grey[800] }}>
 			<CardContent>

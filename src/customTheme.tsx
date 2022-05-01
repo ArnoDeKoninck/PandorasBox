@@ -159,6 +159,7 @@ customTheme = createTheme(customTheme, {
 					height: "2.5rem",
 					borderRadius: "8px",
 					marginRight: "10px",
+					borderColor: customTheme.palette.primary.light,
 					"&:hover": {
 						backgroundColor: customTheme.palette.primary.light,
 					},
@@ -242,6 +243,22 @@ export const useStyles = makeStyles((theme: Theme) =>
 		link: {
 			borderBottom: `1px solid ${customTheme.palette.secondary.main}`,
 			"&:hover": { cursor: "pointer" },
+		},
+		audioControls: {
+			"& audio::-webkit-media-controls-panel": {
+				backgroundColor: customTheme.palette.primary.dark,
+				color: customTheme.palette.secondary.light,
+			},
+			"& audio::-webkit-media-controls-timeline-container": {
+				color: customTheme.palette.secondary.light,
+			},
+			"& audio::-webkit-media-controls-current-time-display,audio::-webkit-media-controls-time-remaining-display": {
+				color: customTheme.palette.secondary.light,
+			},
+			"& audio::-webkit-media-controls-mute-button,audio::-webkit-media-controls-play-button,audio::-webkit-media-controls-timeline-container,audio::-webkit-media-controls-timeline,audio::-webkit-media-controls-volume-slider-container,audio::-webkit-media-controls-volume-slider,audio::-webkit-media-controls-seek-back-button,audio::-webkit-media-controls-seek-forward-button,audio::-webkit-media-controls-fullscreen-button,audio::-webkit-media-controls-rewind-button,audio::-webkit-media-controls-return-to-realtime-button,audio::-webkit-media-controls-toggle-closed-captions-button":
+				{
+					filter: "invert(0.8)",
+				},
 		},
 	})
 );

@@ -87,6 +87,9 @@ function App() {
 								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.NPCS)}>
 									Npcs
 								</Button>
+								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.MAP)}>
+									Map
+								</Button>
 							</ButtonGroup>
 							<ModuleSelector moduleToShow={currentModule} combatProps={combatProps} />
 						</Grid>

@@ -253,7 +253,7 @@ export const npcs = [
 	},
 	{
 		name: "Escher Belasco",
-		image: "escher.webp",
+		image: "escher_belasco.png",
 		species: "Half-Human Half-Dusk Elf, Vampire",
 		age: "Around 120(Physically Early-20s)",
 		alignment: "Chaotic Evil",

@@ -5,6 +5,7 @@ export enum ViewModules {
 	COMBAT = "Combat",
 	NPCS = "Npcs",
 	GENERATORS = "Generators",
+	MAP = "Map",
 }
 
 export enum SavingThrows {

@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 
 import { ViewModules } from "../../types/GlobalTypes";
 import CombatModule, { CombatModuleProps } from "./CombatModule/CombatModule";
+import BaroviaMap from "./NpcModule/MapModule/BaroviaMap";
 import NpcSelector from "./NpcModule/NpcSelector";
 
 interface ModuleSelectorProps {
@@ -29,6 +30,7 @@ function ModuleSelector({ moduleToShow, combatProps }: ModuleSelectorProps) {
 				/>
 			)}
 			{moduleToShow === ViewModules.NPCS && <NpcSelector />}
+			{moduleToShow === ViewModules.MAP && <BaroviaMap />}
 		</Grid>
 	);
 }

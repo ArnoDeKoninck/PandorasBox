@@ -166,6 +166,17 @@ customTheme = createTheme(customTheme, {
 				},
 			},
 		},
+		MuiIconButton: {
+			styleOverrides: {
+				root: {
+					backgroundColor: customTheme.palette.primary.dark,
+					borderRadius: "20px",
+					"&:hover": {
+						backgroundColor: customTheme.palette.secondary.light,
+					},
+				},
+			},
+		},
 		Mui: {
 			styleOverrides: {
 				root: {

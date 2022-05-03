@@ -212,3 +212,20 @@ export interface Damage {
 	amount: number;
 	type: DamageTypes;
 }
+
+export interface Maps {
+	name: string;
+	img: string;
+	locations: PointOfIntrest[];
+}
+
+export interface PointOfIntrest {
+	name: string;
+	coordinates: {
+		x: number;
+		y: number;
+	};
+	type: string;
+	note: string;
+	events?: string[];
+}

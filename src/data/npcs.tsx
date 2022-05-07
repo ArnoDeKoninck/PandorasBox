@@ -342,6 +342,15 @@ export const npcs = [
 		cr: 10,
 	},
 	{
+		name: "Strahd Von Zarovich",
+		image: "strahd_von_zarovich.jpg",
+		species: "Human Vampire",
+		age: "424 Years old (Physically 40-years-old)",
+		alignment: "Lawful Evil",
+		description: "Count Strahd von Zarovich is a vampire and the dark lord of the valley of Barovia.",
+		cr: 17,
+	},
+	{
 		name: "Vargas Vallakovich",
 		image: "vargas_vallakovich.webp",
 		species: "Human",

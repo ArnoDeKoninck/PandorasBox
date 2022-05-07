@@ -1,12 +1,12 @@
 import { Card, CardContent, Grid, CardMedia, Typography, LinearProgress, TextField } from "@mui/material";
 import customTheme, { useStyles } from "../../../../customTheme";
-import { PC, Status } from "../../../../types/GlobalTypes";
+import { Entity, Status } from "../../../../types/GlobalTypes";
 import StatusChip from "../Status/StatusChip";
 
 interface PcDetailCardProps {
-	pc: PC;
+	pc: Entity;
 	partyLevel: number;
-	setOpenEditPcDialog: (input: PC | undefined) => void;
+	setOpenEditPcDialog: (input: Entity | undefined) => void;
 }
 function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps) {
 	const classes = useStyles();

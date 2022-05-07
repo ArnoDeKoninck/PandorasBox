@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { grey, pink } from "@mui/material/colors";
+import { green, grey, pink } from "@mui/material/colors";
 import { createStyles, makeStyles } from "@mui/styles";
 import { Theme } from "@mui/system";
 
@@ -250,6 +250,20 @@ export const useStyles = makeStyles((theme: Theme) =>
 		},
 		itemCard: {
 			backgroundColor: customTheme.palette.primary.dark + "!important",
+		},
+		npcCard: {
+			backgroundColor: customTheme.palette.primary.dark + "!important",
+			position: "relative",
+			textAlign: "center",
+			cursor: "pointer",
+			"&:hover": {
+				position: "absolute",
+				transform: "scale(1.2)",
+				width: "150px",
+				margin: "auto",
+				zIndex: 1,
+				boxShadow: " 0px 5px 5px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%)",
+			},
 		},
 		link: {
 			borderBottom: `1px solid ${customTheme.palette.secondary.main}`,

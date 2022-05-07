@@ -1,14 +1,14 @@
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, Divider, CardMedia, Typography, TextField } from "@mui/material";
 import React from "react";
 
-import { PC, Status } from "../../../../types/GlobalTypes";
+import { Entity, Status } from "../../../../types/GlobalTypes";
 import HealthBarControls from "../HealthBar/HealthBarControls";
 import SetStatus from "../Status/SetStatus";
 import StatusChip from "../Status/StatusChip";
 
 interface EditPcDialogProps {
-	setOpenEditPcDialog: (input: PC | undefined) => void;
-	pc: PC;
+	setOpenEditPcDialog: (input: Entity | undefined) => void;
+	pc: Entity;
 }
 function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 	const [currentHp, setCurrentHp] = React.useState<number>(pc.currentHealth);

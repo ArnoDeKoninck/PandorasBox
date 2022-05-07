@@ -1,13 +1,12 @@
 import { Card, CardContent, CardMedia, Divider, Grid, IconButton, Typography } from "@mui/material";
 import { FastForward, FastRewind, Refresh } from "@mui/icons-material";
-import customTheme, { useStyles } from "../../../../customTheme";
 import { Encounter } from "../../../../types/EncounterTypes";
-import { PC } from "../../../../types/GlobalTypes";
+import { Entity } from "../../../../types/GlobalTypes";
 import { green } from "@mui/material/colors";
-import { useEffect } from "react";
+import { useStyles } from "../../../../customTheme";
 
 interface InitiativeProps {
-	combat: (PC | Encounter)[];
+	combat: (Entity | Encounter)[];
 	combatTurn: number;
 	onChangeTurn: (input: number) => void;
 }

@@ -120,59 +120,38 @@ export interface Spell {
 	duration?: string;
 	link?: string;
 }
-
-export interface Npc {
+export interface Entity {
 	name: string;
+	type: "PC" | "Monster" | "Npc";
 	image: string;
 	species: string;
-	age: string;
-	alignmant: string;
-	description: string;
-	cr: number;
-}
-
-export interface PC {
-	name: string;
-	image?: string;
-	species: string;
-	class: string;
-	statblock: Statblock;
-	description?: string;
-	skills: Skillblock;
+	statBlock: StatBlock;
+	skills: SkillBlock;
 	speed: number;
 	maxHealth: number;
 	currentHealth: number;
-	tempHealth?: number;
 	status: Status[];
-	initiative: number;
-	spellSlots?: number[];
-}
-
-export interface Monster {
-	name: string;
-	image?: string;
-	species: string;
-	statBlock: Statblock;
-	skills?: string[];
-	abilities?: string[];
-	actions?: string[];
-	exp: number;
-	cr: number;
 	ac: number;
-	description?: string;
-	speed: number;
-	maxHealth: number;
-	currentHealth: number;
-	tempHealth?: number;
-	status: Status[];
 	initiative: number;
+	tempHealth?: number;
 	spellSlots?: number[];
+	alignmant?: string;
+	description?: string;
+	cr?: number;
+	age?: string;
+	class?: Classes | string;
+	abilities?: string[];
+	resistances?: string[];
+	immunities?: string[];
+	savingThrows?: string[];
+	actions?: string[];
+	exp?: number;
 	weapon?: Weapon;
 	damage?: Damage;
 	onHit?: number;
 }
 
-export interface Statblock {
+export interface StatBlock {
 	cha: number;
 	con: number;
 	dex: number;
@@ -181,30 +160,30 @@ export interface Statblock {
 	wis: number;
 }
 
-export interface Skillblock {
-	acrobatics: number;
-	animalHandling: number;
-	arcana: number;
-	athletics: number;
-	deception: number;
-	history: number;
-	insight: number;
-	intimidation: number;
-	investigation: number;
-	medicine: number;
-	nature: number;
-	perception: number;
-	performance: number;
-	persuasion: number;
-	religion: number;
-	sleightOfHand: number;
-	stealth: number;
-	survival: number;
+export interface SkillBlock {
+	acrobatics?: number;
+	animalHandling?: number;
+	arcana?: number;
+	athletics?: number;
+	deception?: number;
+	history?: number;
+	insight?: number;
+	intimidation?: number;
+	investigation?: number;
+	medicine?: number;
+	nature?: number;
+	perception?: number;
+	performance?: number;
+	persuasion?: number;
+	religion?: number;
+	sleightOfHand?: number;
+	stealth?: number;
+	survival?: number;
 }
 
 export interface Combat {
 	encounter: Encounter;
-	party: PC[];
+	party: Entity[];
 }
 
 export interface Damage {

@@ -6,7 +6,7 @@ import PartyInformation from "./components/ModuleSelector/CombatModule/partyInfo
 import Generators from "./components/generators/Generators";
 import { Encounter, Encounter_Variant } from "./types/EncounterTypes";
 import { Item } from "./types/ItemTypes";
-import { Monster, PC, ViewModules } from "./types/GlobalTypes";
+import { Entity, ViewModules } from "./types/GlobalTypes";
 import { dayTimeEncounterList } from "./data/Encounters/Encounters";
 import ModuleSelector from "./components/ModuleSelector/ModuleSelector";
 import { CombatModuleProps } from "./components/ModuleSelector/CombatModule/CombatModule";
@@ -17,11 +17,11 @@ function App() {
 	const [loot, getLoot] = React.useState<Item[] | undefined>();
 	const [partyLevel, setPartyLevel] = React.useState(1);
 	const [partySize, setPartySize] = React.useState(1);
-	const [party, setParty] = React.useState<PC[]>([]);
-	const [enemies, setEnemies] = React.useState<Monster[]>([]);
-	const [openEditPcDialog, setOpenEditPcDialog] = React.useState<PC | undefined>(undefined);
-	const [openEditEnemyDialog, setOpenEditEnemyDialog] = React.useState<Monster | undefined>(undefined);
-	const [combat, setCombat] = React.useState<(PC | Monster)[]>([]);
+	const [party, setParty] = React.useState<Entity[]>([]);
+	const [enemies, setEnemies] = React.useState<Entity[]>([]);
+	const [openEditPcDialog, setOpenEditPcDialog] = React.useState<Entity | undefined>(undefined);
+	const [openEditEnemyDialog, setOpenEditEnemyDialog] = React.useState<Entity | undefined>(undefined);
+	const [combat, setCombat] = React.useState<Entity[]>([]);
 	const [combatTurn, setCombatTurn] = React.useState<number>(0);
 	const [currentModule, setCurrentModule] = React.useState<ViewModules>(ViewModules.COMBAT);
 

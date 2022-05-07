@@ -1,8 +1,8 @@
-import { Monster } from "./GlobalTypes";
+import { Entity } from "./GlobalTypes";
 
 export interface Encounter {
 	name: string;
-	monster?: Monster;
+	monster?: Entity;
 	image?: string;
 	initiative?: number;
 	variant?: Encounter_Variant[];

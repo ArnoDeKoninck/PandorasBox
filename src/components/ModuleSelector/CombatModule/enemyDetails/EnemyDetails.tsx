@@ -1,15 +1,15 @@
 import { Card, Chip, FormControl, Grid, MenuItem, TextField } from "@mui/material";
 import React from "react";
 import customTheme, { useStyles } from "../../../../customTheme";
-import { Monster } from "../../../../types/GlobalTypes";
+import { Entity } from "../../../../types/GlobalTypes";
 import { ThemeProvider } from "@mui/styles";
 import EnemyDetailsCard from "./EnemyDetailsCard";
 import { EnemyList } from "../../../../data/Monsters/Monsters";
 
 interface props {
-	enemies: Monster[];
-	setOpenEditEnemyDialog: (input: Monster | undefined) => void;
-	setEnemies: (input: Monster[]) => void;
+	enemies: Entity[];
+	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
+	setEnemies: (input: Entity[]) => void;
 }
 
 function EnemyDetails({ enemies, setOpenEditEnemyDialog, setEnemies }: props) {
@@ -39,7 +39,7 @@ function EnemyDetails({ enemies, setOpenEditEnemyDialog, setEnemies }: props) {
 								<FormControl fullWidth>
 									<TextField size={"small"} className={classes.headerTitle} id="enemies" select value={selectedEnemy} label="Add Enemies to the fight">
 										<MenuItem value={"Select the Enemy to add to the fight"}>Select an Enemy to add to the fight</MenuItem>
-										{EnemyList.map((enemy: Monster, i) => (
+										{EnemyList.map((enemy: Entity, i) => (
 											<MenuItem key={i} value={enemy.name} onClick={(e: any) => addSelectedEnemyToParty(e.target.textContent as string)}>
 												{enemy.name}
 											</MenuItem>

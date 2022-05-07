@@ -1,8 +1,8 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
-import { Monster } from "../../../types/GlobalTypes";
+import { Entity } from "../../../types/GlobalTypes";
 
 interface MonsterCardProps {
-	monster: Monster;
+	monster: Entity;
 }
 function monsterCard({ monster }: MonsterCardProps) {
 	const { name, statBlock, exp } = monster;

@@ -1,6 +1,6 @@
 import { Grid, Divider } from "@mui/material";
 import { pink } from "@mui/material/colors";
-import { PC, Monster } from "../../../types/GlobalTypes";
+import { Entity } from "../../../types/GlobalTypes";
 import EditEnemyDialog from "./enemyDetails/EditEnemyDialog";
 import EnemyDetails from "./enemyDetails/EnemyDetails";
 import InitiativeTracker from "./InitiativeTracker/InitiativeTracker";
@@ -8,19 +8,19 @@ import EditPcDialog from "./partyInformation/EditPcDialog";
 import PartyDetails from "./partyInformation/PartyDetails";
 
 export interface CombatModuleProps {
-	combat: (PC | Monster)[];
-	setCombat: (input: (PC | Monster)[]) => void;
-	party: PC[];
-	setParty: (input: PC[]) => void;
+	combat: Entity[];
+	setCombat: (input: Entity[]) => void;
+	party: Entity[];
+	setParty: (input: Entity[]) => void;
 	partyLevel: number;
-	setOpenEditPcDialog: (input: PC | undefined) => void;
-	enemies: Monster[];
-	setEnemies: (input: Monster[]) => void;
-	setOpenEditEnemyDialog: (input: Monster | undefined) => void;
+	setOpenEditPcDialog: (input: Entity | undefined) => void;
+	enemies: Entity[];
+	setEnemies: (input: Entity[]) => void;
+	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
 	combatTurn: number;
 	setCombatTurn: (input: number) => void;
-	openEditPcDialog: PC | undefined;
-	openEditEnemyDialog: Monster | undefined;
+	openEditPcDialog: Entity | undefined;
+	openEditEnemyDialog: Entity | undefined;
 }
 
 function CombatModule({ combat, setCombat, party, setParty, partyLevel, setOpenEditPcDialog, enemies, setEnemies, setOpenEditEnemyDialog, combatTurn, setCombatTurn, openEditEnemyDialog, openEditPcDialog }: CombatModuleProps) {

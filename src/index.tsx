@@ -4,13 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Npcs from "./routes/Npcs";
+import Npc from "./routes/Npc";
 
 ReactDOM.render(
 	<BrowserRouter>
 		<Routes>
 			<Route path="/" element={<App />} />
-			<Route path="npcs" element={<Npcs />} />
+			<Route path="npc/:name" element={<Npc />} />
 		</Routes>
 	</BrowserRouter>,
 	document.getElementById("root")

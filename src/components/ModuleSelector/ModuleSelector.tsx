@@ -3,7 +3,6 @@ import { Grid } from "@mui/material";
 import { ViewModules } from "../../types/GlobalTypes";
 import CombatModule, { CombatModuleProps } from "./CombatModule/CombatModule";
 import MapSelector from "./NpcModule/MapModule/MapSelector";
-import BaroviaMap from "./NpcModule/MapModule/MapSelector";
 import NpcSelector from "./NpcModule/NpcSelector";
 
 interface ModuleSelectorProps {

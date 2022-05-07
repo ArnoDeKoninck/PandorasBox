@@ -1,11 +1,11 @@
 import { Card, CardContent, Grid, CardMedia, Typography, LinearProgress, TextField } from "@mui/material";
 import { useStyles } from "../../../../customTheme";
-import { Monster, PC, Status } from "../../../../types/GlobalTypes";
+import { Entity, Status } from "../../../../types/GlobalTypes";
 import StatusChip from "../Status/StatusChip";
 
 interface PcDetailCardProps {
-	enemy: Monster;
-	setOpenEditEnemyDialog: (input: Monster | undefined) => void;
+	enemy: Entity;
+	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
 }
 function EnemyDetailsCard({ enemy, setOpenEditEnemyDialog }: PcDetailCardProps) {
 	const classes = useStyles();

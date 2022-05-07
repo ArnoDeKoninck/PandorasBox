@@ -1,21 +1,21 @@
 import { Card, Chip, FormControl, Grid, MenuItem, TextField } from "@mui/material";
 import React from "react";
 import customTheme, { useStyles } from "../../../../customTheme";
-import { PC } from "../../../../types/GlobalTypes";
+import { Entity } from "../../../../types/GlobalTypes";
 import { PCs } from "../../../../data/PCs/Pcs";
 import { ThemeProvider } from "@mui/styles";
 import PcDetailCard from "./PcDetailCard";
 
 interface props {
-	party: PC[];
+	party: Entity[];
 	partyLevel: number;
 	partySize: number;
-	setOpenEditPcDialog: (input: PC | undefined) => void;
-	setParty: (input: PC[]) => void;
+	setOpenEditPcDialog: (input: Entity | undefined) => void;
+	setParty: (input: Entity[]) => void;
 }
 
 function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setParty }: props) {
-	const [selectedPc, setSelectedPc] = React.useState<PC | string>("Select the PC to add to the party");
+	const [selectedPc, setSelectedPc] = React.useState<Entity | string>("Select the PC to add to the party");
 	const classes = useStyles();
 
 	async function addSelectedPcToParty(pcName: string) {
@@ -28,7 +28,7 @@ function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setPa
 		});
 	}
 
-	function removePcFromParty(pc: PC) {
+	function removePcFromParty(pc: Entity) {
 		setParty(party.filter((partyPc) => partyPc.name !== pc.name));
 	}
 

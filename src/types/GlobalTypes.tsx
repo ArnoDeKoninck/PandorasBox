@@ -125,60 +125,57 @@ export interface Entity {
 	type: "PC" | "Monster" | "Npc";
 	image: string;
 	species: string;
-	statBlock: StatBlock;
-	skills: SkillBlock;
-	speed: number;
+	size: "Tiny" | "Small" | "Medium" | "Large" | "Huge" | "Gargantuan";
+	ac: number;
 	maxHealth: number;
 	currentHealth: number;
+	speed: number;
+	statBlock: AbilityScore[];
+	savingThrows?: string[];
+	skills: SkillScore[];
+	resistances?: string[];
+	immunities?: string[];
+	senses?: string[];
+	languages?: string[];
+	cr?: number;
+	abilities?: Abilities[];
+	actions?: EntityAction[];
+	legendaryActions?: EntityAction[];
+	lairActions?: EntityAction[];
 	status: Status[];
-	ac: number;
 	initiative: number;
 	tempHealth?: number;
 	spellSlots?: number[];
-	alignmant?: string;
+	alignment?: string;
 	description?: string;
-	cr?: number;
 	age?: string;
 	class?: Classes | string;
-	abilities?: string[];
-	resistances?: string[];
-	immunities?: string[];
-	savingThrows?: string[];
-	actions?: string[];
+
 	exp?: number;
 	weapon?: Weapon;
 	damage?: Damage;
 	onHit?: number;
 }
 
-export interface StatBlock {
-	cha: number;
-	con: number;
-	dex: number;
-	int: number;
-	str: number;
-	wis: number;
+export interface AbilityScore {
+	name: string;
+	value: number;
 }
 
-export interface SkillBlock {
-	acrobatics?: number;
-	animalHandling?: number;
-	arcana?: number;
-	athletics?: number;
-	deception?: number;
-	history?: number;
-	insight?: number;
-	intimidation?: number;
-	investigation?: number;
-	medicine?: number;
-	nature?: number;
-	perception?: number;
-	performance?: number;
-	persuasion?: number;
-	religion?: number;
-	sleightOfHand?: number;
-	stealth?: number;
-	survival?: number;
+export interface SkillScore {
+	name: string;
+	value: number;
+}
+
+export interface Abilities {
+	name: string;
+	description: JSX.Element[];
+	amount?: number;
+}
+
+export interface EntityAction {
+	name: string;
+	description: JSX.Element[];
 }
 
 export interface Combat {

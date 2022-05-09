@@ -219,7 +219,76 @@ export const strahdVonZarovich: Entity = {
 			],
 		},
 	],
-	actions: [{ name: "Multiattack (Vampire Form Only)", description: [<span>Strahd makes two attacks, only one of which can be a bite attack.</span>] }],
+	actions: [
+		{ name: "Multiattack (Vampire Form Only)", description: [<span>Strahd makes two attacks, only one of which can be a bite attack.</span>] },
+		{
+			name: "Unarmed Strike (Vampire or Wolf Form Only)",
+			description: [<span>Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 9 (1d8 + 5) slashing damage, plus 14 (4d6) necrotic damage. If the target is a creature, Strahd can grapple it (escape DC 19) instead of dealing the slashing damage.</span>],
+		},
+		{
+			name: "Bite",
+			description: [
+				<span>
+					Melee Weapon Attack: +11 to hit, reach 5 ft., one willing creature, or a creature that is grappled by Strahd, incapacitated, or restrained. Hit: 8 (1d6 + 5) piercing damage plus 10 (3d6) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage
+					taken, and Strahd regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0. A humanoid slain in this way and then buried in the ground rises the following night as a vampire spawn under
+					Strahd's control.
+				</span>,
+			],
+		},
+		{
+			name: "Charm",
+			description: [
+				<span>
+					Strahd targets one humanoid he can see within 30 feet of him. If the target can see Strahd, the target must succeed on a DC 18 Wisdom saving throw against this magic or be charmed. The charmed target regards Strahd as a trusted friend to be heeded and protected. The target isn't under
+					Strahd's control, but it takes Strahd's requests and actions in the most favorable way and lets Strahd bite it.
+				</span>,
+				<p>
+					Each time Strahd or his companions do anything harmful to the target, it can repeat the saving throw, ending the effect on itself on a success. Otherwise, the effect lasts 24 hours or until Strahd is destroyed, is on a different plane of existence than the target, or takes a bonus action
+					to end the effect.
+				</p>,
+			],
+		},
+		{
+			name: "Children of the Night (1/Day)",
+			description: [
+				<span>
+					Strahd magically calls 2d4 swarms of bats or swarms of rats, provided that the sun isn't up. While outdoors, Strahd can call 3d6 wolves instead. The called creatures arrive in 1d4 rounds, acting as allies of Strahd and obeying his spoken commands. The beasts remain for 1 hour, until Strahd
+					dies, or until he dismisses them as a bonus action.
+				</span>,
+			],
+		},
+	],
+	legendaryActions: [
+		{ name: "Move", description: [<span>Strahd moves up to his speed without provoking opportunity attacks.</span>] },
+		{ name: "Unarmed Strike", description: [<span>Strahd makes one unarmed strike.</span>] },
+		{ name: "Bite (Costs 2 actions)", description: [<span>Strahd makes one bite attack.</span>] },
+	],
+	lairActions: [
+		{ name: "Castle Ravenloft", description: [<span>On initiative count 20 (losing initiative ties), Strahd can take one of the following lair action options, or forgo using any of them in that round:</span>] },
+		{ name: "1:", description: [<span>Until initiative count 20 of the next round, Strahd can pass through solid walls, doors, ceilings, and floors as if they weren't there.</span>] },
+		{
+			name: "2:",
+			description: [
+				<span>
+					Strahd targets any number of doors and windows that he can see, causing each one to either open or close as he wishes. Closed doors can be magically locked (needing a successful DC 20 Strength check to force open) until Strahd chooses to end the effect, or until Strahd uses this lair
+					action again.
+				</span>,
+			],
+		},
+		{
+			name: "3:",
+			description: [<span>Strahd summons the angry spirit of one who has died in the castle. The apparition appears next to a hostile creature that Strahd can see, makes an attack against that creature, and then disappears. The apparition has the statistics of a specter.</span>],
+		},
+		{
+			name: "4:",
+			description: [
+				<span>
+					Strahd targets one Medium or smaller creature that casts a shadow. The target's shadow must be visible to Strahd and within 30 feet of him. If the target fails a DC 17 Charisma saving throw, its shadow detaches from it and becomes a shadow that obeys Strahd's commands, acting on initiative
+					count 20. A greater restoration spell or a remove curse spell cast on the target restores its natural shadow, but only if its undead shadow has been destroyed.
+				</span>,
+			],
+		},
+	],
 	maxHealth: 800,
 	currentHealth: 800,
 	exp: 25000,

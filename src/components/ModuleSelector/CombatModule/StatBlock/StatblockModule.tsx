@@ -151,6 +151,40 @@ function StatBlockModule({ entity, onChange }: StatBlockProps) {
 									<Divider />
 								</Grid>
 							)}
+							{entity.legendaryActions && entity.legendaryActions.length > 0 && (
+								<Grid item xs={12}>
+									<Typography fontWeight={"bolder"} fontSize="15px">
+										Legendary Actions
+									</Typography>
+									<Divider />
+									<Grid container gap={"5px"}>
+										{entity.legendaryActions.map((legendaryAction) => (
+											<Grid item key={legendaryAction.name}>
+												<Typography fontWeight={"bolder"}>{legendaryAction.name}</Typography>
+												<Typography>{legendaryAction.description}</Typography>
+											</Grid>
+										))}
+									</Grid>
+									<Divider />
+								</Grid>
+							)}
+							{entity.lairActions && entity.lairActions.length > 0 && (
+								<Grid item xs={12}>
+									<Typography fontWeight={"bolder"} fontSize="15px">
+										Lair Actions
+									</Typography>
+									<Divider />
+									<Grid container gap={"5px"}>
+										{entity.lairActions.map((lairAction) => (
+											<Grid item key={lairAction.name}>
+												<Typography fontWeight={"bolder"}>{lairAction.name}</Typography>
+												<Typography>{lairAction.description}</Typography>
+											</Grid>
+										))}
+									</Grid>
+									<Divider />
+								</Grid>
+							)}
 						</Grid>
 					</Grid>
 					<Grid item xs={5}>

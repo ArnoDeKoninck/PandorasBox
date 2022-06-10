@@ -4,7 +4,7 @@ import { direWolf } from "../../Monsters/Monsters";
 export const BaroviaLocations: PointOfIntrest[] = [
 	{
 		name: "Death House",
-		coordinates: { x: 94.5, y: 46.5 },
+		coordinates: { x: 87.8, y: 51.5 },
 		type: "location",
 		note: "The gravel road leads to a village, its tall houses dark as tombstones. Nestled among these solemn dwellings are a handful of closed-up shops. Even the tavern is shut tight. A soft whimpering draws your eye toward a pair of children standing in the middle of an otherwise lifeless street.",
 	},

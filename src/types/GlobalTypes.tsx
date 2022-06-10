@@ -205,3 +205,15 @@ export interface PointOfIntrest {
 	note: string;
 	events?: string[];
 }
+
+export interface SongType {
+	tags: string[];
+	name: string;
+	url: string;
+	boss?: string;
+}
+
+export interface SoundType {
+	name: string;
+	url: string[];
+}

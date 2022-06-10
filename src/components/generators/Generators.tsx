@@ -18,7 +18,7 @@ interface props {
 
 function Generators({ partyLevel, getEncounter, getLoot, encounter, loot, rollInitiative }: props) {
 	return (
-		<Card>
+		<Card sx={{ minHeight: "304px" }}>
 			<CardContent>
 				<Grid container>
 					<Grid item xs={12}>

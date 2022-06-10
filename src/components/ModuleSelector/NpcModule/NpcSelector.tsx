@@ -19,7 +19,7 @@ function NpcSelector() {
 								<Grid container spacing={1} paddingRight={2}>
 									{npcs &&
 										npcs.map((npc) => (
-											<Grid key={npc.name} item xs={1}>
+											<Grid key={npc.name} item xs={4} md={1}>
 												<Card className={classes.npcCard} onClick={() => window.open(`npc/${npc.name.replaceAll(" ", "_").toLowerCase()}`)}>
 													{npc.image && <CardMedia component="img" height="180" src={`/images/${npc.image}`} alt={npc.name} />}
 													<Typography align="center" className={classes.headerTitle}>

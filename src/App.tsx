@@ -10,7 +10,7 @@ import { Entity, ViewModules } from "./types/GlobalTypes";
 import { dayTimeEncounterList } from "./data/Encounters/Encounters";
 import ModuleSelector from "./components/ModuleSelector/ModuleSelector";
 import { CombatModuleProps } from "./components/ModuleSelector/CombatModule/CombatModule";
-import ReactPlayer from "react-player";
+import Jukebox from "./components/Jukebox/Jukebox";
 
 function App() {
 	const [encounter, getEncounter] = React.useState<Encounter | Encounter_Variant | undefined>(dayTimeEncounterList[0].variant![0]);
@@ -58,7 +58,7 @@ function App() {
 			<ThemeProvider theme={customTheme}>
 				<Grid container justifyContent={"center"}>
 					<Grid container spacing={2}>
-						<Grid item xs={4}>
+						<Grid item xs={12} md={4}>
 							<Card>
 								<CardContent>
 									<Grid container rowGap={2}>
@@ -66,14 +66,14 @@ function App() {
 											<PartyInformation partySize={partySize} partyLevel={partyLevel} setPartyLevel={setPartyLevel} setPartySize={setPartySize} />
 										</Grid>
 										<Grid item xs={12}>
-											<ReactPlayer className={classes.audioControls} width="100%" height="3rem" controls url={"audio/StrahdsVengeance.mp3"} />
+											<Jukebox></Jukebox>
 										</Grid>
 									</Grid>
 								</CardContent>
 							</Card>
 						</Grid>
 
-						<Grid item xs={8}>
+						<Grid item xs={12} md={8}>
 							<Generators rollInitiative={rollInitiative} encounter={encounter} loot={loot} partyLevel={partyLevel} getEncounter={getEncounter} getLoot={getLoot} />
 						</Grid>
 						<Grid item xs={12}>

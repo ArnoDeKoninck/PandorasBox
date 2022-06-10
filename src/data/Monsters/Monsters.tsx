@@ -3,6 +3,39 @@ import { generateRandomWeapon } from "../../services/loot-service/loot-service";
 import { Entity } from "../../types/GlobalTypes";
 import { Weapon } from "../../types/ItemTypes";
 
+export const animatedArmor: Entity = {
+	name: "Animated Armor",
+	type: "Monster",
+	size: "Medium",
+	statBlock: [
+		{ name: "Str", value: 14 },
+		{ name: "Dex", value: 11 },
+		{ name: "Con", value: 13 },
+		{ name: "Int", value: 1 },
+		{ name: "Wis", value: 3 },
+		{ name: "Cha", value: 1 },
+	],
+	skills: [],
+	exp: 25,
+	cr: 1,
+	maxHealth: 33,
+	currentHealth: 33,
+	speed: 25,
+	initiative: 0,
+	weapon: generateRandomWeapon(MartialWeaponList) as Weapon,
+	species: "construct",
+	status: [],
+	onHit: 4,
+	ac: 18,
+	image: "monster_animated_armor_portrait.jpg",
+	senses: ["blindsight (60ft)", "passive perception 6"],
+	actions: [
+		{ name: "Multiattack", description: [<span>Can attack twice</span>] },
+		{ name: "Slam", description: [<span>Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage.</span>] },
+	],
+	immunities: ["poison", "psychic", "blinded", "charmed", "deafened", "exhaustion", "frightened", "paralyzed", "petrified", "poisoned"],
+};
+
 export const bandit: Entity = {
 	name: "Bandit",
 	type: "Monster",
@@ -28,6 +61,38 @@ export const bandit: Entity = {
 	onHit: 3,
 	ac: 12,
 	image: "",
+};
+
+export const brownBear: Entity = {
+	name: "Brown Bear",
+	type: "Monster",
+	size: "Medium",
+	statBlock: [
+		{ name: "Str", value: 19 },
+		{ name: "Dex", value: 10 },
+		{ name: "Con", value: 16 },
+		{ name: "Int", value: 2 },
+		{ name: "Wis", value: 13 },
+		{ name: "Cha", value: 7 },
+	],
+	skills: [{ name: "Perception", value: 3 }],
+	exp: 200,
+	cr: 1,
+	maxHealth: 34,
+	currentHealth: 34,
+	speed: 40,
+	initiative: 0,
+	species: "Beast",
+	status: [],
+	onHit: 5,
+	ac: 18,
+	image: "monster_brown_bear_portrait.png",
+	senses: ["Passive perception 13"],
+	actions: [
+		{ name: "Multiattack", description: [<span>Can attack twice</span>] },
+		{ name: "Bite", description: [<span>Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: (1d8 + 4) piercing damage.</span>] },
+		{ name: "Claws", description: [<span>Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: (2d6 + 4) slashing damage.</span>] },
+	],
 };
 
 export const direWolf: Entity = {
@@ -64,7 +129,7 @@ export const direWolf: Entity = {
 	status: [],
 	onHit: 4,
 	ac: 13,
-	image: "",
+	image: "monster_direWolf.jpg",
 };
 
 export const peasant: Entity = {
@@ -299,4 +364,38 @@ export const strahdVonZarovich: Entity = {
 	image: "strahd_von_zarovich.jpg",
 };
 
-export const EnemyList: Entity[] = [peasant, scout, strahdVonZarovich];
+export const wolf: Entity = {
+	name: "Wolf",
+	type: "Monster",
+	size: "Medium",
+	statBlock: [
+		{ name: "Str", value: 12 },
+		{ name: "Dex", value: 15 },
+		{ name: "Con", value: 12 },
+		{ name: "Int", value: 3 },
+		{ name: "Wis", value: 12 },
+		{ name: "Cha", value: 6 },
+	],
+	skills: [
+		{ name: "Perception", value: 3 },
+		{ name: "Stealth", value: 4 },
+	],
+	abilities: [
+		{ name: "Keen Hearing and Smell", description: [<span>"Advantage on Perception checks with hearing or smell"</span>] },
+		{ name: "Pack Tactics", description: [<span>The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 ft. of the creature and the ally isn't incapacitated.</span>] },
+	],
+	actions: [{ name: "Bite", description: [<span>Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: (2d4 + 2) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone</span>] }],
+	exp: 50,
+	cr: 0.25,
+	maxHealth: 13,
+	currentHealth: 13,
+	speed: 40,
+	initiative: 0,
+	species: "Beast",
+	status: [],
+	onHit: 4,
+	ac: 13,
+	image: "monster_wolf.webp",
+};
+
+export const EnemyList: Entity[] = [animatedArmor, bandit, brownBear, direWolf, peasant, scout, strahdVonZarovich, wolf];

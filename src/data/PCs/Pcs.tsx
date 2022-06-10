@@ -1,5 +1,7 @@
+import { Dela_Ral_Dur } from "./Dela_Ral_Dur";
 import { Ghesh_Ebonrock } from "./Ghesh_Ebonrock";
 import { Ivy_Key } from "./Ivy_Key";
+import { Maeve_Vindur } from "./Maeve_Vindur";
 import { Marcus_Grub } from "./Marcus_Grub";
 
-export const PCs = [Ghesh_Ebonrock, Marcus_Grub, Ivy_Key];
+export const PCs = [Dela_Ral_Dur, Ghesh_Ebonrock, Ivy_Key, Maeve_Vindur, Marcus_Grub];

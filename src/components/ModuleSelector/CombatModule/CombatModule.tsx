@@ -25,7 +25,7 @@ export interface CombatModuleProps {
 
 function CombatModule({ combat, setCombat, party, setParty, partyLevel, setOpenEditPcDialog, enemies, setEnemies, setOpenEditEnemyDialog, combatTurn, setCombatTurn, openEditEnemyDialog, openEditPcDialog }: CombatModuleProps) {
 	return (
-		<Grid container columnGap={2}>
+		<Grid container gap={2}>
 			<Grid item flexGrow={2}>
 				<Grid container flexDirection={"column"}>
 					<Grid item xs={12}>
@@ -41,7 +41,7 @@ function CombatModule({ combat, setCombat, party, setParty, partyLevel, setOpenE
 					)}
 				</Grid>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item xs={12} md={2}>
 				<InitiativeTracker combat={combat} combatTurn={combatTurn} onChangeTurn={setCombatTurn} />
 			</Grid>
 			{openEditPcDialog && <EditPcDialog pc={openEditPcDialog} setOpenEditPcDialog={setOpenEditPcDialog} />}

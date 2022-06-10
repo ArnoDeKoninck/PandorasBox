@@ -1,4 +1,4 @@
-import { LocalGroceryStore, LocationCity, LocationOn, SportsBar } from "@mui/icons-material";
+import { LocalGroceryStore, LocationCity, LocationOn, PriorityHigh, SavedSearch, SportsBar } from "@mui/icons-material";
 import { Card, CardMedia, Divider, FormControl, Grid, IconButton, MenuItem, TextField, Tooltip } from "@mui/material";
 import React from "react";
 import customTheme, { useStyles } from "../../../../customTheme";
@@ -62,6 +62,22 @@ function MapSelector() {
 						}}
 					/>
 				);
+			case "search":
+				return (
+					<SavedSearch
+						sx={{
+							color: customTheme.palette.secondary.main,
+						}}
+					/>
+				);
+			case "event":
+				return (
+					<PriorityHigh
+						sx={{
+							color: customTheme.palette.secondary.main,
+						}}
+					/>
+				);
 		}
 	};
 	const classes = useStyles();
@@ -85,7 +101,7 @@ function MapSelector() {
 								</Grid>
 							</Grid>
 						</Grid>
-						<Grid item xs={8}>
+						<Grid item xs={12}>
 							<Card sx={{ position: "relative" }}>
 								{selectedMap.locations.map((location) => (
 									<Tooltip
@@ -94,9 +110,15 @@ function MapSelector() {
 												{location.name}
 												<Divider sx={{ marginBottom: "5px" }} />
 												{location.note}
+												<br />
+												<br />
+												{location.events &&
+													location.events!.map((event: string) => {
+														<div style={{ marginBottom: "5px" }}>{event}</div>;
+													})}
 											</div>
 										}
-										componentsProps={{ tooltip: { sx: { backgroundColor: customTheme.palette.primary.dark } } }}
+										componentsProps={{ tooltip: { sx: { backgroundColor: customTheme.palette.primary.dark, fontSize: "1rem", maxWidth: 500 } } }}
 									>
 										<div style={{ zIndex: 2, position: "absolute", left: `${location.coordinates.x}%`, top: `${location.coordinates.y}%`, borderRadius: "20px" }}>
 											<IconButton

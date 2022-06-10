@@ -1,0 +1,333 @@
+import { PointOfIntrest } from "../../../types/GlobalTypes";
+
+export const DeathHouseLocations: PointOfIntrest[] = [
+	{
+		name: "Entrance",
+		coordinates: { x: 9.0, y: 93.8 },
+		type: "location",
+		note: "A wrought-iron gate with hinges on one side and a lock on the other fills the archway of a stone portico. The gate is unlocked, and its rusty hinges shriek when the gate is opened. Oil lamps hang from the portico ceiling by chains, flanking a set of oaken doors that open into a grand foyer.",
+	},
+	{
+		name: "Foyer",
+		coordinates: { x: 9.0, y: 86.8 },
+		type: "location",
+		note: "Mahogany-framed double doors leading from the foyer to the main hall are set with panes of stained glass.",
+	},
+	{
+		name: "Coat of arms",
+		coordinates: { x: 11, y: 86.8 },
+		type: "search",
+		note: "Hanging on the south wall is a shield emblazoned with a coat-of-arms (a stylized golden windmill on a red field), flanked by framed portraits of stony-faced aristocrats (long-dead members of the Durst family).",
+	},
+	{
+		name: "Main Hall",
+		coordinates: { x: 13.6, y: 79.9 },
+		type: "location",
+		note: "The Main hall spans the width of the house",
+	},
+	{
+		name: "Fireplace",
+		coordinates: { x: 6, y: 79.9 },
+		type: "search",
+		note: "Mounted on the wall above the black marble fireplace is a longsword (nonmagical) with a windmill cameo worked into the hilt",
+	},
+	{
+		name: "Staircase",
+		coordinates: { x: 20, y: 79.9 },
+		type: "search",
+		note: "A sweeping, red marble staircase curving upward to the second floor. The wood-paneled walls in the main hall are ornately sculpted with images of vines, flowers, nymphs, and satyrs and follow the staircase upward.",
+		events: [
+			`- Characters who search the walls for secret doors or otherwise inspect the paneling can, with a successful DC 12 Wisdom (Perception) check, see serpents and skulls inconspicuously woven into the wall designs. The decorative paneling follows the staircase as it circles upward to the second floor.`,
+		],
+	},
+	{
+		name: "Cloakroom",
+		coordinates: { x: 13.6, y: 75.5 },
+		type: "location",
+		note: "A cloakroom has several black cloaks hanging from hooks on the walls. A top hat sits on a high shelf",
+	},
+	{
+		name: "Hunter's Den",
+		coordinates: { x: 17.5, y: 87.5 },
+		type: "location",
+		note: "This oak-paneled room looks like a hunter's den. Mounted above the fireplace is a stag's head, and positioned around the outskirts of the room are three stuffed wolves. Two padded chairs draped in animal furs face the hearth, with an oak table between them supporting a cask of wine, two carved wooden goblets, a pipe rack, and a candelabrum. A chandelier hangs above a cloth-covered table surrounded by four chairs. Two cabinets stand against the walls.",
+	},
+	{
+		name: "Hunting Cabinet",
+		coordinates: { x: 19.8, y: 84.5 },
+		type: "search",
+		note: "The east cabinet sports a lock that can be picked with thieves' tools and a successful DC 15 Dexterity check. ",
+		events: [`- If opened, it holds a heavy crossbow, a light crossbow, a hand crossbow, and 20 bolts for each weapon.`],
+	},
+	{
+		name: "Wine Cabinet",
+		coordinates: { x: 14, y: 86.5 },
+		type: "search",
+		note: "This cabinet is unlocked and holds a small box containing a deck of playing cards and an assortment of wine glasses.",
+	},
+	{
+		name: "Kitchen",
+		coordinates: { x: 20.8, y: 73.5 },
+		type: "location",
+		note: "The kitchen is tidy, with dishware, cookware, and utensils neatly placed on shelves. A worktable has a cutting board and rolling pin atop it. A stone, dome-shaped oven stands near the east wall, its bent iron stovepipe connecting to a hole in the ceiling. Behind the stove and to the left is a thin door.",
+	},
+	{
+		name: "Pantry",
+		coordinates: { x: 20.8, y: 69 },
+		type: "location",
+		note: "A well-stocked pantry. All the food in the pantry appears fresh but tastes bland.",
+	},
+	{
+		name: "Dumbwaiter",
+		coordinates: { x: 23, y: 77.5 },
+		type: "search",
+		note: "A dumbwaiter: a 2-foot-wide stone shaft containing a wooden elevator box attached to a simple rope-and-pulley mechanism that must be operated manually. (The shaft connects to the servants' quarters and the master bedroom). Hanging on the wall next to the dumbwaiter is a tiny brass bell attached by wires to buttons in those other areas.",
+		events: [`A Small character can squeeze into the elevator box with a successful DC 10 Dexterity (Acrobatics) check. The dumbwaiter's rope-and-pulley mechanism can support 200 pounds of weight before breaking.`],
+	},
+	{
+		name: "Dining Room",
+		coordinates: { x: 12.8, y: 71 },
+		type: "location",
+		note: "The centerpiece of this wood-paneled dining room is a carved mahogany table surrounded by eight high-backed chairs with sculpted armrests and cushioned seats. A crystal chandelier hangs above the table, which is covered with resplendent silverware and crystalware polished to a dazzling shine. Mounted above the marble fireplace is a mahogany-framed painting of an alpine vale. Red silk drapes cover the windows, and a tapestry depicting hunting dogs and horse-mounted aristocrats chasing after a wolf hangs from an iron rod bolted to the south wall.",
+		events: [
+			`- shThe wall paneling is carved with elegant images of deer among the trees. Characters who search the walls for secret doors or otherwise inspect the paneling can, with a successful DC 12 Wisdom (Perception) check, see twisted faces carved into the tree trunks and wolves lurking amid the carved foliage.`,
+		],
+	},
+	{
+		name: "Upper Hall",
+		coordinates: { x: 36.2, y: 79.9 },
+		type: "location",
+		note: "You see that the second floor landing is just as elegant as the first, with wood paneling and a large, marble hearth on the back wall. Above the hearth is a family portrait of an aristocratic man and woman and their two smiling children, who you immediately recognize as Rose and Thorn. Cradled in the father's arms is a swaddled baby, which the mother regards with thinly veiled scorn. There are standing suits of decorative armor flanking two pairs of doors. One set of doors is wooden and cracked open. A quick glance within reveals a warm study. The other set of doors is set with stained glass and you can see the warm glow of lamplight coming from within. As you watch, you see the light flicker as someone moves behind the door.",
+	},
+	{
+		name: "Standing Armor Displays",
+		coordinates: { x: 38, y: 83 },
+		type: "search",
+		note: "Standing suits of armor flank wooden doors in the east and west walls. Each suit of armor clutches a spear and has a visored helm shaped like a wolf's head. The doors are carved with dancing youths, although close inspection and a successful DC 12 Wisdom (Perception) check reveals that the youths aren't really dancing but fighting off swarms of bats.",
+	},
+	{
+		name: "Red Marble Staircase",
+		coordinates: { x: 42, y: 79.9 },
+		type: "search",
+		note: "The red marble staircase that started on the first floor continues its upward spiral to the third floor. A cold draft can be felt coming down the steps.",
+	},
+	{
+		name: "Servant's Room",
+		coordinates: { x: 45.3, y: 74 },
+		type: "location",
+		note: "An undecorated bedroom contains a pair of beds with straw-stuffed mattresses. At the foot of each bed is an empty footlocker.",
+	},
+	{
+		name: "Servant's Closet",
+		coordinates: { x: 40.8, y: 75.65 },
+		type: "search",
+		note: "Tidy servants' uniforms hang from hooks in the adjoining closet",
+	},
+	{
+		name: "Servant's Dumbwaiter",
+		coordinates: { x: 47.8, y: 77.55 },
+		type: "search",
+		note: "A dumbwaiter in the corner of the west wall has a button on the wall next to it. Pressing the button rings the tiny bell in the kitchen downstairs.",
+	},
+	{
+		name: "Library",
+		coordinates: { x: 36, y: 73 },
+		type: "location",
+		note: "Red velvet drapes cover the windows of this room. An exquisite mahogany desk and a matching high-back chair face the entrance and the fireplace, above which hangs a framed picture of a windmill perched atop a rocky crag. Situated in corners of the room are two overstuffed chairs. Floor-to-ceiling bookshelves line the south wall. A rolling wooden ladder allows one to more easily reach the high shelves.",
+	},
+	{
+		name: "Library Desk",
+		coordinates: { x: 35.8, y: 70.7 },
+		type: "search",
+		note: "The desk has several items resting atop it: an oil lamp, a jar of ink, a quill pen, a tinderbox, and a letter kit containing a red wax candle, four blank sheets of parchment, and a wooden seal bearing the Durst family's insignia (a windmill).",
+	},
+	{
+		name: "Library Bookshelves",
+		coordinates: { x: 40.5, y: 72.4 },
+		type: "search",
+		note: "The bookshelves hold hundreds of tomes covering a range of topics including history, warfare, and alchemy. There are also several shelves containing first-edition collected works of poetry and fiction.",
+		events: [
+			`- A secret door behind one bookshelf can be unlocked and swung open by pulling on a switch disguised to look like a red-covered book with a blank spine. A character inspecting the bookshelf spots the fake book with a successful DC 13 Wisdom (Perception) check. Unless the secret door is propped open, springs in the hinges cause it to close on its own. Beyond the secret door lies area 9.
+		
+		`,
+		],
+	},
+	{
+		name: "Library Secret Room Bookshelf",
+		coordinates: { x: 44.1, y: 68.9 },
+		type: "search",
+		note: "This secret room contains bookshelves packed with tomes describing fiend-summoning rituals and the necromantic rituals of a cult called the Priests of Osybus. The rituals are bogus, which any character can ascertain after studying the books for 1 hour and succeeding on a DC 12 Intelligence (Arcana) check.",
+	},
+	{
+		name: "Library Secret Room Treasure Chest",
+		coordinates: { x: 47.1, y: 68.9 },
+		type: "search",
+		note: "A heavy wooden chest with clawed iron feet stands against the south wall, its lid half-closed. Sticking out of the chest is a skeleton in leather armor. Close inspection reveals that the skeleton belongs to a human who triggered a poisoned dart trap. Three darts are stuck in the dead adventurer's armor and ribcage. The dart-firing mechanism inside the chest no longer functions. Clutched in the skeleton's left hand is a letter bearing the seal of Strahd von Zarovich, which the adventurer tried to remove from the chest.",
+		events: [
+			`- The chest contains three blank books with black leather covers (worth 25 gp each), three spell scrolls (bless, protection from poison, and spiritual weapon), the deed to the house, the deed to a windmill, and a signed will. The windmill referred to in the second deed is situated in the mountains east of Vallaki. The will is signed by Gustav and Elisabeth Durst and bequeathes the house, the windmill, and all other family property to Rosavalda and Thornboldt Durst in the event of their parents' deaths. The books, scrolls, deeds, and will age markedly if taken from the house but remain intact.
+		
+		`,
+		],
+	},
+	{
+		name: "Conservatory",
+		coordinates: { x: 39.4, y: 87.7 },
+		type: "location",
+		note: "Gossamer drapes cover the windows of this elegantly appointed hall, which has a brass-plated chandelier hanging from the ceiling. Upholstered chairs line the walls, and stained-glass wall hangings depict beautiful men, women, and children singing and playing instruments. A harpsichord with a bench rests in the northwest corner. Near the fireplace is a large standing harp. Alabaster figurines of well-dressed dancers adorn the mantelpiece. Close inspection of them reveals that several are carvings of well-dressed skeletons.",
+	},
+	{
+		name: "Conservatory Harpiscord",
+		coordinates: { x: 34.3, y: 90 },
+		type: "search",
+		note: "A frightened old hound dog is hiding beneath the harpsichord. The dog wears an aged leather collar bearing the name, “Lancelot.”. Lancelot is rail thin and starving, terrified of any character who approaches him. However",
+		events: [
+			`- He can be coaxed from his hiding place with a DC 10 Wisdom (Animal Handling) check, rolled with advantaged if offered food. Lancelot offers the players an alternative choice for the sacrifice in the "One Must Die" sequence later in the adventure."
+		`,
+		],
+	},
+	{
+		name: "Balcony",
+		coordinates: { x: 16.4, y: 51.2 },
+		type: "location",
+		note: "There is no light on this floor and frigid cold air rushes past the characters climbing the red marble staircase to its full height. They come to a dusty balcony with two suits of black plate armor standing against one wall, draped in cobwebs. These suits of animated armor attack as soon as they takes damage or a character approaches within 5 feet of it. They fight until destroyed. Oil lamps are mounted on the oak-paneled walls, which are carved with woodland scenes of trees, falling leaves, and tiny critters. Characters who search the walls for secret doors or otherwise inspect the paneling can, with a successful DC 12 Wisdom (Perception) check, notice tiny corpses hanging from the trees and worms bursting up from the ground.",
+	},
+	{
+		name: "Boarded-up Doors",
+		coordinates: { x: 17, y: 55 },
+		type: "search",
+		note: "This door is heavily boarded-up with planks and nails. (The door cannot be broken into with sheer force but a PC with a crowbar or similar tools can attempt a DC 15 Strength (Athletics) check to slowly pry them off. Note that the door is also locked and can only be opened after the boards are removed and an additional DC 15 Dexterity(Thieves' tools) or DC 20 Strength(Athletics) check has succeeded.)",
+	},
+	{
+		name: "Boarded-up Doors",
+		coordinates: { x: 17, y: 57 },
+		type: "search",
+		note: "This door is heavily boarded-up with planks and nails. (The door cannot be broken into with sheer force but a PC with a crowbar or similar tools can attempt a DC 15 Strength (Athletics) check to slowly pry them off. Note that the door is also locked and can only be opened after the boards are removed and an additional DC 15 Dexterity(Thieves' tools) or DC 20 Strength(Athletics) check has succeeded.)",
+	},
+	{
+		name: "Master Suite Doors",
+		coordinates: { x: 12.2, y: 46 },
+		type: "search",
+		note: "The double doors to this room have dusty panes of stained glass set into them. Designs in the glass resemble windmills.",
+	},
+	{
+		name: "Master Suite",
+		coordinates: { x: 12.4, y: 42.8 },
+		type: "location",
+		note: "The dusty, cobweb-filled master bedroom has burgundy drapes covering the windows. Furnishings include a four-poster bed with embroidered curtains and tattered gossamer veils, a matching pair of empty wardrobes, a vanity with a wood-framed mirror and jewelry box, and a padded chair. A rotting tiger-skin rug lies on the floor in front of the fireplace, which has a dust-covered portrait of Gustav and Elisabeth Durst hanging above it. A web-filled parlor in the southeast corner contains a table and two chairs. Resting on the dusty tablecloth is an empty porcelain bowl and a matching jug.",
+	},
+	{
+		name: "Master Suite Closet",
+		coordinates: { x: 16.8, y: 47 },
+		type: "search",
+		note: "A door facing the foot of the bed has a full-length mirror mounted on it. The door opens to reveal an empty, dust-choked closet",
+	},
+	{
+		name: "Master Suite Balcony Door",
+		coordinates: { x: 23.3, y: 44.5 },
+		type: "search",
+		note: "A door in the parlor that leads to an outside balcony",
+	},
+	{
+		name: "Master Suite Dumbwaiter",
+		coordinates: { x: 23.4, y: 48.8 },
+		type: "search",
+		note: "A dumbwaiter in the corner of the west wall has a button on the wall next to it. Pressing the button rings the tiny bell in the kitchen on the first floor.",
+	},
+	{
+		name: "Master Suite Jewelry Box",
+		coordinates: { x: 21.5, y: 46 },
+		type: "search",
+		note: "The jewelry box on the vanity is made of silver with gold filigree (worth 75 gp). It contains three gold rings (worth 25 gp each) and a thin platinum necklace with a topaz pendant (worth 750 gp). It also has a letter inside of it.",
+	},
+	{
+		name: "Bathroom",
+		coordinates: { x: 8.8, y: 50.3 },
+		type: "location",
+		note: "This dark room contains a wooden tub with clawed feet, a small iron stove with a kettle resting atop it, and a barrel under a spigot in the east wall. A cistern on the roof used to collect rainwater, which was borne down a pipe to the spigot; however, the plumbing no longer works.",
+	},
+	{
+		name: "Storage Room",
+		coordinates: { x: 9.3, y: 53.4 },
+		type: "location",
+		note: "Dusty shelves line the walls of this room. A few of the shelves have folded sheets, blankets, and old bars of soap on them. A cobweb-covered broom leans against the far wall.",
+	},
+	{
+		name: "Nursemaid's Room",
+		coordinates: { x: 18, y: 59.8 },
+		type: "location",
+		note: "Dust and cobwebs shroud an elegantly appointed bedroom and an adjoining nursery. Double doors set with panes of stained glass pull open to reveal a balcony overlooking the front of the house. The bedroom contains a large bed, two end tables, and an empty wardrobe. Mounted on the wall next to the wardrobe is a full-length mirror with an ornate wooden frame carved to look like ivy and berries. Characters who search the wall for secret doors or otherwise inspect the mirror can, with a successful DC 12 Wisdom (Perception) check, notice eyeballs among the berries.",
+	},
+	{
+		name: "Nursemaid's Room Nursery",
+		coordinates: { x: 9.5, y: 56.8 },
+		type: "location",
+		note: "The nursery contains a crib covered with a hanging black shroud. When characters part the shroud, they see a tightly wrapped, baby-sized bundle lying in the crib. Characters who unwrap the blanket find nothing inside it.",
+	},
+	{
+		name: "Nursemaid's Room Balcony",
+		coordinates: { x: 9.1, y: 61.25 },
+		type: "location",
+		note: "You can enter this balcony by pulling open the double doors of stained glass. The balcony overlooks the front of the house.",
+	},
+	{
+		name: "Nursemaid's Room Balcony",
+		coordinates: { x: 42.5, y: 50.5 },
+		type: "location",
+		note: "This bare hall is choked with dust and cobwebs. There are ",
+	},
+	{
+		name: "Spare Bedroom",
+		coordinates: { x: 43, y: 60.8 },
+		type: "location",
+		note: "This dust-choked room contains a slender bed, a nightstand, a small iron stove, a writing desk with a stool, an empty wardrobe, and a rocking chair. A smiling doll in a lacy yellow dress sits in the northern window box, cobwebs draping it like a wedding veil.",
+	},
+	{
+		name: "Storage Room",
+		coordinates: { x: 34.9, y: 53.5 },
+		type: "location",
+		note: "This dusty chamber is packed with old furniture (chairs, coat racks, standing mirrors, dress mannequins, and the like), all draped in dusty white sheets. Near an iron stove, underneath one of the sheets, is an unlocked wooden trunk containing the skeletal remains of the family's nursemaid, wrapped in a tattered bedsheet stained with dry blood. A character inspecting the remains and succeeding on a DC 14 Wisdom (Medicine) check can verify that the woman was stabbed to death by multiple knife wounds.",
+		events: [
+			`- Should the players find the nursemaid’s body, they can match the clothing on the corpse with Margaret’s ghostly clothes with a DC 10 Intelligence (History) check. If the players somehow missed meeting Margaret, she appears now. Upon seeing her own corpse, Margaret dissolves into disbelieving tears. “No!” she cries. “What happened to me?!”. She then flies through the floor towards her rooms, where she remains should the players wish to confront her further. By the time the players reach Margaret in her suite, she has already forgotten seeing her body and proceeds with thenormal encounter in the Nursemaid’s Suite section.`,
+		],
+	},
+	{
+		name: "Spare Bedroom",
+		coordinates: { x: 33.5, y: 43.58 },
+		type: "location",
+		note: "This web-filled room contains a slender bed, a nightstand, a rocking chair, an empty wardrobe, and a small iron stove.",
+	},
+	{
+		name: "Children's Bedroom Door",
+		coordinates: { x: 41, y: 46 },
+		type: "search",
+		note: "The door to this room is locked from the outside with a big iron padlock. (Can be opened with DC 15 (Thieves' tools) or the key in the library desk.)",
+	},
+	{
+		name: "Children's Bedroom",
+		coordinates: { x: 40.8, y: 42.55 },
+		type: "location",
+		note: "This room contains a bricked-up window flanked by two dusty, wood-framed beds sized for children. Closer to the door is a toy chest with windmills painted on its sides and a dollhouse that's a perfect replica of the dreary edifice in which you stand. These furnishings are draped in cobwebs. Lying in the middle of the floor are two small skeletons wearing tattered but familiar clothing. The smaller of the two cradles a stuffed doll that you also recognize.",
+	},
+	{
+		name: "Dollhouse",
+		coordinates: { x: 38.4, y: 44.3 },
+		type: "search",
+		note: "The toy chest contains an assortment of stuffed animals and toys. Characters who search the dollhouse and succeed on a DC 15 Wisdom (Perception) check find all of the house's secret doors, including one in the attic that leads to a spiral staircase.",
+	},
+	{
+		name: "The kids find their corpses",
+		coordinates: { x: 43.8, y: 44.3 },
+		type: "event",
+		note: "Once players discover their remains, Rose and Thorn reappear within this room. Though this time, they appear ghostly and transparent. Upon seeing their bodies, Rose and Thorn suddenly regain the lost memories of their deaths. Though saddened, they are surprisingly at ease with the revelation. If asked about their acceptance, Rose tells the players she thinks, deep down, she always knew she was dead. Rose also expresses honest remorse for unwittingly trapping the party within the house. She admits it was not her intention and if she had had her memories, she would have warned them away instead of bidding them inside.",
+		events: [
+			"- Rose gets new information: ",
+			"*The children's parents would lock them in their room to keep them safe while they dealt with the monster in the basement.",
+			"* The monster sounds like horrible screaming from the basement. It was their parents who told them it was monster after they inquired about the screams. Their parents told them nothing of its nature.",
+			"* Rose could hear Walter’s wailing the last time she and Thorn were locked away. She doesn’t know why he was taken or who could have done so, but she worries for the baby’s safety.",
+			"* Margaret never quit the family. Margaret was supposed to come check on Rose and Thorn if they were locked away for too long, but Margaret never came.",
+			" * Rose and Thorn starved to death. They were “so very hungry, but no one came when we cried. And then the hunger went away and we grew very cold and went to sleep.”",
+			"She begs the players to find out what happened to Walter and their parents. And, if the monster still lives, she asks them to destroy the creature. She wishes no one else come to harm from the beast.",
+			"If the players didn't explore much and lack gear, Rose informs the party that her parents kept some hunting equipment in the den on the first floor. She encourages them to take what they need to slay the monster. Rose then reveals the secret staircase to basement by referring to her dollhouse.",
+		],
+	},
+];

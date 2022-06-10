@@ -5,9 +5,11 @@ import StatusChip from "../Status/StatusChip";
 
 interface PcDetailCardProps {
 	enemy: Entity;
+	index: number;
+	setIndex: (input: number) => void;
 	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
 }
-function EnemyDetailsCard({ enemy, setOpenEditEnemyDialog }: PcDetailCardProps) {
+function EnemyDetailsCard({ enemy, index, setIndex, setOpenEditEnemyDialog }: PcDetailCardProps) {
 	const classes = useStyles();
 	return (
 		<Card className={classes.itemCard}>
@@ -75,7 +77,14 @@ function EnemyDetailsCard({ enemy, setOpenEditEnemyDialog }: PcDetailCardProps) 
 							</Grid>
 						</Grid>
 						<Grid item xs={1}>
-							<Typography className={classes.link} align={"center"} onClick={() => setOpenEditEnemyDialog(enemy)}>
+							<Typography
+								className={classes.link}
+								align={"center"}
+								onClick={() => {
+									setOpenEditEnemyDialog(enemy);
+									setIndex(index);
+								}}
+							>
 								Edit
 							</Typography>
 						</Grid>

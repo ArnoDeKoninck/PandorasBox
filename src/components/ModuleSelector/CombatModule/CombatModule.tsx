@@ -16,6 +16,8 @@ export interface CombatModuleProps {
 	setOpenEditPcDialog: (input: Entity | undefined) => void;
 	enemies: Entity[];
 	setEnemies: (input: Entity[]) => void;
+	index: number;
+	setIndex: (input: number) => void;
 	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
 	combatTurn: number;
 	setCombatTurn: (input: number) => void;
@@ -23,7 +25,7 @@ export interface CombatModuleProps {
 	openEditEnemyDialog: Entity | undefined;
 }
 
-function CombatModule({ combat, setCombat, party, setParty, partyLevel, setOpenEditPcDialog, enemies, setEnemies, setOpenEditEnemyDialog, combatTurn, setCombatTurn, openEditEnemyDialog, openEditPcDialog }: CombatModuleProps) {
+function CombatModule({ combat, index, setIndex, party, setParty, partyLevel, setOpenEditPcDialog, enemies, setEnemies, setOpenEditEnemyDialog, combatTurn, setCombatTurn, openEditEnemyDialog, openEditPcDialog }: CombatModuleProps) {
 	return (
 		<Grid container gap={2}>
 			<Grid item flexGrow={2}>
@@ -36,7 +38,7 @@ function CombatModule({ combat, setCombat, party, setParty, partyLevel, setOpenE
 							<Divider variant="middle" sx={{ padding: "1rem", color: pink[800], borderColor: pink[800], "&::before": { borderColor: pink[800] }, "&::after": { borderColor: pink[800] } }}>
 								Versus
 							</Divider>
-							<EnemyDetails enemies={enemies} setEnemies={setEnemies} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
+							<EnemyDetails enemies={enemies} setEnemies={setEnemies} index={index} setIndex={setIndex} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
 						</Grid>
 					)}
 				</Grid>
@@ -45,7 +47,7 @@ function CombatModule({ combat, setCombat, party, setParty, partyLevel, setOpenE
 				<InitiativeTracker combat={combat} combatTurn={combatTurn} onChangeTurn={setCombatTurn} />
 			</Grid>
 			{openEditPcDialog && <EditPcDialog pc={openEditPcDialog} setOpenEditPcDialog={setOpenEditPcDialog} />}
-			{openEditEnemyDialog && <EditEnemyDialog enemy={openEditEnemyDialog} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />}
+			{openEditEnemyDialog && <EditEnemyDialog enemies={enemies} index={index} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />}
 		</Grid>
 	);
 }

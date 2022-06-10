@@ -6,34 +6,35 @@ import StatBlockModule from "../StatBlock/StatblockModule";
 
 interface EditEnemyDialogProps {
 	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
-	enemy: Entity;
+	enemies: Entity[];
+	index: number;
 }
-function EditEnemyDialog({ enemy, setOpenEditEnemyDialog }: EditEnemyDialogProps) {
-	const [currentEnemy, setCurrentEnemy] = React.useState<Entity>(enemy);
+function EditEnemyDialog({ enemies, index, setOpenEditEnemyDialog }: EditEnemyDialogProps) {
+	console.log(``);
+	console.log(index);
+	const [currentEnemy, setCurrentEnemy] = React.useState<Entity>(enemies[index]);
 	const handleClose = () => {
 		setOpenEditEnemyDialog(undefined);
 	};
 
 	const onSubmit = () => {
-		enemy.currentHealth = currentEnemy.currentHealth;
-		enemy.tempHealth = currentEnemy.tempHealth ?? 0;
-		enemy.status = currentEnemy.status ?? undefined;
-		enemy.initiative = currentEnemy.initiative;
+		enemies[index] = { ...enemies[index], ...{ currentHealth: currentEnemy.currentHealth, tempHealth: currentEnemy.tempHealth ?? 0, status: currentEnemy.status ?? undefined, initiative: currentEnemy.initiative } };
+
 		handleClose();
 	};
 
 	return (
-		<Dialog open={enemy ? true : false} onClose={handleClose} fullWidth maxWidth={"lg"}>
-			<DialogTitle>{`Edit ${enemy.name}`}</DialogTitle>
+		<Dialog open={enemies[index] ? true : false} onClose={handleClose} fullWidth maxWidth={"lg"}>
+			<DialogTitle>{`Edit ${enemies[index].name}`}</DialogTitle>
 			<Divider />
 			<DialogContent>
 				<Grid container>
 					<Grid item xs={2}>
-						<CardMedia component="img" height={200} src={`/images/${enemy.image}`} />
+						<CardMedia component="img" height={200} src={`/images/${enemies[index].image}`} />
 					</Grid>
 					{/* Health bar container*/}
 					<Grid item xs={10}>
-						<StatBlockModule entity={enemy} onChange={setCurrentEnemy}></StatBlockModule>
+						<StatBlockModule entities={enemies} index={index} onChange={setCurrentEnemy}></StatBlockModule>
 					</Grid>
 				</Grid>
 			</DialogContent>

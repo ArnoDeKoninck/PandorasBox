@@ -8,11 +8,13 @@ import { EnemyList } from "../../../../data/Monsters/Monsters";
 
 interface props {
 	enemies: Entity[];
+	index: number;
 	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
 	setEnemies: (input: Entity[]) => void;
+	setIndex: (input: number) => void;
 }
 
-function EnemyDetails({ enemies, setOpenEditEnemyDialog, setEnemies }: props) {
+function EnemyDetails({ enemies, index, setIndex, setOpenEditEnemyDialog, setEnemies }: props) {
 	const [selectedEnemy, setSelectedEnemy] = React.useState<string>("");
 	const classes = useStyles();
 
@@ -64,7 +66,7 @@ function EnemyDetails({ enemies, setOpenEditEnemyDialog, setEnemies }: props) {
 							{enemies &&
 								enemies.map((enemy, i) => (
 									<Grid key={i} item xs={3} padding={1}>
-										<EnemyDetailsCard enemy={enemy} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
+										<EnemyDetailsCard enemy={enemy} index={index} setIndex={() => setIndex(i)} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
 									</Grid>
 								))}
 						</Grid>

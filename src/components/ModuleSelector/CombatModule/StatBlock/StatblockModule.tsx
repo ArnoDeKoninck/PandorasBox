@@ -6,11 +6,13 @@ import SetStatus from "../Status/SetStatus";
 import StatusChip from "../Status/StatusChip";
 
 interface StatBlockProps {
-	entity: Entity;
+	entities: Entity[];
+	index: number;
 	onChange: (input: Entity) => void;
 }
 
-function StatBlockModule({ entity, onChange }: StatBlockProps) {
+function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
+	const entity = entities[index];
 	const [currentHp, setCurrentHp] = React.useState<number>(entity.currentHealth);
 	const [tempHp, setTempHp] = React.useState<number>(entity.tempHealth ?? 0);
 	const [currentStatus, setCurrentStatus] = React.useState<Status[]>(entity.status);
@@ -18,12 +20,8 @@ function StatBlockModule({ entity, onChange }: StatBlockProps) {
 
 	useEffect(() => {
 		if (entity.type === "Monster") {
-			const currentEnemy = entity;
-			currentEnemy.currentHealth = currentHp;
-			currentEnemy.tempHealth = tempHp;
-			currentEnemy.status = currentStatus;
-			currentEnemy.initiative = initiative;
-			onChange(currentEnemy);
+			entities[index] = { ...entities[index], ...{ currentHealth: currentHp, tempHealth: tempHp, status: currentStatus, initiative: initiative } };
+			onChange(entities[index]);
 		}
 	}, [currentHp, tempHp, currentStatus, initiative]);
 

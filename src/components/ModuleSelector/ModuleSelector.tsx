@@ -17,12 +17,14 @@ function ModuleSelector({ moduleToShow, combatProps }: ModuleSelectorProps) {
 					combat={combatProps.combat}
 					combatTurn={combatProps.combatTurn}
 					enemies={combatProps.enemies}
+					index={combatProps.index}
 					openEditEnemyDialog={combatProps.openEditEnemyDialog}
 					openEditPcDialog={combatProps.openEditPcDialog}
 					party={combatProps.party}
 					setCombat={combatProps.setCombat}
 					setCombatTurn={combatProps.setCombatTurn}
 					setEnemies={combatProps.setEnemies}
+					setIndex={combatProps.setIndex}
 					setOpenEditEnemyDialog={combatProps.setOpenEditEnemyDialog}
 					setOpenEditPcDialog={combatProps.setOpenEditPcDialog}
 					partyLevel={combatProps.partyLevel}

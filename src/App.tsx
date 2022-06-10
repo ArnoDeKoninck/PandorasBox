@@ -19,6 +19,7 @@ function App() {
 	const [partySize, setPartySize] = React.useState(1);
 	const [party, setParty] = React.useState<Entity[]>([]);
 	const [enemies, setEnemies] = React.useState<Entity[]>([]);
+	const [index, setIndex] = React.useState<number>(0);
 	const [openEditPcDialog, setOpenEditPcDialog] = React.useState<Entity | undefined>(undefined);
 	const [openEditEnemyDialog, setOpenEditEnemyDialog] = React.useState<Entity | undefined>(undefined);
 	const [combat, setCombat] = React.useState<Entity[]>([]);
@@ -41,6 +42,7 @@ function App() {
 		combat,
 		enemies,
 		combatTurn,
+		index,
 		openEditEnemyDialog,
 		openEditPcDialog,
 		party,
@@ -48,6 +50,7 @@ function App() {
 		setCombat,
 		setCombatTurn,
 		setEnemies,
+		setIndex,
 		setOpenEditEnemyDialog,
 		setOpenEditPcDialog,
 		setParty,

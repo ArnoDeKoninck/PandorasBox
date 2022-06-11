@@ -47,7 +47,7 @@ function CombatModule({ combat, index, setIndex, party, setParty, partyLevel, se
 				<InitiativeTracker combat={combat} combatTurn={combatTurn} onChangeTurn={setCombatTurn} />
 			</Grid>
 			{openEditPcDialog && <EditPcDialog pc={openEditPcDialog} setOpenEditPcDialog={setOpenEditPcDialog} />}
-			{openEditEnemyDialog && <EditEnemyDialog enemies={enemies} index={index} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />}
+			{openEditEnemyDialog && <EditEnemyDialog setEnemies={setEnemies} enemies={enemies} index={index} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />}
 		</Grid>
 	);
 }

@@ -6,20 +6,31 @@ import StatBlockModule from "../StatBlock/StatblockModule";
 
 interface EditEnemyDialogProps {
 	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
+	setEnemies: (input: Entity[]) => void;
 	enemies: Entity[];
 	index: number;
 }
-function EditEnemyDialog({ enemies, index, setOpenEditEnemyDialog }: EditEnemyDialogProps) {
-	console.log(``);
-	console.log(index);
+function EditEnemyDialog({ enemies, index, setEnemies, setOpenEditEnemyDialog }: EditEnemyDialogProps) {
 	const [currentEnemy, setCurrentEnemy] = React.useState<Entity>(enemies[index]);
 	const handleClose = () => {
 		setOpenEditEnemyDialog(undefined);
 	};
 
 	const onSubmit = () => {
-		enemies[index] = { ...enemies[index], ...{ currentHealth: currentEnemy.currentHealth, tempHealth: currentEnemy.tempHealth ?? 0, status: currentEnemy.status ?? undefined, initiative: currentEnemy.initiative } };
+		const updatedEnemies = enemies.map((enemy) => {
+			return { ...enemy };
+		});
 
+		updatedEnemies[index] = {
+			...updatedEnemies[index],
+			...{
+				currentHealth: currentEnemy.currentHealth,
+				tempHealth: currentEnemy.tempHealth ?? 0,
+				status: currentEnemy.status ?? undefined,
+				initiative: currentEnemy.initiative,
+			},
+		};
+		setEnemies(updatedEnemies);
 		handleClose();
 	};
 

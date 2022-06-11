@@ -20,7 +20,15 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 
 	useEffect(() => {
 		if (entity.type === "Monster") {
-			entities[index] = { ...entities[index], ...{ currentHealth: currentHp, tempHealth: tempHp, status: currentStatus, initiative: initiative } };
+			entities[index] = {
+				...entities[index],
+				...{
+					currentHealth: currentHp,
+					tempHealth: tempHp,
+					status: currentStatus,
+					initiative: initiative,
+				},
+			};
 			onChange(entities[index]);
 		}
 	}, [currentHp, tempHp, currentStatus, initiative]);
@@ -212,7 +220,7 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 											label={"Initiative"}
 											value={initiative}
 											onChange={(e: any) => {
-												setInitiative(e.target.value);
+												setInitiative(parseInt(e.target.value));
 											}}
 										/>
 									</Grid>

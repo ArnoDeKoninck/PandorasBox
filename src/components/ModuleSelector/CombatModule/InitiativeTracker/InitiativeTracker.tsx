@@ -33,7 +33,7 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 	const onResetTurns = () => {
 		combat = [];
 	};
-
+	console.log(combat);
 	return (
 		<Card>
 			<CardContent>

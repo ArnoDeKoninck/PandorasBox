@@ -7,7 +7,6 @@ interface HealthBarControlProps extends HealthBarProps {
 	onTempChange: (input: number) => void;
 }
 function HealthBarControls({ onCurrentHpChange, onTempChange, currentHp, tempHp, maxHealth }: HealthBarControlProps) {
-	const classes = useStyles();
 	const onEnterDmg = (e: any) => {
 		if (e.key === "Enter") {
 			onCurrentHpChange(currentHp - parseInt(e.target.value));
@@ -17,7 +16,6 @@ function HealthBarControls({ onCurrentHpChange, onTempChange, currentHp, tempHp,
 	const onEnterHealing = (e: any) => {
 		if (e.key === "Enter") {
 			if (currentHp + parseInt(e.target.value) > maxHealth) {
-				console.log(maxHealth);
 				onCurrentHpChange(maxHealth);
 				e.target.value = "";
 			} else {

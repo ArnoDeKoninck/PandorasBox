@@ -1,32 +1,61 @@
-import { Button, ButtonGroup, Card, CardContent, Container, Divider, Grid, Typography } from "@mui/material";
+import { Button, ButtonGroup, Card, CardContent, Container, Grid } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
 import React, { useEffect } from "react";
-import { customTheme, useStyles } from "./customTheme";
+import { customTheme } from "./customTheme";
 import PartyInformation from "./components/ModuleSelector/CombatModule/partyInformation/PartyInformation";
 import Generators from "./components/generators/Generators";
 import { Encounter, Encounter_Variant } from "./types/EncounterTypes";
 import { Item } from "./types/ItemTypes";
-import { Entity, ViewModules } from "./types/GlobalTypes";
-import { dayTimeEncounterList } from "./data/Encounters/Encounters";
+import { Entity, SessionData, ViewModules } from "./types/GlobalTypes";
 import ModuleSelector from "./components/ModuleSelector/ModuleSelector";
 import { CombatModuleProps } from "./components/ModuleSelector/CombatModule/CombatModule";
 import Jukebox from "./components/Jukebox/Jukebox";
 
 function App() {
-	const [encounter, getEncounter] = React.useState<Encounter | Encounter_Variant | undefined>(dayTimeEncounterList[0].variant![0]);
+	const savedData = JSON.parse(localStorage.getItem("SessionData") ?? "");
+	console.log(savedData);
+	const defaultSession =
+		savedData !== ""
+			? savedData
+			: {
+					combat: [],
+					combatTurn: 0,
+					currentModule: ViewModules.COMBAT,
+					encounter: [],
+					enemies: [],
+					enemyIndex: 0,
+					party: [],
+					partyLevel: 1,
+			  };
+	const [session, setSession] = React.useState<SessionData>(defaultSession);
+	const [encounter, getEncounter] = React.useState<Encounter | Encounter_Variant | undefined>(undefined);
 	const [loot, getLoot] = React.useState<Item[] | undefined>();
-	const [partyLevel, setPartyLevel] = React.useState(1);
-	const [partySize, setPartySize] = React.useState(1);
-	const [party, setParty] = React.useState<Entity[]>([]);
-	const [enemies, setEnemies] = React.useState<Entity[]>([]);
-	const [index, setIndex] = React.useState<number>(0);
+	const [partyLevel, setPartyLevel] = React.useState(session.partyLevel);
+	const [party, setParty] = React.useState<Entity[]>(session.party);
+	const [enemies, setEnemies] = React.useState<Entity[]>(session.enemies);
+	const [enemyIndex, setEnemyIndex] = React.useState<number>(session.enemyIndex);
 	const [openEditPcDialog, setOpenEditPcDialog] = React.useState<Entity | undefined>(undefined);
 	const [openEditEnemyDialog, setOpenEditEnemyDialog] = React.useState<Entity | undefined>(undefined);
-	const [combat, setCombat] = React.useState<Entity[]>([]);
-	const [combatTurn, setCombatTurn] = React.useState<number>(0);
-	const [currentModule, setCurrentModule] = React.useState<ViewModules>(ViewModules.COMBAT);
+	const [combat, setCombat] = React.useState<Entity[]>(session.combat);
+	const [combatTurn, setCombatTurn] = React.useState<number>(session.combatTurn);
+	const [currentModule, setCurrentModule] = React.useState<ViewModules>(session.currentModule);
 
-	const classes = useStyles();
+	useEffect(() => {
+		setSession({
+			combat,
+			combatTurn,
+			currentModule,
+			encounter,
+			enemies,
+			enemyIndex,
+			party,
+			partyLevel,
+		});
+	}, [combat, combatTurn, currentModule, encounter, enemies, enemyIndex, party, partyLevel]);
+
+	useEffect(() => {
+		localStorage.setItem("SessionData", JSON.stringify(session));
+	}, [session]);
 
 	useEffect(() => {
 		setCombat([...enemies, ...party].sort((a, b) => b.initiative! - a.initiative!));
@@ -42,7 +71,7 @@ function App() {
 		combat,
 		enemies,
 		combatTurn,
-		index,
+		enemyIndex,
 		openEditEnemyDialog,
 		openEditPcDialog,
 		party,
@@ -50,7 +79,7 @@ function App() {
 		setCombat,
 		setCombatTurn,
 		setEnemies,
-		setIndex,
+		setEnemyIndex,
 		setOpenEditEnemyDialog,
 		setOpenEditPcDialog,
 		setParty,
@@ -66,10 +95,10 @@ function App() {
 								<CardContent>
 									<Grid container rowGap={2}>
 										<Grid item xs={12}>
-											<PartyInformation partySize={partySize} partyLevel={partyLevel} setPartyLevel={setPartyLevel} setPartySize={setPartySize} />
+											<PartyInformation partyLevel={partyLevel} setPartyLevel={setPartyLevel} />
 										</Grid>
 										<Grid item xs={12}>
-											<Jukebox></Jukebox>
+											<Jukebox />
 										</Grid>
 									</Grid>
 								</CardContent>

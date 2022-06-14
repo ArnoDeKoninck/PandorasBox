@@ -38,7 +38,7 @@ function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setPa
 				<Grid container padding={3} gap={2}>
 					<Grid item xs={12}>
 						<Grid container alignItems={"center"}>
-							<Grid item xs={3}>
+							<Grid item md={3} xs={12}>
 								<FormControl fullWidth>
 									<TextField size={"small"} className={classes.headerTitle} select id="pcs" value={selectedPc} label="Add PCs to the party" onChange={(e) => addSelectedPcToParty(e.target.value)}>
 										<MenuItem value={"Select the PC to add to the party"}>Select a PC to add to the party</MenuItem>
@@ -66,7 +66,7 @@ function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setPa
 						<Grid container>
 							{party &&
 								party.map((pc) => (
-									<Grid key={pc.name} item xs={3} padding={1}>
+									<Grid key={pc.name} item lg={3} md={4} sm={12} padding={1}>
 										<PcDetailCard partyLevel={partyLevel} pc={pc} setOpenEditPcDialog={setOpenEditPcDialog} />
 									</Grid>
 								))}

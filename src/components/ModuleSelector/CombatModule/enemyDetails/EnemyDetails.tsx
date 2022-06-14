@@ -36,8 +36,8 @@ function EnemyDetails({ enemies, index, setIndex, setOpenEditEnemyDialog, setEne
 			<Card>
 				<Grid container padding={3} gap={2}>
 					<Grid item xs={12}>
-						<Grid container alignItems={"center"}>
-							<Grid item xs={3}>
+						<Grid container alignItems={"center"} gap={2}>
+							<Grid item sm={3} xs={12}>
 								<FormControl fullWidth>
 									<TextField size={"small"} className={classes.headerTitle} id="enemies" select value={selectedEnemy} label="Add Enemies to the fight">
 										<MenuItem value={"Select the Enemy to add to the fight"}>Select an Enemy to add to the fight</MenuItem>
@@ -49,7 +49,7 @@ function EnemyDetails({ enemies, index, setIndex, setOpenEditEnemyDialog, setEne
 									</TextField>
 								</FormControl>
 							</Grid>
-							<Grid item xs={9}>
+							<Grid item sm={9} xs={12}>
 								<Grid container>
 									{enemies &&
 										enemies.map((enemy, index) => (
@@ -65,7 +65,7 @@ function EnemyDetails({ enemies, index, setIndex, setOpenEditEnemyDialog, setEne
 						<Grid container>
 							{enemies &&
 								enemies.map((enemy, i) => (
-									<Grid key={i} item xs={3} padding={1}>
+									<Grid key={i} item lg={3} md={4} sm={12} padding={1}>
 										<EnemyDetailsCard enemy={enemy} index={index} setIndex={() => setIndex(i)} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
 									</Grid>
 								))}

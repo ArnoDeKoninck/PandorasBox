@@ -3,7 +3,7 @@ import { FastForward, FastRewind, Refresh } from "@mui/icons-material";
 import { Encounter } from "../../../../types/EncounterTypes";
 import { Entity } from "../../../../types/GlobalTypes";
 import { green } from "@mui/material/colors";
-import { useStyles } from "../../../../customTheme";
+import customTheme, { useStyles } from "../../../../customTheme";
 
 interface InitiativeProps {
 	combat: (Entity | Encounter)[];
@@ -33,25 +33,55 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 	const onResetTurns = () => {
 		combat = [];
 	};
-	console.log(combat);
 	return (
 		<Card>
 			<CardContent>
 				<Grid container>
 					<Grid item xs={12}>
-						<Grid container alignItems={"center"}>
+						<Grid container alignItems={"center"} justifyContent={"space-between"}>
 							<Grid item xs={8}>
 								<Typography variant={"h6"}>Initiative Tracker</Typography>
 							</Grid>
 							<Grid item flexShrink={2}>
-								<IconButton disabled={combat.length < 1} size="small" color={"secondary"} onClick={() => onPreviousTurn()}>
+								<IconButton
+									size="small"
+									color={"secondary"}
+									onClick={() => onResetTurns()}
+									sx={{
+										"&:hover > *": {
+											color: customTheme.palette.primary.dark,
+										},
+									}}
+								>
+									<Refresh fontSize="inherit" />
+								</IconButton>
+							</Grid>
+							<Grid item flexShrink={2}>
+								<IconButton
+									disabled={combat.length < 1}
+									size="small"
+									color={"secondary"}
+									onClick={() => onPreviousTurn()}
+									sx={{
+										"&:hover > *": {
+											color: customTheme.palette.primary.dark,
+										},
+									}}
+								>
 									<FastRewind fontSize="inherit" />
 								</IconButton>
-								<IconButton disabled={combat.length < 1} size="small" color={"secondary"} onClick={() => onNextTurn()}>
+								<IconButton
+									disabled={combat.length < 1}
+									size="small"
+									color={"secondary"}
+									onClick={() => onNextTurn()}
+									sx={{
+										"&:hover > *": {
+											color: customTheme.palette.primary.dark,
+										},
+									}}
+								>
 									<FastForward fontSize="inherit" />
-								</IconButton>
-								<IconButton size="small" color={"secondary"} onClick={() => onResetTurns()}>
-									<Refresh fontSize="inherit" />
 								</IconButton>
 							</Grid>
 						</Grid>
@@ -66,9 +96,9 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 										<Grid key={index} item xs={12}>
 											<Card className={classes.itemCard} style={combatTurn === index ? { boxShadow: `0px 0px 10px 4px ${green[500]}` } : {}}>
 												<CardContent>
-													<Grid container alignItems={"center"}>
+													<Grid container justifyContent={"center"} alignItems={"center"} gap={1}>
 														<Grid item flexGrow={4}>
-															{entity.image && <CardMedia component="img" height={80} src={`/images/${entity.image}`} />}
+															{entity.image && <CardMedia component="img" height={80} src={`/images/${entity.image}`} sx={{ objectFit: "contain" }} />}
 														</Grid>
 														<Grid item xs={8}>
 															<Grid container rowGap={1} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>

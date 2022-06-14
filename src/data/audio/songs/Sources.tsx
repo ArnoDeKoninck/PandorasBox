@@ -39,6 +39,7 @@ export const CombatSongList: SongType[] = [
 		url: "https://www.youtube.com/watch?v=s49GLLCLVAg&ab_channel=JustinBell-Topic",
 		tags: ["generic"],
 	},
+
 	{
 		name: "Wasteland War by TabletopRPGMusic",
 		url: "audio/songs/Wasteland_War_(combat)_by_Tabletop_RPG_Music.mp3",
@@ -58,5 +59,11 @@ export const BossThemeList: SongType[] = [
 		url: "audio/songs/StrahdsVengeance.mp3",
 		tags: ["epic"],
 		boss: "Strahd Von Zarovich",
+	},
+	{
+		name: "Twin Princes",
+		url: "https://www.youtube.com/watch?v=L6sFp6pG6_w&ab_channel=YukaKitamura-Topic",
+		tags: ["dramatic"],
+		boss: "",
 	},
 ];

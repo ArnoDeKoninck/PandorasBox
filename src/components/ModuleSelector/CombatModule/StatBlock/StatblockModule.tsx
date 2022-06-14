@@ -218,9 +218,9 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 										<TextField
 											inputProps={{ min: 0, style: { textAlign: "center" } }}
 											label={"Initiative"}
-											value={initiative}
+											value={initiative ?? 0}
 											onChange={(e: any) => {
-												setInitiative(parseInt(e.target.value));
+												setInitiative(isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value));
 											}}
 										/>
 									</Grid>

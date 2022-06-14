@@ -6,7 +6,6 @@ export interface HealthBarProps {
 	maxHealth: number;
 }
 function HealthBar({ currentHp, tempHp, maxHealth }: HealthBarProps) {
-	console.log(`currentHp: ${currentHp},MaxHp: ${maxHealth},tempHp: ${tempHp}`);
 	return (
 		<Grid container columnGap={1}>
 			<Grid item xs={8}>

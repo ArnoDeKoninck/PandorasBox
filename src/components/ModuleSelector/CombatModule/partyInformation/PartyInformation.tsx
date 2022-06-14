@@ -4,22 +4,16 @@ import { useStyles } from "../../../../customTheme";
 
 interface props {
 	partyLevel: number;
-	partySize: number;
 	setPartyLevel: (input: any) => void;
-	setPartySize: (input: any) => void;
 }
-function PartyInformation({ partySize, partyLevel, setPartyLevel, setPartySize }: props) {
+function PartyInformation({ partyLevel, setPartyLevel }: props) {
 	const changePartyLevel = (event: any) => {
 		setPartyLevel(event.target.value);
-	};
-	const changePartySize = (event: any) => {
-		setPartySize(event.target.value);
 	};
 	const classes = useStyles();
 	const ITEM_HEIGHT = 48;
 	const ITEM_PADDING_TOP = 8;
 	const maxLevel = 20;
-	const maxPartySize = 8;
 
 	return (
 		<Grid container justifyContent={"space-between"} alignItems={"center"}>

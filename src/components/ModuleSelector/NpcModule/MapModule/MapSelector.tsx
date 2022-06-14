@@ -2,7 +2,6 @@ import { LocalGroceryStore, LocationCity, LocationOn, PriorityHigh, SavedSearch,
 import { Card, CardMedia, Divider, FormControl, Grid, IconButton, MenuItem, TextField, Tooltip } from "@mui/material";
 import React from "react";
 import customTheme, { useStyles } from "../../../../customTheme";
-import { BaroviaLocations } from "../../../../data/MapLocations/Barovia/BaroviaLocation";
 import { AllMaps } from "../../../../data/maps/maps";
 import { Maps } from "../../../../types/GlobalTypes";
 
@@ -20,7 +19,6 @@ function MapSelector() {
 		const offsetY = e.nativeEvent.offsetY;
 		const offsetX = e.nativeEvent.offsetX;
 		setMousePosition({ x: (offsetX / map.width) * 100, y: (offsetY / map.height) * 100 });
-		console.log(mousePosition);
 	};
 
 	const changeMap = (mapName: string) => {

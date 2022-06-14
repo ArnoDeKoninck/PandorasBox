@@ -1,4 +1,4 @@
-import { Encounter } from "./EncounterTypes";
+import { Encounter, Encounter_Variant } from "./EncounterTypes";
 import { Weapon } from "./ItemTypes";
 
 export enum ViewModules {
@@ -204,6 +204,17 @@ export interface PointOfIntrest {
 	type: string;
 	note: string;
 	events?: string[];
+}
+
+export interface SessionData {
+	combat: Entity[];
+	combatTurn: number;
+	currentModule: ViewModules;
+	encounter: Encounter | Encounter_Variant | undefined;
+	enemies: Entity[];
+	enemyIndex: number;
+	party: Entity[];
+	partyLevel: number;
 }
 
 export interface SongType {

@@ -1,0 +1,6 @@
+Still to do:
+-On-hover tooltips for each condition
+-UI for tracking resources
+-Sound buttons per monster
+-Song button per boss battle
+-Logging session to local storage

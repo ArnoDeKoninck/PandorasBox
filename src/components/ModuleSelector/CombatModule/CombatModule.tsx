@@ -16,8 +16,8 @@ export interface CombatModuleProps {
 	setOpenEditPcDialog: (input: Entity | undefined) => void;
 	enemies: Entity[];
 	setEnemies: (input: Entity[]) => void;
-	index: number;
-	setIndex: (input: number) => void;
+	enemyIndex: number;
+	setEnemyIndex: (input: number) => void;
 	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
 	combatTurn: number;
 	setCombatTurn: (input: number) => void;
@@ -25,10 +25,10 @@ export interface CombatModuleProps {
 	openEditEnemyDialog: Entity | undefined;
 }
 
-function CombatModule({ combat, index, setIndex, party, setParty, partyLevel, setOpenEditPcDialog, enemies, setEnemies, setOpenEditEnemyDialog, combatTurn, setCombatTurn, openEditEnemyDialog, openEditPcDialog }: CombatModuleProps) {
+function CombatModule({ combat, enemyIndex, setEnemyIndex, party, setParty, partyLevel, setOpenEditPcDialog, enemies, setEnemies, setOpenEditEnemyDialog, combatTurn, setCombatTurn, openEditEnemyDialog, openEditPcDialog }: CombatModuleProps) {
 	return (
-		<Grid container gap={2}>
-			<Grid item flexGrow={2}>
+		<Grid container gap={2} wrap="nowrap">
+			<Grid item flexGrow={1}>
 				<Grid container flexDirection={"column"}>
 					<Grid item xs={12}>
 						<PartyDetails party={party} setParty={setParty} partySize={party.length} partyLevel={partyLevel} setOpenEditPcDialog={setOpenEditPcDialog} />
@@ -38,16 +38,16 @@ function CombatModule({ combat, index, setIndex, party, setParty, partyLevel, se
 							<Divider variant="middle" sx={{ padding: "1rem", color: pink[800], borderColor: pink[800], "&::before": { borderColor: pink[800] }, "&::after": { borderColor: pink[800] } }}>
 								Versus
 							</Divider>
-							<EnemyDetails enemies={enemies} setEnemies={setEnemies} index={index} setIndex={setIndex} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
+							<EnemyDetails enemies={enemies} setEnemies={setEnemies} index={enemyIndex} setIndex={setEnemyIndex} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
 						</Grid>
 					)}
 				</Grid>
 			</Grid>
-			<Grid item xs={12} md={2}>
+			<Grid item flexGrow={1} sx={{ maxWidth: "200px" }}>
 				<InitiativeTracker combat={combat} combatTurn={combatTurn} onChangeTurn={setCombatTurn} />
 			</Grid>
 			{openEditPcDialog && <EditPcDialog pc={openEditPcDialog} setOpenEditPcDialog={setOpenEditPcDialog} />}
-			{openEditEnemyDialog && <EditEnemyDialog setEnemies={setEnemies} enemies={enemies} index={index} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />}
+			{openEditEnemyDialog && <EditEnemyDialog setEnemies={setEnemies} enemies={enemies} index={enemyIndex} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />}
 		</Grid>
 	);
 }

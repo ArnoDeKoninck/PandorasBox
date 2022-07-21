@@ -66,8 +66,8 @@ function EnemyDetailsCard({ enemy, index, setIndex, setOpenEditEnemyDialog }: Pc
 											<Typography>Spellslots:</Typography>
 										</Grid>
 
-										{enemy.spellSlots &&
-											enemy.spellSlots.map((spellSlot: number, index: number) => (
+										{enemy.resources &&
+											enemy.resources.map((spellSlot: number, index: number) => (
 												<Grid key={spellSlot} item xs={2}>
 													<TextField className={classes.headerTitle} disabled label={index + 1} value={spellSlot} />
 												</Grid>

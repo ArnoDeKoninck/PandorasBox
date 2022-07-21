@@ -14,6 +14,14 @@ export const SoundList: SoundType[] = [
 		url: ["https://youtu.be/pJoQeRt6k7c", "https://youtu.be/wuKl1wEXJ_Y"],
 	},
 	{
+		name: "Cult Deep chanting",
+		url: ["https://youtu.be/E3bfeK7_zoE"],
+	},
+	{
+		name: "Distant baby crying",
+		url: ["https://youtu.be/PEyjDx_ZMzQ"],
+	},
+	{
 		name: "Door Creaking",
 		url: ["audio/sounds/creakyDoor_001.mp3", "https://youtu.be/b2sppPIYy1A"],
 	},

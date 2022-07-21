@@ -70,8 +70,8 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 											<Typography>Spellslots:</Typography>
 										</Grid>
 
-										{pc.spellSlots &&
-											pc.spellSlots.map((spellSlot: number, index: number) => (
+										{pc.resources &&
+											pc.resources.map((spellSlot: number, index: number) => (
 												<Grid key={spellSlot} item xs={2}>
 													<TextField className={classes.headerTitle} disabled label={index + 1} value={spellSlot} />
 												</Grid>

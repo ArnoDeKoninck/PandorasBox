@@ -12,7 +12,7 @@ import { CombatModuleProps } from "./components/ModuleSelector/CombatModule/Comb
 import Jukebox from "./components/Jukebox/Jukebox";
 
 function App() {
-	const savedData = JSON.parse(localStorage.getItem("SessionData") ?? "");
+	const savedData = JSON.parse(localStorage.getItem("SessionData") ?? "") ?? "";
 	console.log(savedData);
 	const defaultSession =
 		savedData !== ""

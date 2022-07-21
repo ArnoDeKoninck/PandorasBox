@@ -20,64 +20,12 @@ function MapSelector() {
 		const offsetX = e.nativeEvent.offsetX;
 		setMousePosition({ x: (offsetX / map.width) * 100, y: (offsetY / map.height) * 100 });
 	};
-
+	console.log(mousePosition);
 	const changeMap = (mapName: string) => {
 		const map = AllMaps.filter((map) => map.name === mapName);
 		setSelectedMap(map[0] as Maps);
 	};
 
-	const getLocationIcon = (locationType: string) => {
-		switch (locationType) {
-			case "location":
-				return (
-					<LocationOn
-						sx={{
-							color: customTheme.palette.secondary.main,
-						}}
-					/>
-				);
-			case "village":
-				return (
-					<LocationCity
-						sx={{
-							color: customTheme.palette.secondary.main,
-						}}
-					/>
-				);
-			case "shop":
-				return (
-					<LocalGroceryStore
-						sx={{
-							color: customTheme.palette.secondary.main,
-						}}
-					/>
-				);
-			case "tavern":
-				return (
-					<SportsBar
-						sx={{
-							color: customTheme.palette.secondary.main,
-						}}
-					/>
-				);
-			case "search":
-				return (
-					<SavedSearch
-						sx={{
-							color: customTheme.palette.secondary.main,
-						}}
-					/>
-				);
-			case "event":
-				return (
-					<PriorityHigh
-						sx={{
-							color: customTheme.palette.secondary.main,
-						}}
-					/>
-				);
-		}
-	};
 	const classes = useStyles();
 	return (
 		<Grid container>
@@ -107,16 +55,17 @@ function MapSelector() {
 											<div>
 												{location.name}
 												<Divider sx={{ marginBottom: "5px" }} />
+												{location.flavorText}
 												{location.note}
-												<br />
-												<br />
-												{location.events &&
-													location.events!.map((event: string) => {
-														<div style={{ marginBottom: "5px" }}>{event}</div>;
-													})}
+												{location.events && (
+													<div style={{ marginTop: "1rem" }}>
+														Events:
+														<ul>{location.events}</ul>
+													</div>
+												)}
 											</div>
 										}
-										componentsProps={{ tooltip: { sx: { backgroundColor: customTheme.palette.primary.dark, fontSize: "1rem", maxWidth: 500 } } }}
+										componentsProps={{ tooltip: { sx: { backgroundColor: customTheme.palette.primary.dark, fontSize: "1rem", maxWidth: 500, maxHeight: 250, overflow: "auto" } } }}
 									>
 										<div style={{ zIndex: 2, position: "absolute", left: `${location.coordinates.x}%`, top: `${location.coordinates.y}%`, borderRadius: "20px" }}>
 											<IconButton
@@ -126,6 +75,9 @@ function MapSelector() {
 													backgroundColor: customTheme.palette.primary.dark,
 													"&:hover > *": {
 														color: customTheme.palette.primary.dark,
+													},
+													"&:hover img": {
+														filter: "none !important",
 													},
 												}}
 											>
@@ -144,3 +96,67 @@ function MapSelector() {
 	);
 }
 export default MapSelector;
+
+export const getLocationIcon = (locationType: string) => {
+	switch (locationType) {
+		case "location":
+			return (
+				<LocationOn
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			);
+		case "village":
+			return (
+				<LocationCity
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			);
+		case "shop":
+			return (
+				<LocalGroceryStore
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			);
+		case "tavern":
+			return (
+				<SportsBar
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			);
+		case "search":
+			return (
+				<SavedSearch
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			);
+		case "event":
+			return (
+				<PriorityHigh
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			);
+		case "trap":
+			return (
+				<img
+					src="images/trap.svg"
+					style={{
+						width: "1.5rem",
+						height: "1.5rem",
+						filter: "invert(84%) sepia(17%) saturate(353%) hue-rotate(195deg) brightness(95%) contrast(91%)",
+					}}
+				/>
+			);
+	}
+};

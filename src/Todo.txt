@@ -4,3 +4,4 @@ Still to do:
 -Sound buttons per monster
 -Song button per boss battle
 -Logging session to local storage
+-Fix location card events

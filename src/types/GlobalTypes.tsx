@@ -145,7 +145,7 @@ export interface Entity {
 	status: Status[];
 	initiative: number;
 	tempHealth?: number;
-	spellSlots?: number[];
+	resources?: number[];
 	alignment?: string;
 	description?: string;
 	age?: string;
@@ -203,7 +203,8 @@ export interface PointOfIntrest {
 	};
 	type: string;
 	note: string;
-	events?: string[];
+	events?: JSX.Element[];
+	flavorText?: JSX.Element[];
 }
 
 export interface SessionData {

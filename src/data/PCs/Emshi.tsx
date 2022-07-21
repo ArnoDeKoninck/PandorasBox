@@ -1,14 +1,13 @@
-import { getClassResources } from "../../components/ModuleSelector/CombatModule/partyInformation/ClassResource";
 import { Classes, Entity, Status } from "../../types/GlobalTypes";
 
-export const Dela_Ral_Dur: Entity = {
-	name: "Dela_Ral_Dur",
+export const Emshi: Entity = {
+	name: "Emshi",
 	type: "PC",
 	size: "Medium",
-	image: "Dela_Ral_Dur.png",
-	class: Classes.BARBARIAN,
-	currentHealth: 20,
-	maxHealth: 20,
+	image: "Emshi.png",
+	class: Classes.DRUID,
+	currentHealth: 12,
+	maxHealth: 12,
 	skills: [
 		{ name: "Acrobatics", value: 2 },
 		{ name: "Animal Handling", value: 1 },
@@ -43,5 +42,4 @@ export const Dela_Ral_Dur: Entity = {
 	initiative: 0,
 	ac: 13,
 	status: [Status.NONE],
-	resources: getClassResources(Classes.BARBARIAN, 1),
 };

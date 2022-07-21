@@ -265,6 +265,10 @@ export const useStyles = makeStyles((theme: Theme) =>
 				boxShadow: " 0px 5px 5px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%)",
 			},
 		},
+		npcCardTitle: {
+			textAlign: "center",
+			color: customTheme.palette.secondary.light,
+		},
 		link: {
 			borderBottom: `1px solid ${customTheme.palette.secondary.main}`,
 			"&:hover": { cursor: "pointer" },

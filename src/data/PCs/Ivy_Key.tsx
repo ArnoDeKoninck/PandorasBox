@@ -42,5 +42,5 @@ export const Ivy_Key: Entity = {
 	description: "",
 	status: [Status.NONE],
 	initiative: 0,
-	spellSlots: [2],
+	resources: [2],
 };

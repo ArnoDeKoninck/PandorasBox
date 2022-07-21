@@ -5,16 +5,19 @@ import { Entity, Status } from "../../../../types/GlobalTypes";
 import HealthBarControls from "../HealthBar/HealthBarControls";
 import SetStatus from "../Status/SetStatus";
 import StatusChip from "../Status/StatusChip";
+import ClassResource from "./ClassResource";
 
 interface EditPcDialogProps {
 	setOpenEditPcDialog: (input: Entity | undefined) => void;
 	pc: Entity;
+	level: number;
 }
-function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
+function EditPcDialog({ pc, level, setOpenEditPcDialog }: EditPcDialogProps) {
 	const [currentHp, setCurrentHp] = React.useState<number>(pc.currentHealth);
 	const [tempHp, setTempHp] = React.useState<number>(pc.tempHealth ?? 0);
 	const [status, setStatus] = React.useState<Status[]>(pc.status);
 	const [initiative, setInitiative] = React.useState<string>(pc.initiative.toString());
+	const [resources, setResources] = React.useState<number[] | undefined>(pc.resources);
 
 	const handleClose = () => {
 		setOpenEditPcDialog(undefined);
@@ -30,6 +33,9 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 		pc.tempHealth = tempHp ?? 0;
 		pc.status = status ?? undefined;
 		pc.initiative = parseInt(initiative);
+		pc.resources = resources;
+		console.log(pc.resources);
+		setResources(pc.resources);
 		handleClose();
 	};
 
@@ -69,6 +75,12 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 									</Grid>
 								</Grid>
 							</Grid>
+							{resources && (
+								<Grid item xs={5}>
+									<ClassResource entity={pc} level={level} setResources={setResources} resources={resources} />
+								</Grid>
+							)}
+
 							<Grid item xs={1}>
 								<TextField
 									inputProps={{ min: 0, style: { textAlign: "center" } }}

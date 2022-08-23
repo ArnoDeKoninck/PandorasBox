@@ -5,6 +5,7 @@ import { Entity } from "../../../../types/GlobalTypes";
 import { PCs } from "../../../../data/PCs/Pcs";
 import { ThemeProvider } from "@mui/styles";
 import PcDetailCard from "./PcDetailCard";
+import { getClassResources } from "./ClassResource";
 
 interface props {
 	party: Entity[];
@@ -21,6 +22,7 @@ function PartyDetails({ party, partySize, partyLevel, setOpenEditPcDialog, setPa
 	async function addSelectedPcToParty(pcName: string) {
 		PCs.map((pc) => {
 			if (pcName === pc.name) {
+				pc.resources = getClassResources(pc.class!, partyLevel).resource;
 				setSelectedPc(pc.name);
 				setParty([...party, pc]);
 			}

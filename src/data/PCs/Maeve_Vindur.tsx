@@ -1,3 +1,4 @@
+import { getClassResources } from "../../components/ModuleSelector/CombatModule/partyInformation/ClassResource";
 import { Classes, Entity, Status } from "../../types/GlobalTypes";
 
 export const Maeve_Vindur: Entity = {
@@ -42,4 +43,5 @@ export const Maeve_Vindur: Entity = {
 	initiative: 0,
 	ac: 11,
 	status: [Status.NONE],
+	resources: getClassResources(Classes.BARD, 1).resource,
 };

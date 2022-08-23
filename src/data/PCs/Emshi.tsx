@@ -1,3 +1,4 @@
+import { getClassResources } from "../../components/ModuleSelector/CombatModule/partyInformation/ClassResource";
 import { Classes, Entity, Status } from "../../types/GlobalTypes";
 
 export const Emshi: Entity = {
@@ -42,4 +43,5 @@ export const Emshi: Entity = {
 	initiative: 0,
 	ac: 13,
 	status: [Status.NONE],
+	resources: getClassResources(Classes.DRUID, 1).resource,
 };

@@ -289,5 +289,11 @@ export const useStyles = makeStyles((theme: Theme) =>
 					filter: "invert(0.8)",
 				},
 		},
+		spellslotBox: {
+			textAlign: "center",
+			padding: 0,
+			width: "2rem",
+			height: "2rem",
+		},
 	})
 );

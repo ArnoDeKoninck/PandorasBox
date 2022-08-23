@@ -43,5 +43,5 @@ export const Dela_Ral_Dur: Entity = {
 	initiative: 0,
 	ac: 13,
 	status: [Status.NONE],
-	resources: getClassResources(Classes.BARBARIAN, 1),
+	resources: getClassResources(Classes.BARBARIAN, 1).resource,
 };

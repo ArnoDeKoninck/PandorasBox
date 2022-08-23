@@ -1,7 +1,8 @@
 import { Card, CardContent, Grid, CardMedia, Typography, LinearProgress, TextField } from "@mui/material";
 import { useStyles } from "../../../../customTheme";
-import { Entity, Status } from "../../../../types/GlobalTypes";
+import { Classes, Entity, Status } from "../../../../types/GlobalTypes";
 import StatusChip from "../Status/StatusChip";
+import { getClassResources } from "./ClassResource";
 
 interface PcDetailCardProps {
 	pc: Entity;
@@ -67,13 +68,12 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 								<Grid item xs={12}>
 									<Grid container rowGap={1}>
 										<Grid item xs={12}>
-											<Typography>Spellslots:</Typography>
+											<Typography>{getClassResources(pc.class!, partyLevel).title}</Typography>
 										</Grid>
-
 										{pc.resources &&
 											pc.resources.map((spellSlot: number, index: number) => (
 												<Grid key={spellSlot} item xs={2}>
-													<TextField className={classes.headerTitle} disabled label={index + 1} value={spellSlot} />
+													<TextField className={classes.headerTitle} inputProps={{ className: classes.spellslotBox }} disabled label={index + 1} value={spellSlot} />
 												</Grid>
 											))}
 									</Grid>

@@ -98,7 +98,7 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 												<CardContent>
 													<Grid container justifyContent={"center"} alignItems={"center"} gap={1}>
 														<Grid item flexGrow={4}>
-															{entity.image && <CardMedia component="img" height={80} src={`PandorasBox/images/${entity.image}`} sx={{ objectFit: "contain" }} />}
+															{entity.image && <CardMedia component="img" height={80} src={`./images/${entity.image}`} sx={{ objectFit: "contain" }} />}
 														</Grid>
 														<Grid item xs={8}>
 															<Grid container rowGap={1} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>

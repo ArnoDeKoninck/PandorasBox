@@ -41,7 +41,7 @@ function EditEnemyDialog({ enemies, index, setEnemies, setOpenEditEnemyDialog }:
 			<DialogContent>
 				<Grid container>
 					<Grid item xs={2}>
-						<CardMedia component="img" height={200} src={`PandorasBox/images/${enemies[index].image}`} />
+						<CardMedia component="img" height={200} src={`./images/${enemies[index].image}`} />
 					</Grid>
 					{/* Health bar container*/}
 					<Grid item xs={10}>

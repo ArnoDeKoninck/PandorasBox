@@ -1,7 +1,7 @@
 import { Card, CardContent, CardMedia, Divider, Grid, ThemeProvider, Typography } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
-import customTheme, { useStyles } from "../customTheme";
+import customTheme from "../customTheme";
 import { npcs } from "../data/npcs";
 function Npc() {
 	const urlName = useParams();
@@ -26,8 +26,6 @@ function Npc() {
 
 	const npc = npcs.filter((npc) => npc.name === npcName)[0];
 
-	const classes = useStyles();
-
 	return (
 		<ThemeProvider theme={customTheme}>
 			<Grid container padding={"1rem"}>
@@ -40,7 +38,7 @@ function Npc() {
 									<Divider />
 								</Grid>
 								<Grid item xs={2}>
-									<CardMedia component="img" src={`PandorasBox/images/${npc.image}`} alt={npc.name}></CardMedia>
+									<CardMedia component="img" src={`./images/${npc.image}`} alt={npc.name}></CardMedia>
 								</Grid>
 								<Grid item flexGrow={1}>
 									<Typography sx={{ fontSize: "1rem", textDecoration: "underline" }}>Description: </Typography>

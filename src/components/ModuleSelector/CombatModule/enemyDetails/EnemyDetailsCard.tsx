@@ -18,7 +18,7 @@ function EnemyDetailsCard({ enemy, index, setIndex, setOpenEditEnemyDialog }: Pc
 					{/* Character Image container*/}
 					<Grid container>
 						<Grid item xs={3}>
-							<CardMedia component="img" height={100} src={`PandorasBox/images/${enemy.image}`} sx={{ objectFit: "contain" }} />
+							<CardMedia component="img" height={100} src={`./images/${enemy.image}`} sx={{ objectFit: "contain" }} />
 						</Grid>
 						<Grid item xs={9}>
 							<Grid container padding={"5px"}>

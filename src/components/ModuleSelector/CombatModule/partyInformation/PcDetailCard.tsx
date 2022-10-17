@@ -1,6 +1,6 @@
 import { Card, CardContent, Grid, CardMedia, Typography, LinearProgress, TextField } from "@mui/material";
 import { useStyles } from "../../../../customTheme";
-import { Classes, Entity, Status } from "../../../../types/GlobalTypes";
+import { Entity, Status } from "../../../../types/GlobalTypes";
 import StatusChip from "../Status/StatusChip";
 import { getClassResources } from "./ClassResource";
 
@@ -18,7 +18,7 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 					{/* Character Image container*/}
 					<Grid container>
 						<Grid item xs={3}>
-							<CardMedia component="img" height={100} src={`PandorasBox/images/${pc.image}`} sx={{ objectFit: "contain" }} />
+							<CardMedia component="img" height={100} src={`./images/${pc.image}`} sx={{ objectFit: "contain" }} />
 						</Grid>
 						<Grid item xs={9}>
 							<Grid container padding={"5px"}>

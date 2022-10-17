@@ -86,7 +86,7 @@ function MapSelector() {
 										</div>
 									</Tooltip>
 								))}
-								<CardMedia sx={{ boxSizing: "border-box" }} component="img" src={`PandorasBox` + selectedMap.img} onMouseMove={getMousePosition} />
+								<CardMedia sx={{ boxSizing: "border-box" }} component="img" src={`./` + selectedMap.img} onMouseMove={getMousePosition} />
 							</Card>
 						</Grid>
 					</Grid>
@@ -150,7 +150,8 @@ export const getLocationIcon = (locationType: string) => {
 		case "trap":
 			return (
 				<img
-					src="PandorasBox/images/trap.svg"
+					alt="trap_icon"
+					src="./images/trap.svg"
 					style={{
 						width: "1.5rem",
 						height: "1.5rem",

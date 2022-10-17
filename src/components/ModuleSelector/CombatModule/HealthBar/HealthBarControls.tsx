@@ -1,5 +1,4 @@
 import { Grid, FormControl, TextField } from "@mui/material";
-import { useStyles } from "../../../../customTheme";
 import HealthBar, { HealthBarProps } from "./HealthBar";
 
 interface HealthBarControlProps extends HealthBarProps {

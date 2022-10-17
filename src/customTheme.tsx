@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { green, grey, pink } from "@mui/material/colors";
+import { grey, pink } from "@mui/material/colors";
 import { createStyles, makeStyles } from "@mui/styles";
 import { Theme } from "@mui/system";
 

@@ -31,7 +31,7 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 			};
 			onChange(entities[index]);
 		}
-	}, [currentHp, tempHp, currentStatus, initiative]);
+	}, [currentHp, tempHp, currentStatus, initiative, entities, entity.type, index, onChange]);
 
 	const removeStatus = (statusToRemove: Status) => {
 		const newStatusArray = currentStatus.filter((status) => status !== statusToRemove);

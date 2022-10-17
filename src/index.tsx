@@ -3,16 +3,16 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Npc from "./routes/Npc";
 
 ReactDOM.render(
-	<BrowserRouter basename={process.env.PUBLIC_URL}>
+	<HashRouter basename={process.env.PUBLIC_URL}>
 		<Routes>
 			<Route path="/" element={<App />} />
 			<Route path="npc/:name" element={<Npc />} />
 		</Routes>
-	</BrowserRouter>,
+	</HashRouter>,
 	document.getElementById("root")
 );
 

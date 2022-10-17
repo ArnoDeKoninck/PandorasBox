@@ -1,5 +1,4 @@
 import { PointOfIntrest } from "../../../types/GlobalTypes";
-import { direWolf } from "../../Monsters/Monsters";
 
 export const BaroviaLocations: PointOfIntrest[] = [
 	{

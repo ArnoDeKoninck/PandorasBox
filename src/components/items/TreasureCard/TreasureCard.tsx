@@ -10,7 +10,7 @@ interface props {
 
 function TreasureCard({ item }: props) {
 	const classes = useStyles();
-	const { name, description, amount, link, weight, uses, spellScroll } = item.variant && item.spellScroll ? (generateRandomItem(item.variant) as Item) : item;
+	const { name, description, amount, link } = item.variant && item.spellScroll ? (generateRandomItem(item.variant) as Item) : item;
 	return (
 		<Card style={{ backgroundColor: grey[800] }}>
 			<CardContent>

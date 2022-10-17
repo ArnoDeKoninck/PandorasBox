@@ -7,7 +7,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Npc from "./routes/Npc";
 
 ReactDOM.render(
-	<HashRouter basename={process.env.PUBLIC_URL}>
+	<HashRouter>
 		<Routes>
 			<Route path="/" element={<App />} />
 			<Route path="npc/:name" element={<Npc />} />

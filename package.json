@@ -1,4 +1,5 @@
 {
+  "homepage": "https://github.com/ArnoDeKoninck/PandorasBox",
   "name": "loot-generator",
   "version": "0.1.0",
   "private": false,
@@ -18,8 +19,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
     "typescript": "^4.5.4",
-    "web-vitals": "^2.1.2",
-    "homepage": "https://ArnoDeKoninck.github.io/PandorasBox"
+    "web-vitals": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

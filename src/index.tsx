@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Npc from "./routes/Npc";
 
 ReactDOM.render(
-	<BrowserRouter>
+	<BrowserRouter basename={process.env.PUBLIC_URL}>
 		<Routes>
 			<Route path="/" element={<App />} />
 			<Route path="npc/:name" element={<Npc />} />

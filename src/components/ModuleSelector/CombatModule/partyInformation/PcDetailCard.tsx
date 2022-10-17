@@ -18,7 +18,7 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 					{/* Character Image container*/}
 					<Grid container>
 						<Grid item xs={3}>
-							<CardMedia component="img" height={100} src={`/images/${pc.image}`} sx={{ objectFit: "contain" }} />
+							<CardMedia component="img" height={100} src={`PandorasBox/images/${pc.image}`} sx={{ objectFit: "contain" }} />
 						</Grid>
 						<Grid item xs={9}>
 							<Grid container padding={"5px"}>

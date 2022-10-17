@@ -40,7 +40,7 @@ function Npc() {
 									<Divider />
 								</Grid>
 								<Grid item xs={2}>
-									<CardMedia component="img" src={`/images/${npc.image}`} alt={npc.name}></CardMedia>
+									<CardMedia component="img" src={`PandorasBox/images/${npc.image}`} alt={npc.name}></CardMedia>
 								</Grid>
 								<Grid item flexGrow={1}>
 									<Typography sx={{ fontSize: "1rem", textDecoration: "underline" }}>Description: </Typography>

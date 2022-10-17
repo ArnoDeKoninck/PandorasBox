@@ -46,7 +46,7 @@ function EditPcDialog({ pc, level, setOpenEditPcDialog }: EditPcDialogProps) {
 			<DialogContent>
 				<Grid container>
 					<Grid item xs={2}>
-						<CardMedia component="img" height={200} src={`/images/${pc.image}`} />
+						<CardMedia component="img" height={200} src={`PandorasBox/images/${pc.image}`} />
 					</Grid>
 					{/* Health bar container*/}
 					<Grid item xs={10}>

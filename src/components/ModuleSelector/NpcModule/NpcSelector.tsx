@@ -21,7 +21,7 @@ function NpcSelector() {
 										npcs.map((npc) => (
 											<Grid key={npc.name} item xs={4} md={1}>
 												<Card className={classes.npcCard} onClick={() => window.open(`npc/${npc.name.replaceAll(" ", "_").toLowerCase()}`)}>
-													{npc.image && <CardMedia component="img" height="180" src={`/images/${npc.image}`} alt={npc.name} />}
+													{npc.image && <CardMedia component="img" height="180" src={`PandorasBox/images/${npc.image}`} alt={npc.name} />}
 													<Typography align="center" className={classes.npcCardTitle}>
 														{npc.name}
 													</Typography>

@@ -1,35 +1,29 @@
 import { Card, Chip, FormControl, Grid, MenuItem, TextField } from "@mui/material";
-import React from "react";
 import customTheme, { useStyles } from "../../../../customTheme";
 import { Entity } from "../../../../types/GlobalTypes";
 import { ThemeProvider } from "@mui/styles";
 import EnemyDetailsCard from "./EnemyDetailsCard";
 import { EnemyList } from "../../../../data/Monsters/Monsters";
+import { useAppDispatch, useAppSelector } from "src/app/hooks";
+import { addEntityToEnemies, removeEntityFromEnemies } from "src/features/enemySlice";
 
-interface props {
-	enemies: Entity[];
-	index: number;
-	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
-	setEnemies: (input: Entity[]) => void;
-	setIndex: (input: number) => void;
-}
-
-function EnemyDetails({ enemies, index, setIndex, setOpenEditEnemyDialog, setEnemies }: props) {
-	const [selectedEnemy, setSelectedEnemy] = React.useState<string>("");
+function EnemyDetails() {
 	const classes = useStyles();
 
-	async function addSelectedEnemyToParty(enemyName: string) {
-		EnemyList.map((enemy) => {
-			if (enemyName === enemy.name) {
-				setSelectedEnemy(enemy.name);
-				setEnemies([...enemies, enemy]);
-			}
-			return enemy;
-		});
-	}
-	function removeEnemy(index: number) {
-		setEnemies([...enemies.slice(0, index), ...enemies.slice(index + 1, enemies.length)]);
-	}
+	const currentEnemies = useAppSelector((state) => state.enemies);
+	const dispatch = useAppDispatch();
+
+	const handleAddEnemy = (enemyName: string) => {
+		//Checks if the clicked enemy matches one in the enemy list and adds it to enemies
+		const selectedEnemy = EnemyList.find((enemy) => enemy.name === enemyName);
+		if (selectedEnemy) {
+			dispatch(addEntityToEnemies(selectedEnemy));
+		}
+	};
+
+	const handleRemoveEnemy = (index: number) => {
+		dispatch(removeEntityFromEnemies(index));
+	};
 
 	return (
 		<ThemeProvider theme={customTheme}>
@@ -39,10 +33,10 @@ function EnemyDetails({ enemies, index, setIndex, setOpenEditEnemyDialog, setEne
 						<Grid container alignItems={"center"} gap={2}>
 							<Grid item sm={3} xs={12}>
 								<FormControl fullWidth>
-									<TextField size={"small"} className={classes.headerTitle} id="enemies" select value={selectedEnemy} label="Add Enemies to the fight">
+									<TextField size={"small"} className={classes.headerTitle} id="enemies" select value={currentEnemies.entities[currentEnemies.entities.length] ?? "Select the Enemy to add to the fight"} onChange={(e) => handleAddEnemy(e.target.value)} label="Add Enemies to the fight">
 										<MenuItem value={"Select the Enemy to add to the fight"}>Select an Enemy to add to the fight</MenuItem>
 										{EnemyList.map((enemy: Entity, i) => (
-											<MenuItem key={i} value={enemy.name} onClick={(e: any) => addSelectedEnemyToParty(e.target.textContent as string)}>
+											<MenuItem key={i} value={enemy.name}>
 												{enemy.name}
 											</MenuItem>
 										))}
@@ -51,10 +45,10 @@ function EnemyDetails({ enemies, index, setIndex, setOpenEditEnemyDialog, setEne
 							</Grid>
 							<Grid item sm={9} xs={12}>
 								<Grid container>
-									{enemies &&
-										enemies.map((enemy, index) => (
+									{currentEnemies.entities &&
+										currentEnemies.entities.map((enemy, index) => (
 											<Grid item key={index} marginLeft={1}>
-												<Chip label={enemy.name} onDelete={() => removeEnemy(index)} />
+												<Chip label={enemy.name} onDelete={() => handleRemoveEnemy(index)} />
 											</Grid>
 										))}
 								</Grid>
@@ -63,10 +57,10 @@ function EnemyDetails({ enemies, index, setIndex, setOpenEditEnemyDialog, setEne
 					</Grid>
 					<Grid item xs={12}>
 						<Grid container>
-							{enemies &&
-								enemies.map((enemy, i) => (
-									<Grid key={i} item lg={3} md={4} sm={12} padding={1}>
-										<EnemyDetailsCard enemy={enemy} index={index} setIndex={() => setIndex(i)} setOpenEditEnemyDialog={setOpenEditEnemyDialog} />
+							{currentEnemies.entities &&
+								currentEnemies.entities.map((enemy, index) => (
+									<Grid key={index} item lg={3} md={4} sm={12} padding={1}>
+										{<EnemyDetailsCard index={index} />}
 									</Grid>
 								))}
 						</Grid>

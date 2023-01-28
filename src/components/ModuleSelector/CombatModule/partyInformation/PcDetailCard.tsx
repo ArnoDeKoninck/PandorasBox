@@ -11,6 +11,7 @@ interface PcDetailCardProps {
 }
 function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps) {
 	const classes = useStyles();
+
 	return (
 		<Card className={classes.itemCard}>
 			<CardContent>
@@ -23,11 +24,11 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 						<Grid item xs={9}>
 							<Grid container padding={"5px"}>
 								{/* General info container*/}
-								<Grid container>
-									<Grid item xs={6}>
+								<Grid container columnSpacing={1} justifyContent="space-between">
+									<Grid item>
 										<Typography align={"left"}>{pc.name}</Typography>
 									</Grid>
-									<Grid item xs={6}>
+									<Grid item>
 										<Typography align={"center"}>
 											{pc.class}: {partyLevel}
 										</Typography>
@@ -36,13 +37,13 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 								{/* Health bar container*/}
 								<Grid item xs={12}>
 									<Grid container spacing={1}>
-										<Grid item xs={7}>
+										<Grid item xs={8}>
 											<LinearProgress color="success" variant="buffer" value={100 / (pc.maxHealth / pc.currentHealth)} valueBuffer={pc.currentHealth + (pc.tempHealth ?? 0)} />
 										</Grid>
-										<Grid item xs={5}>
+										<Grid item xs={4}>
 											<Typography>{`${pc.currentHealth + (pc.tempHealth ?? 0)}${pc.tempHealth ? "(+" + pc.tempHealth + ")" : ""}/${pc.maxHealth} HP`}</Typography>
 										</Grid>
-										<Grid item xs={12}>
+										<Grid item xs={8}>
 											<Typography>Status:</Typography>
 											<Grid container>
 												{pc.status &&
@@ -55,6 +56,9 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 															)
 													)}
 											</Grid>
+										</Grid>
+										<Grid item xs={4}>
+											<Typography>Initiative: {pc.initiative}</Typography>
 										</Grid>
 									</Grid>
 								</Grid>
@@ -72,7 +76,7 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 										</Grid>
 										{pc.resources &&
 											pc.resources.map((spellSlot: number, index: number) => (
-												<Grid key={spellSlot} item xs={2}>
+												<Grid key={`${pc.name} ${spellSlot} ${index}`} item xs={2}>
 													<TextField className={classes.headerTitle} inputProps={{ className: classes.spellslotBox }} disabled label={index + 1} value={spellSlot} />
 												</Grid>
 											))}

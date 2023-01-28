@@ -1,15 +1,17 @@
 import { Grid, TextField, Typography } from "@mui/material";
+import { useAppSelector } from "src/app/hooks";
 import { Classes, Entity } from "../../../../types/GlobalTypes";
 
 interface Props {
 	entity: Entity;
-	level: number;
 	resources: number[];
 	setResources: (input: number[]) => void;
 }
 
-function ClassResource({ entity, level, resources, setResources }: Props) {
-	return <>{getResourceUI(entity, level, resources, setResources)}</>;
+function ClassResource({ entity, resources, setResources }: Props) {
+	const partyLevel = useAppSelector((state) => state.party.partyLevel);
+
+	return <>{getResourceUI(entity, partyLevel, resources, setResources)}</>;
 }
 
 export default ClassResource;
@@ -19,7 +21,6 @@ function getResourceUI(entity: Entity, level: number, resources: number[], setRe
 		setResources(resources.map((resource, index) => (index === indexNumber ? input : resource)));
 	};
 	entity.resources = getClassResources(entity.class!, level).resource;
-	console.log(entity.resources);
 	switch (entity.class) {
 		case Classes.BARBARIAN:
 			return (
@@ -30,6 +31,7 @@ function getResourceUI(entity: Entity, level: number, resources: number[], setRe
 					onChange={(e: any) => {
 						handleChangeResource(e.target.value as number, 1);
 					}}
+					key={`${"Rage value"}`}
 				/>
 			);
 		default:
@@ -40,7 +42,7 @@ function getResourceUI(entity: Entity, level: number, resources: number[], setRe
 					</Grid>
 
 					{resources.map((amount, index) => (
-						<Grid item>
+						<Grid item key={`${entity.name} Resource ${index + 1}`}>
 							<TextField
 								inputProps={{ min: 0, style: { textAlign: "center", width: "2rem", height: "2rem", padding: 0 } }}
 								label={index + 1}

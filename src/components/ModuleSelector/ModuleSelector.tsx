@@ -27,7 +27,6 @@ function ModuleSelector({ moduleToShow, combatProps }: ModuleSelectorProps) {
 					setEnemyIndex={combatProps.setEnemyIndex}
 					setOpenEditEnemyDialog={combatProps.setOpenEditEnemyDialog}
 					setOpenEditPcDialog={combatProps.setOpenEditPcDialog}
-					partyLevel={combatProps.partyLevel}
 					setParty={combatProps.setParty}
 				/>
 			)}

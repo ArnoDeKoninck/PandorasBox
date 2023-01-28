@@ -1,5 +1,5 @@
 import { CasinoOutlined } from "@mui/icons-material";
-import { Grid, IconButton, MenuItem, TextField } from "@mui/material";
+import { Card, CardContent, Grid, IconButton, MenuItem, TextField, Typography } from "@mui/material";
 import React from "react";
 import ReactPlayer from "react-player";
 import customTheme, { useStyles } from "../../customTheme";
@@ -47,95 +47,117 @@ function Jukebox() {
 
 	const classes = useStyles();
 
+	const isSongYoutube: boolean = song.url.startsWith("audio") ? false : true;
+	const isSoundYoutube: boolean = selectedSound.startsWith("audio") ? false : true;
+
 	return (
-		<Grid container rowGap={2}>
-			<Grid container gap={2} alignItems="center">
-				<Grid item xs={4}>
-					<TextField
-						fullWidth
-						select
-						value={category}
-						onChange={(e) => updateSongList(e.target.value, "Category")}
-						label="Song Category"
-						SelectProps={{
-							MenuProps: {
-								style: { maxHeight: 200 },
-							},
-						}}
-					>
-						{songCategoryList.map((category) => (
-							<MenuItem value={category}>{category}</MenuItem>
-						))}
-					</TextField>
-				</Grid>
-				<Grid item xs={4}>
-					<TextField
-						fullWidth
-						select
-						value={mood}
-						onChange={(e) => updateSongList(e.target.value, "Mood")}
-						label="Song Mood"
-						SelectProps={{
-							MenuProps: {
-								style: { maxHeight: 200 },
-							},
-						}}
-					>
-						{songTagList.map((tag) => (
-							<MenuItem value={tag}>{tag}</MenuItem>
-						))}
-					</TextField>
-				</Grid>
-				<Grid item xs={7}>
-					<TextField fullWidth select value={song.url} onChange={(e) => getSelectedSong(e.target.value)} label="Select Song">
-						{songList.map((song) => (
-							<MenuItem key={song.url} value={song.url}>
-								{song.name}
-							</MenuItem>
-						))}
-					</TextField>
-				</Grid>
-				<Grid item xs={2}>
-					<IconButton
-						onClick={() => setRandomSong()}
-						component="span"
-						sx={{
-							backgroundColor: customTheme.palette.primary.dark,
-							"&:hover > *": {
-								color: customTheme.palette.primary.dark,
-							},
-						}}
-					>
-						<CasinoOutlined
-							sx={{
-								color: customTheme.palette.secondary.main,
-							}}
-						/>
-					</IconButton>
-				</Grid>
-				{song && (
-					<Grid item xs={12}>
-						<ReactPlayer className={classes.audioControls} width="100%" height="3rem" controls url={song.url} onEnded={() => setRandomSong()} playing={playing} muted={muted} />
+		<>
+			<Card>
+				<CardContent sx={{ paddingLeft: 0, paddingTop: 0 }}>
+					<Grid container spacing={2} paddingRight={2} justifyContent="space-between" alignItems="center">
+						<Grid item xs={12}>
+							<Typography sx={{ fontSize: "2rem" }} className={classes.headerTitle}>
+								Pandora's Box
+							</Typography>
+						</Grid>
+
+						<Grid item xs={6}>
+							<TextField
+								fullWidth
+								select
+								value={category}
+								onChange={(e) => updateSongList(e.target.value, "Category")}
+								label="Song Category"
+								SelectProps={{
+									MenuProps: {
+										style: { maxHeight: 200 },
+									},
+								}}
+							>
+								{songCategoryList.map((category) => (
+									<MenuItem key={category} value={category}>
+										{category}
+									</MenuItem>
+								))}
+							</TextField>
+						</Grid>
+						<Grid item xs={6}>
+							<TextField
+								fullWidth
+								select
+								value={mood}
+								onChange={(e) => updateSongList(e.target.value, "Mood")}
+								label="Song Mood"
+								SelectProps={{
+									MenuProps: {
+										style: { maxHeight: 200 },
+									},
+								}}
+							>
+								{songTagList.map((tag) => (
+									<MenuItem key={tag} value={tag}>
+										{tag}
+									</MenuItem>
+								))}
+							</TextField>
+						</Grid>
+						<Grid item xs={12}>
+							<Grid container alignItems="center" columnGap={2}>
+								<Grid item flexGrow={5}>
+									<TextField fullWidth select value={song.url} onChange={(e) => getSelectedSong(e.target.value)} label="Select Song">
+										{songList.map((song) => (
+											<MenuItem key={song.url} value={song.url}>
+												{song.name}
+											</MenuItem>
+										))}
+									</TextField>
+								</Grid>
+								<Grid item xs={1}>
+									<IconButton
+										onClick={() => setRandomSong()}
+										component="span"
+										sx={{
+											backgroundColor: customTheme.palette.primary.dark,
+											"&:hover > *": {
+												color: customTheme.palette.primary.dark,
+											},
+										}}
+									>
+										<CasinoOutlined
+											sx={{
+												color: customTheme.palette.secondary.main,
+											}}
+										/>
+									</IconButton>
+								</Grid>
+							</Grid>
+						</Grid>
+
+						{song && (
+							<Grid item xs={12}>
+								<ReactPlayer className={classes.audioControls} width="100%" height={isSongYoutube ? "300px" : "3rem"} controls url={song.url} onEnded={() => setRandomSong()} playing={playing} muted={muted} />
+							</Grid>
+						)}
+
+						<Grid item xs={7}>
+							<TextField fullWidth select value={selectedSound} onChange={(e) => setSelectedSound(e.target.value)} label="Play Sound">
+								{SoundList.map((sound) => (
+									<MenuItem key={sound.url[(sound.url.length * Math.random()) << 0]} value={sound.url[(sound.url.length * Math.random()) << 0]}>
+										{sound.name}
+									</MenuItem>
+								))}
+							</TextField>
+						</Grid>
+						{song && (
+							<Grid item xs={4}>
+								<ReactPlayer className={classes.audioControls} width="100%" height={isSoundYoutube ? "100px" : "3rem"} controls url={selectedSound} />
+							</Grid>
+						)}
 					</Grid>
-				)}
-			</Grid>
-			<Grid container justifyContent={"space-between"}>
-				<Grid item xs={7}>
-					<TextField fullWidth select value={selectedSound} onChange={(e) => setSelectedSound(e.target.value)} label="Play Sound">
-						{SoundList.map((sound) => (
-							<MenuItem key={sound.url[(sound.url.length * Math.random()) << 0]} value={sound.url[(sound.url.length * Math.random()) << 0]}>
-								{sound.name}
-							</MenuItem>
-						))}
-					</TextField>
-				</Grid>
-				{song && (
-					<Grid item xs={4}>
-						<ReactPlayer className={classes.audioControls} width="100%" height="3rem" controls url={selectedSound} />
-					</Grid>
-				)}
-			</Grid>
-		</Grid>
+				</CardContent>
+			</Card>
+		</>
 	);
 }
+
 export default Jukebox;

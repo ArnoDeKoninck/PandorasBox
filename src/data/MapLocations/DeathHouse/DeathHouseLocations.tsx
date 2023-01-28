@@ -688,3 +688,108 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		note: "A Flesh mount lies sleeping in the corner. The baby walter has been fused to the core of the flesh mount and awakens when the cultists are not appeased or time runs out. He attacks the party if awakened.",
 	},
 ];
+
+export const DeathHouseEscapeLocations: PointOfIntrest[] = [
+	{
+		name: "Portculis",
+		coordinates: { x: 74.5, y: 68 },
+		type: "location",
+		note: "This tunnel is blocked by a rusty iron portcullis. PCs can make a DC 11 skill check to unstuck thee the wheel mechanism and open the portculis.",
+	},
+	{
+		name: "Ghoul Encounter",
+		coordinates: { x: 71.4, y: 36.3 },
+		type: "trap",
+		note: "As the party passes by a stray Ghoul lurches out from around a corner and tries to grapple a PC. DC 12 skill check. Combat is one fail.",
+	},
+	{
+		name: "Dining Hall",
+		coordinates: { x: 71.4, y: 29.7 },
+		type: "location",
+		note: "You arrive back at the dining hall as you hear screams for help come from within it. You see a man strapped to the table with iron shackles and his chest bared. You see a large gash run the length of his chest as blood gushes out with each pulse of his terrified heart. He begs and pleads for release as he sees you. The loud and frantic shouting appears to cause a commotion as you hear distant footsteps coming closer. DC 13",
+	},
+	{
+		name: "Cult Initiates' Quarters",
+		coordinates: { x: 62.5, y: 12.1 },
+		type: "location",
+		note: "The cultists quarters is covered in a thick black smoke that seems to obscure your vision to a foot infront of you. DC 13 on a fail a skeleteon grapples a skeleton into the well where they manage to cut lose and crawl back out for 1 failure.",
+	},
+	{
+		name: "Hunter's Den",
+		coordinates: { x: 18, y: 88 },
+		type: "location",
+		note: "The hunter's den is covered in a thick smoke and you hear the sound of claws on wood and low rumbling snarls. DC 12 or attacked by wolves and a failure",
+	},
+	{
+		name: "Secret Stairway",
+		coordinates: { x: 32.5, y: 48.8 },
+		type: "trap",
+		note: "As you rush up the stairs hundreds of tiny spiderlings rush at you but seem to ignore you and continue past you downstairs. You hear a screesh as you turn back to see 8 giant red eyes stalking you from the depths. DC 14 or last person webbed and pulled back down. They can escape with one additional failure.",
+	},
+	{
+		name: "Attic Hall",
+		coordinates: { x: 43, y: 50.8 },
+		type: "location",
+		note: "The windows that were previously there have all been bricked up and don't seem to take any damage. When you go down the stairs the door to the nursemaid's room appears to have been bricked up aswell but strangely the once boarded up door has no signs of the previously present barricade.",
+	},
+	{
+		name: "Conservatory",
+		coordinates: { x: 39.9, y: 88 },
+		type: "location",
+		note: "Gossamer drapes cover the windows of this elegantly appointed hall, which has a brass-plated chandelier hanging from the ceiling. Upholstered chairs line the walls, and stained-glass wall hangings depict beautiful men, women, and children singing and playing instruments. A harpsichord with a bench rests in the northwest corner. Near the fireplace is a large standing harp. Alabaster figurines of well-dressed dancers adorn the mantelpiece. Close inspection of them reveals that several are carvings of well-dressed skeletons. DC 20 optional check to perform music to calm the house",
+	},
+	{
+		name: "Entrance",
+		coordinates: { x: 9.5, y: 93.8 },
+		type: "trap",
+		note: "The front door is bricked up and when characters go to check the double doors behind them slam shut. As they turn around they can see 1/4th of the doors replaced by brick. A toxic gas piles in the room irritating the eyes and making them cough. DC 12 Acrobatics check to hurl themselves through the door before it closes. DC 14 Athletics to break the door with weapon or tools. DC10 con save on fail and the door becomes 1/4th more converted to brick increasing the DC by 4. If they fail they can break the new brick wall but are attacked by a swarm of rats that crawls out from the hole and they gain a failure. ",
+	},
+	{
+		name: "Balcony",
+		coordinates: { x: 16.5, y: 51.7 },
+		type: "location",
+		note: "As you arrive here you see the door that lead to the bathroom bulging and cracking in it's doorframe. There comes a crack, the wood splinters and a torrent of filth comes gushing out threatening to wash you down the broken balcony. DC 14 or swept down the stairs and one failure.",
+	},
+	{
+		name: "Servant's Dumbwaiter",
+		coordinates: { x: 48, y: 77.8 },
+		type: "search",
+		note: "A dumbwaiter in the corner of the west wall has a button on the wall next to it. Pressing the button rings the tiny bell in the kitchen downstairs.",
+	},
+	{
+		name: "Upper Hall",
+		coordinates: { x: 36.7, y: 80.3 },
+		type: "location",
+		note: "The four statues formed up in a phalanx position charge the stairs the characters are coming up from barring their path. DC 14 or combat and a failure.",
+	},
+	{
+		name: "Dumbwaiter",
+		coordinates: { x: 23.8, y: 77.8 },
+		type: "trap",
+		note: "When appreoaching the dumbwaiter, the oven churns and bulges as a gout of flame erupts from within at the PC. DC 12 Dex saving throw or 1D6 Fire dmg as they continue up.",
+	},
+	{
+		name: "Nursemaid's Room",
+		coordinates: { x: 18.5, y: 60.3 },
+		type: "location",
+		note: "As you rush towards the door, you a hear woman shout out, 'Tell me to push, one more time, Inala! One more time, I swear to the Morninglord!' but her curses are quickly consumed by cries of pain. You peek into the room: women crowd around a young girl laying in the bed, her feet up. Her face twists with pain while a midwife says, 'The baby's crowning, but… Gods, it's ankles first.' The balcony—the only way out of this accursed manor—lies nearby, and with frustrated horror, you see that the door has been replaced with bloodied scytheblades that seem to spin even quicker whenever the girl's contractions rage. DC 15 to make it through.",
+	},
+	{
+		name: "Nursemaid's Room Balcony",
+		coordinates: { x: 9.6, y: 61.5 },
+		type: "location",
+		note: "As you open up the balcony you are met with a gust of wind. As you look around you see nothing until your eyeline turns downward. The whole balcony seems to teether on the edge of a thousand feet high cliff plunging in thick clouds of mists as far as you can see. DC 15 to see through the illusion or 2D6 psychic dmg if jumped down.",
+	},
+	{
+		name: "Master Suite",
+		coordinates: { x: 12.9, y: 43.3 },
+		type: "location",
+		note: "The master suite has grown deadly cold: a well-dressed man paces the room while a woman stares at herself in the vanity, her eyes scornful as if to wonder why she wasn't enough for her husband. You recognize the Dursts alive and in the flesh—how or why doesn't matter. The two fall between bouts of silence and explosive rage, arguing over Gustav's infidelity. You look to the corner of the room, to the balcony, that sweet, sweet balcony, the gate to getting the hell out of this accursed manor—and in the doorway spin rusted scythe-blades. You look back: Elisabeth is glaring at you, and she snarls, 'Servant! Get out! Get out! Come back only when the bastard's been born!' You notice with mounting frustration that while Elisabeth snarls at you, the scythe-blades spin pick up speed, spinning ever quicker. DC 15 or failure and a DEX save or 2D10 slashing dmg",
+	},
+	{
+		name: "Master Suite Balcony",
+		coordinates: { x: 23.5, y: 44.7 },
+		type: "location",
+		note: "As you open up the balcony you are met with a gust of wind. As you look around you see nothing until your eyeline turns downward. The whole balcony seems to teether on the edge of a thousand feet high cliff plunging in thick clouds of mists as far as you can see. DC 15 to see through the illusion or 2D6 psychic dmg if jumped down.",
+	},
+];

@@ -1,6 +1,6 @@
 import { Maps } from "../../types/GlobalTypes";
 import { BaroviaLocations } from "../MapLocations/Barovia/BaroviaLocation";
-import { DeathHouseLocations } from "../MapLocations/DeathHouse/DeathHouseLocations";
+import { DeathHouseEscapeLocations, DeathHouseLocations } from "../MapLocations/DeathHouse/DeathHouseLocations";
 import { VillageOfBaroviaLocations } from "../MapLocations/VillageOfBarovia/VillageOfBarovia";
 export const AllMaps: Maps[] = [
 	{ name: "Barovia", img: "/images/barovia_worldmap.webp", locations: BaroviaLocations },

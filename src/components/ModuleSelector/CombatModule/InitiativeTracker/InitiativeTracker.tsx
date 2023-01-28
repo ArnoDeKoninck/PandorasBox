@@ -13,9 +13,12 @@ interface InitiativeProps {
 
 function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps) {
 	const classes = useStyles();
-
+	if (combat.filter((entity) => entity.initiative === undefined).length > 0) {
+		return <div>No initiative found</div>;
+	}
+	const sortedCombat = combat.sort((a, b) => b.initiative! - a.initiative!);
 	const onNextTurn = () => {
-		if (combatTurn + 1 > combat!.length - 1) {
+		if (combatTurn + 1 > sortedCombat!.length - 1) {
 			onChangeTurn(0);
 		} else {
 			onChangeTurn(combatTurn + 1);
@@ -24,7 +27,7 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 
 	const onPreviousTurn = () => {
 		if (combatTurn - 1 < 0) {
-			onChangeTurn(combat!.length - 1);
+			onChangeTurn(sortedCombat!.length - 1);
 		} else {
 			onChangeTurn(combatTurn - 1);
 		}
@@ -90,8 +93,8 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 					</Grid>
 					<Grid item xs={12}>
 						<Grid container rowSpacing={2}>
-							{combat.length > 0 &&
-								combat.map((entity, index) => {
+							{sortedCombat.length > 0 &&
+								sortedCombat.map((entity, index) => {
 									return (
 										<Grid key={index} item xs={12}>
 											<Card className={classes.itemCard} style={combatTurn === index ? { boxShadow: `0px 0px 10px 4px ${green[500]}` } : {}}>

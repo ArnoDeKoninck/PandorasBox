@@ -1,26 +1,36 @@
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, Divider, CardMedia } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { useAppDispatch, useAppSelector } from "src/app/hooks";
+import { updateEnemy } from "src/features/enemySlice";
 import { Entity } from "../../../../types/GlobalTypes";
 
 import StatBlockModule from "../StatBlock/StatblockModule";
 
 interface EditEnemyDialogProps {
+	open: Entity | undefined;
 	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
-	setEnemies: (input: Entity[]) => void;
-	enemies: Entity[];
 	index: number;
 }
-function EditEnemyDialog({ enemies, index, setEnemies, setOpenEditEnemyDialog }: EditEnemyDialogProps) {
-	const [currentEnemy, setCurrentEnemy] = React.useState<Entity>(enemies[index]);
+function EditEnemyDialog({ open, index, setOpenEditEnemyDialog }: EditEnemyDialogProps) {
+	const enemies = useAppSelector((state) => state.enemies.entities);
+	const dispatch = useAppDispatch();
+
+	const currentEnemy = enemies[index];
+	const [updatedEnemy, setUpdatedEnemy] = useState<Entity>(currentEnemy);
+
 	const handleClose = () => {
 		setOpenEditEnemyDialog(undefined);
 	};
 
 	const onSubmit = () => {
+		//handle updates on enemies
+
+		dispatch(updateEnemy({ enemy: updatedEnemy, index: index }));
+		/*
 		const updatedEnemies = enemies.map((enemy) => {
 			return { ...enemy };
 		});
-
+		
 		updatedEnemies[index] = {
 			...updatedEnemies[index],
 			...{
@@ -30,12 +40,12 @@ function EditEnemyDialog({ enemies, index, setEnemies, setOpenEditEnemyDialog }:
 				initiative: currentEnemy.initiative,
 			},
 		};
-		setEnemies(updatedEnemies);
+		setEnemies(updatedEnemies);*/
 		handleClose();
 	};
 
 	return (
-		<Dialog open={enemies[index] ? true : false} onClose={handleClose} fullWidth maxWidth={"lg"}>
+		<Dialog open={open ? true : false} onClose={handleClose} fullWidth maxWidth={"lg"}>
 			<DialogTitle>{`Edit ${enemies[index].name}`}</DialogTitle>
 			<Divider />
 			<DialogContent>
@@ -45,7 +55,7 @@ function EditEnemyDialog({ enemies, index, setEnemies, setOpenEditEnemyDialog }:
 					</Grid>
 					{/* Health bar container*/}
 					<Grid item xs={10}>
-						<StatBlockModule entities={enemies} index={index} onChange={setCurrentEnemy}></StatBlockModule>
+						<StatBlockModule entities={enemies} index={index} onChange={setUpdatedEnemy}></StatBlockModule>
 					</Grid>
 				</Grid>
 			</DialogContent>

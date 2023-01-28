@@ -10,9 +10,8 @@ import ClassResource from "./ClassResource";
 interface EditPcDialogProps {
 	setOpenEditPcDialog: (input: Entity | undefined) => void;
 	pc: Entity;
-	level: number;
 }
-function EditPcDialog({ pc, level, setOpenEditPcDialog }: EditPcDialogProps) {
+function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 	const [currentHp, setCurrentHp] = React.useState<number>(pc.currentHealth);
 	const [tempHp, setTempHp] = React.useState<number>(pc.tempHealth ?? 0);
 	const [status, setStatus] = React.useState<Status[]>(pc.status);
@@ -34,7 +33,6 @@ function EditPcDialog({ pc, level, setOpenEditPcDialog }: EditPcDialogProps) {
 		pc.status = status ?? undefined;
 		pc.initiative = parseInt(initiative);
 		pc.resources = resources;
-		console.log(pc.resources);
 		setResources(pc.resources);
 		handleClose();
 	};
@@ -77,7 +75,7 @@ function EditPcDialog({ pc, level, setOpenEditPcDialog }: EditPcDialogProps) {
 							</Grid>
 							{resources && (
 								<Grid item xs={5}>
-									<ClassResource entity={pc} level={level} setResources={setResources} resources={resources} />
+									<ClassResource entity={pc} setResources={setResources} resources={resources} />
 								</Grid>
 							)}
 

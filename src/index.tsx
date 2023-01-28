@@ -5,14 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Npc from "./routes/Npc";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
 
 ReactDOM.render(
-	<HashRouter>
-		<Routes>
-			<Route path="/" element={<App />} />
-			<Route path="npc/:name" element={<Npc />} />
-		</Routes>
-	</HashRouter>,
+	<Provider store={store}>
+		<HashRouter basename={process.env.PUBLIC_URL}>
+			<Routes>
+				<Route path="/" element={<App />} />
+				<Route path="npc/:name" element={<Npc />} />
+			</Routes>
+		</HashRouter>
+	</Provider>,
 	document.getElementById("root")
 );
 

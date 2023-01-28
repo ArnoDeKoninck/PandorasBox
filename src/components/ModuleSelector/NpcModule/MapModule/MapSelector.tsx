@@ -1,6 +1,7 @@
-import { LocalGroceryStore, LocationCity, LocationOn, PriorityHigh, SavedSearch, SportsBar } from "@mui/icons-material";
-import { Card, CardMedia, Divider, FormControl, Grid, IconButton, MenuItem, TextField, Tooltip } from "@mui/material";
-import React from "react";
+import { LocalGroceryStore, LocationCity, LocationOn, MapsHomeWork, PriorityHigh, SavedSearch, SportsBar } from "@mui/icons-material";
+import { Card, CardMedia, Divider, FormControl, FormControlLabel, FormGroup, Grid, IconButton, MenuItem, Switch, TextField, Tooltip } from "@mui/material";
+import React, { useState } from "react";
+import { DeathHouseEscapeLocations, DeathHouseLocations } from "src/data/MapLocations/DeathHouse/DeathHouseLocations";
 import customTheme, { useStyles } from "../../../../customTheme";
 import { AllMaps } from "../../../../data/maps/maps";
 import { Maps } from "../../../../types/GlobalTypes";
@@ -13,6 +14,7 @@ interface MousePosition {
 function MapSelector() {
 	const [mousePosition, setMousePosition] = React.useState<MousePosition>({ x: 0, y: 0 });
 	const [selectedMap, setSelectedMap] = React.useState<Maps>(AllMaps.filter((map) => map.name === "Barovia")[0]);
+	const [isMapAlternative, setMapAlternative] = useState<boolean>(false);
 
 	const getMousePosition = (e: any) => {
 		const map = e.target.getBoundingClientRect();
@@ -27,13 +29,27 @@ function MapSelector() {
 	};
 
 	const classes = useStyles();
+
+	const swapToAlternativeMap = () => {
+		setMapAlternative((prevState) => !prevState);
+
+		if (!isMapAlternative) {
+			if (selectedMap.name === "Death House") {
+				selectedMap.locations = DeathHouseEscapeLocations;
+			}
+		} else {
+			if (selectedMap.name === "Death House") {
+				selectedMap.locations = DeathHouseLocations;
+			}
+		}
+	};
 	return (
 		<Grid container>
 			<Grid item xs={12}>
 				<Card sx={{ borderTopLeftRadius: 0 }}>
 					<Grid container padding={2} gap={2} justifyContent="center">
 						<Grid item xs={12}>
-							<Grid container>
+							<Grid container columnGap={2}>
 								<Grid item xs={2}>
 									<FormControl fullWidth>
 										<TextField size={"small"} className={classes.headerTitle} select id="maps" value={selectedMap.name} label="Choose the map" onChange={(e: any) => changeMap(e.target.value)}>
@@ -45,6 +61,13 @@ function MapSelector() {
 										</TextField>
 									</FormControl>
 								</Grid>
+								{selectedMap.name === "Death House" && (
+									<Grid item xs={2}>
+										<FormGroup>
+											<FormControlLabel control={<Switch checked={isMapAlternative} onChange={swapToAlternativeMap} color={"error"} />} label="Toggle Skill Challenge" />
+										</FormGroup>
+									</Grid>
+								)}
 							</Grid>
 						</Grid>
 						<Grid item xs={12}>

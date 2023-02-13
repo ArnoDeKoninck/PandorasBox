@@ -1,4 +1,4 @@
-import { LocalGroceryStore, LocationCity, LocationOn, MapsHomeWork, PriorityHigh, SavedSearch, SportsBar } from "@mui/icons-material";
+import { LocalGroceryStore, LocationCity, LocationOn, PriorityHigh, SavedSearch, SportsBar } from "@mui/icons-material";
 import { Card, CardMedia, Divider, FormControl, FormControlLabel, FormGroup, Grid, IconButton, MenuItem, Switch, TextField, Tooltip } from "@mui/material";
 import React, { useState } from "react";
 import { DeathHouseEscapeLocations, DeathHouseLocations } from "src/data/MapLocations/DeathHouse/DeathHouseLocations";

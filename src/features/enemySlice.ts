@@ -21,7 +21,7 @@ const enemySlice = createSlice({
     reducers: {
         //adding an Entity to Enemies.
         addEntityToEnemies(state, action: PayloadAction<Entity>){
-            state.entities = [... state.entities, action.payload]
+            state.entities = [...state.entities, action.payload]
            
         },
         //Removes the selected Entity from Enemies

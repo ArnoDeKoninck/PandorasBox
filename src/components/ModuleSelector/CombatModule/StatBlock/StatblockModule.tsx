@@ -1,6 +1,5 @@
 import { Divider, Grid, TextField, Typography } from "@mui/material";
-import { cp } from "fs";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Entity, Status } from "../../../../types/GlobalTypes";
 import HealthBarControls from "../HealthBar/HealthBarControls";
 import SetStatus from "../Status/SetStatus";
@@ -23,7 +22,7 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 	useEffect(() => {
 		setUpdatedEntity({ ...entity, ...{ currentHealth: currentHp, tempHealth: tempHp, status: currentStatus, initiative: initiative } });
 		onChange(updatedEntity);
-	}, [currentHp, tempHp, currentStatus, initiative, entities, entity.type, index, onChange]);
+	}, [currentHp, tempHp, currentStatus, initiative, entities, entity.type, index, onChange, entity, updatedEntity]);
 
 	const removeStatus = (statusToRemove: Status) => {
 		const newStatusArray = currentStatus.filter((status) => status !== statusToRemove);

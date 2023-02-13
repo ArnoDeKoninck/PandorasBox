@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Card, CardContent, Container, Grid } from "@mui/material";
+import { Button, ButtonGroup, Container, Grid } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
 import React, { useEffect } from "react";
 import { customTheme } from "./customTheme";

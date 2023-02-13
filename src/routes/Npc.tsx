@@ -1,5 +1,5 @@
 import { Card, CardContent, CardMedia, Divider, Grid, ThemeProvider, Typography } from "@mui/material";
-
+import React from "react";
 import { useParams } from "react-router-dom";
 import customTheme from "../customTheme";
 import { npcs } from "../data/npcs";

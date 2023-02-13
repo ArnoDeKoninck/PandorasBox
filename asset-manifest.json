@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.bcd1871f.css",
-    "main.js": "./static/js/main.5f54efde.js",
-    "static/js/787.919b822c.chunk.js": "./static/js/787.919b822c.chunk.js",
-    "index.html": "./index.html",
-    "main.bcd1871f.css.map": "./static/css/main.bcd1871f.css.map",
-    "main.5f54efde.js.map": "./static/js/main.5f54efde.js.map",
-    "787.919b822c.chunk.js.map": "./static/js/787.919b822c.chunk.js.map"
+    "main.css": "/PandorasBox/static/css/main.bcd1871f.css",
+    "main.js": "/PandorasBox/static/js/main.15fc9f7a.js",
+    "static/js/787.919b822c.chunk.js": "/PandorasBox/static/js/787.919b822c.chunk.js",
+    "index.html": "/PandorasBox/index.html",
+    "main.bcd1871f.css.map": "/PandorasBox/static/css/main.bcd1871f.css.map",
+    "main.15fc9f7a.js.map": "/PandorasBox/static/js/main.15fc9f7a.js.map",
+    "787.919b822c.chunk.js.map": "/PandorasBox/static/js/787.919b822c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bcd1871f.css",
-    "static/js/main.5f54efde.js"
+    "static/js/main.15fc9f7a.js"
   ]
 }

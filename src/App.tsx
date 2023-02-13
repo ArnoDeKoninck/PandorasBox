@@ -10,8 +10,6 @@ import ModuleSelector from "./components/ModuleSelector/ModuleSelector";
 import { CombatModuleProps } from "./components/ModuleSelector/CombatModule/CombatModule";
 import Jukebox from "./components/Jukebox/Jukebox";
 import { useAppSelector } from "./app/hooks";
-import { Provider } from "react-redux";
-import { store } from "./app/store";
 
 function App() {
 	const sessionData = localStorage.getItem("SessionData");
@@ -89,40 +87,38 @@ function App() {
 	};
 
 	return (
-		<Provider store={store}>
-			<Container maxWidth={false} sx={{ paddingLeft: "0 !important" }}>
-				<ThemeProvider theme={customTheme}>
-					<Grid container justifyContent={"center"}>
-						<Grid container spacing={2}>
-							<Grid item xs={12} md={6}>
-								<Jukebox />
-							</Grid>
+		<Container maxWidth={false} sx={{ paddingLeft: "0 !important" }}>
+			<ThemeProvider theme={customTheme}>
+				<Grid container justifyContent={"center"}>
+					<Grid container spacing={2}>
+						<Grid item xs={12} md={6}>
+							<Jukebox />
+						</Grid>
 
-							<Grid item xs={12} md={6}>
-								<Generators rollInitiative={rollInitiative} encounter={encounter} loot={loot} partyLevel={partyLevel} getEncounter={getEncounter} getLoot={getLoot} />
-							</Grid>
-							<Grid item xs={12}>
-								<ButtonGroup variant="text" aria-label="outlined primary button group">
-									<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomLeftRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.COMBAT)}>
-										Combat
-									</Button>
-									<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.GENERATORS)}>
-										Generators
-									</Button>
-									<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.NPCS)}>
-										Npcs
-									</Button>
-									<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.MAP)}>
-										Map
-									</Button>
-								</ButtonGroup>
-								<ModuleSelector moduleToShow={currentModule} combatProps={combatProps} />
-							</Grid>
+						<Grid item xs={12} md={6}>
+							<Generators rollInitiative={rollInitiative} encounter={encounter} loot={loot} partyLevel={partyLevel} getEncounter={getEncounter} getLoot={getLoot} />
+						</Grid>
+						<Grid item xs={12}>
+							<ButtonGroup variant="text" aria-label="outlined primary button group">
+								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomLeftRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.COMBAT)}>
+									Combat
+								</Button>
+								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.GENERATORS)}>
+									Generators
+								</Button>
+								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.NPCS)}>
+									Npcs
+								</Button>
+								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.MAP)}>
+									Map
+								</Button>
+							</ButtonGroup>
+							<ModuleSelector moduleToShow={currentModule} combatProps={combatProps} />
 						</Grid>
 					</Grid>
-				</ThemeProvider>
-			</Container>
-		</Provider>
+				</Grid>
+			</ThemeProvider>
+		</Container>
 	);
 }
 

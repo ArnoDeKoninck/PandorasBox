@@ -18,7 +18,7 @@ ReactDOM.render(
 					</Provider>
 				}
 			/>
-			<Route path="npc/:name" element={<Npc />} />
+			<Route path="/npc/:name" element={<Npc />} />
 		</Routes>
 	</HashRouter>,
 	document.getElementById("root")

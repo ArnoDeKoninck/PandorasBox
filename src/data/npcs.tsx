@@ -1,3 +1,5 @@
+import { Factions } from "src/types/GlobalTypes";
+
 export const npcs = [
 	{
 		name: "Abbot",
@@ -7,6 +9,7 @@ export const npcs = [
 		alignment: "Lawful Neutral",
 		description: "The Abbot is an angel of the Morninglord, whose divine purpose is to relieve the people of Barovia from their strife. He believes that the Count is un-killable, and the prevailing tactic should be his appeasement.",
 		cr: 10,
+		tags: [Factions.KREZK],
 	},
 	{
 		name: "Adrian Martikov",
@@ -16,6 +19,7 @@ export const npcs = [
 		alignment: "Lawful Good",
 		description: "Adrian is the middle son of Davian Martikov, and the main protector of the Wizard of the Wines.",
 		cr: 2,
+		tags: [Factions.KREZK, Factions.MARTIKOVS],
 	},
 	{
 		name: "Alenka",
@@ -25,6 +29,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "Alenka is one of three owners of the Blood of the Vine tavern, and outcasts from the Tser Pool camp.",
 		cr: 1,
+		tags: [Factions.BAROVIA, Factions.VISTANI],
 	},
 	{
 		name: "Alexei",
@@ -34,6 +39,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.VALLAKI, Factions.VISTANI],
 	},
 	{
 		name: "Amalthia",
@@ -43,6 +49,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "Amalthia is the junior maid at Wachterhaus and the discontented helper of Stella.",
 		cr: 0,
+		tags: [Factions.VALLAKI],
 	},
 	{
 		name: "Anastraya Karelova",
@@ -52,6 +59,7 @@ export const npcs = [
 		alignment: "Neutral Evil",
 		description: "Anastrasya is a former Vallakian noblewoman and consort of Strahd.",
 		cr: 6,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Anna Krezkova",
@@ -61,6 +69,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "Burgomistress Anna Krezkova is a mother who has endured the deaths of all of her children. She is proud to have managed to revive one through her plea to the Abbot of Markovia.",
 		cr: 0.125,
+		tags: [Factions.KREZK],
 	},
 	{
 		name: "Arabelle",
@@ -70,6 +79,7 @@ export const npcs = [
 		alignment: "Neutral Good",
 		description: "Arabelle is the only daughter of Luvash, and granddaughter of Madam Eva. She has the latter's gift of foresight.",
 		cr: 0,
+		tags: [Factions.VALLAKI, Factions.VISTANI],
 	},
 	{
 		name: "Argynvorst",
@@ -79,6 +89,7 @@ export const npcs = [
 		alignment: "Lawful Good",
 		description: "Lord Argynvost was the commanding founder of the Order of the Silver Dragon, and is widely considered to have been Strahd's greatest adversary during the latter's conquest.",
 		cr: 16,
+		tags: [Factions.ORDER_OF_THE_SILVER_DRAGON],
 	},
 	{
 		name: "Ariel Du Plumette",
@@ -88,6 +99,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Arik Lorensk",
@@ -97,6 +109,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.BAROVIA, Factions.SOULLESS],
 	},
 	{
 		name: "Arrigal",
@@ -106,6 +119,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "Arrigal is Luvash's roguish younger brother and second-in-command of the greater Vistani camp.",
 		cr: 8,
+		tags: [Factions.VALLAKI, Factions.VISTANI],
 	},
 	{
 		name: "Aziana",
@@ -115,6 +129,7 @@ export const npcs = [
 		alignment: "Chaotic Neutral",
 		description: "Aziana is a childhood friend of Zuleika, and a guard of the Werewolf Den.",
 		cr: 3,
+		tags: [Factions.WOR_GOL],
 	},
 	{
 		name: "Baba Lysaga",
@@ -124,6 +139,7 @@ export const npcs = [
 		alignment: "Chaotic Evil",
 		description: "Lysaga went by a different name in her youth as Strahd's nursemaid. She became obsessed with him, even following his deadly conquests into Barovia after she became estranged from him. She now immortally rules the swamp of Berez.",
 		cr: 11,
+		tags: [Factions.BEREZ],
 	},
 	{
 		name: "Bella Sunbane",
@@ -133,6 +149,7 @@ export const npcs = [
 		alignment: "Neutral Good",
 		description: "Bella Sunbane is the daughter of Morgantha, and a baker in Old Bonegrinder.",
 		cr: 3,
+		tags: [Factions.OLD_BONEGRINDER],
 	},
 	{
 		name: "Beucephalus",
@@ -142,6 +159,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Bianca Stoyanova",
@@ -151,6 +169,7 @@ export const npcs = [
 		alignment: "Chaotic Evil",
 		description: "Bianca is the sadistic mate of Kiril, sharing much of his philosophy on what a werewolf should be.",
 		cr: 3,
+		tags: [Factions.WOR_GOL],
 	},
 	{
 		name: "Bildrath Cantemir",
@@ -160,6 +179,7 @@ export const npcs = [
 		alignment: "Lawful Neutral",
 		description: "Bildrath Cantemir has retained the most successful general store in Barovia village through his shrewd and diligent ways.",
 		cr: 0,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Bluto Krogarov",
@@ -169,7 +189,9 @@ export const npcs = [
 		alignment: "Chaotic Evil",
 		description: "Bluto is the town fisherman and drunk. A riot at night, but lonely by day. He is privately very religious and deluded.",
 		cr: 0,
+		tags: [Factions.VALLAKI, Factions.SOULLESS],
 	},
+
 	{
 		name: "Bray Martikov",
 		image: "bray_martikov.webp",
@@ -178,6 +200,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.VALLAKI, Factions.MARTIKOVS],
 	},
 	{
 		name: "Brom Martikov",
@@ -187,6 +210,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.VALLAKI, Factions.MARTIKOVS],
 	},
 	{
 		name: "Caecorum Domina",
@@ -196,15 +220,17 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.DARK_POWERS],
 	},
 	{
-		name: "Cladiu Martikov",
-		image: "cladiu_martikov.webp",
+		name: "Claudiu Tomescu",
+		image: "claudiu_tomescu.webp",
 		species: "Human",
 		age: "Late-30s",
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.VALLAKI],
 	},
 	{
 		name: "Clovin Belview",
@@ -214,6 +240,7 @@ export const npcs = [
 		alignment: "Neutral Evil",
 		description: "Clovin is the bell-ringer and cook for the residents of the Abbey of St. Markovia. He is also a drunk, and talented violinist.",
 		cr: 0.25,
+		tags: [Factions.BELVIEWS],
 	},
 	{
 		name: "Cyrus Belview",
@@ -223,6 +250,7 @@ export const npcs = [
 		alignment: "Neutral Evil",
 		description: "Cyrus is a fearful, mad servant of Strahd, having formerly been the head servant at the Abbey of St. Markovia.",
 		cr: 0.25,
+		tags: [Factions.BELVIEWS, Factions.RAVENLOFT],
 	},
 	{
 		name: "Dag Tomescu",
@@ -232,6 +260,7 @@ export const npcs = [
 		alignment: "Lawful Good",
 		description: "Dag is the husband of Stefania and father of four at the Wizard of the Wines.",
 		cr: 2,
+		tags: [Factions.KEEPERS_OF_THE_FEATHER],
 	},
 	{
 		name: "Danika Darakova",
@@ -241,6 +270,7 @@ export const npcs = [
 		alignment: "Lawful Good",
 		description: "Danika is the tough but kind-hearted owner of the Blue Water Inn in Vallaki.",
 		cr: 2,
+		tags: [Factions.VALLAKI],
 	},
 	{
 		name: "Davanka ",
@@ -250,6 +280,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.WOR_GOL],
 	},
 	{
 		name: "Davian Martikov",
@@ -259,6 +290,7 @@ export const npcs = [
 		alignment: "Lawful Good",
 		description: "Davian is the widower patriarch of the Martikov family, and the owner of the Wizard of the Wines Winery.",
 		cr: 2,
+		tags: [Factions.MARTIKOVS],
 	},
 	{
 		name: "Dhavit",
@@ -268,6 +300,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.VALLAKI],
 	},
 	{
 		name: "Dimira Yolensky",
@@ -277,6 +310,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.KREZK],
 	},
 	{
 		name: "Dmitri Kreskov",
@@ -286,6 +320,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.KREZK],
 	},
 	{
 		name: "Donavich",
@@ -295,6 +330,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Doru",
@@ -304,6 +340,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Dread Titania",
@@ -313,6 +350,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.DARK_POWERS],
 	},
 	{
 		name: "Drusilla",
@@ -322,6 +360,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Elizabeth Garland",
@@ -331,6 +370,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Elvir Martikov",
@@ -340,6 +380,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Emil Toranescu",
@@ -349,6 +390,7 @@ export const npcs = [
 		alignment: "Chaotic Neutral",
 		description: "Emil is a former alpha of the werewolf pack and a prisoner of Strahd, after the vampire's interference in the civil struggle.",
 		cr: 3,
+		tags: [Factions.RAVENLOFT, Factions.WOR_GOL],
 	},
 	{
 		name: "Endorovich The Terrible",
@@ -358,6 +400,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Ernst Larnak",
@@ -367,6 +410,7 @@ export const npcs = [
 		alignment: "Neutral Evil",
 		description: "Larnak is the guileful spy and tactical advisor of Lady Wachter.",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Escher Belasco",
@@ -376,6 +420,7 @@ export const npcs = [
 		alignment: "Chaotic Evil",
 		description: "Escher is the only surviving male consort of Strahd, and fights viciously to remain as such.",
 		cr: 6,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Exethanter",
@@ -385,6 +430,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Ezmeralda D'Avenir",
@@ -394,6 +440,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Fiona Wachter",
@@ -403,6 +450,7 @@ export const npcs = [
 		alignment: "Neutral Evil",
 		description: "Lady Fiona Wachter is the matriarch of the second most powerful family in Vallaki. She seeks to make them the very most.",
 		cr: 2,
+		tags: [],
 	},
 	{
 		name: "Franz Groza",
@@ -412,6 +460,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "Franz is the artistic nephew of Skennis, former alpha of the werewolf pack.",
 		cr: 3,
+		tags: [],
 	},
 	{
 		name: "Gadof Blinsky",
@@ -421,6 +470,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Gertruda",
@@ -430,6 +480,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Godfrey Gwilym",
@@ -439,6 +490,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Gunter & Yelena Arasek",
@@ -448,6 +500,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Haliq",
@@ -457,6 +510,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Helga Ruvak",
@@ -466,6 +520,7 @@ export const npcs = [
 		alignment: "Lawful Evil",
 		description: "Helga is the melancholic and enigmatic maid at Ravenloft.",
 		cr: 5,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Helwa",
@@ -475,6 +530,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Hendrik Van Der Voort",
@@ -484,6 +540,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Ireena Kolyana",
@@ -493,6 +550,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Ismark Kolyanovich",
@@ -502,6 +560,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Izek Stranzi",
@@ -511,6 +570,7 @@ export const npcs = [
 		alignment: "Lawful Evil",
 		description: "Izek is Baron Vargas' infamously brutal protégé and captain of the guard in Vallaki.",
 		cr: 5,
+		tags: [],
 	},
 	{
 		name: "Jeser",
@@ -520,6 +580,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Karl Wachter",
@@ -529,6 +590,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Kasimir Velikov",
@@ -538,6 +600,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Kellen",
@@ -547,6 +610,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Kiril Stoyanovich",
@@ -556,6 +620,7 @@ export const npcs = [
 		alignment: "Chaotic Evil",
 		description: "Kiril is the controversial leader of the werewolf pack in Barovia, having seized command after the mysterious death of his rival, Emil Toranescu.",
 		cr: 4,
+		tags: [],
 	},
 	{
 		name: "Klutz Tripalotsky",
@@ -565,6 +630,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Kolya",
@@ -574,6 +640,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Kretyana Dolvof",
@@ -583,6 +650,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Kroval 'Mad Dog' Grislek",
@@ -592,6 +660,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Lars Kjurls",
@@ -601,6 +670,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Lazlo Ulrich",
@@ -610,6 +680,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Lief Lipsiege",
@@ -619,6 +690,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Lord Goran",
@@ -628,6 +700,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Lucian Petrovich",
@@ -637,6 +710,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Ludmilla Vilisevic",
@@ -646,6 +720,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Luvash",
@@ -655,6 +730,7 @@ export const npcs = [
 		alignment: "Chaotic Neutral",
 		description: "Luvash is the son of Madam Eva, and the de-facto leader of the Vistani in Barovia.",
 		cr: 2,
+		tags: [],
 	},
 	{
 		name: "Lydia Petrovna",
@@ -664,6 +740,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Mad Mage of Mt. Baratok",
@@ -673,6 +750,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Mad Mary",
@@ -682,6 +760,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Madalena",
@@ -691,6 +770,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Madam Eva",
@@ -700,6 +780,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Majesto",
@@ -709,6 +790,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Martin Martikov",
@@ -718,6 +800,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Marzena Belview",
@@ -727,6 +810,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Milivoj",
@@ -736,6 +820,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Mirabel",
@@ -745,6 +830,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Mishka Belview",
@@ -754,6 +840,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Morgantha",
@@ -763,6 +850,7 @@ export const npcs = [
 		alignment: "Neutral Good",
 		description: "Morgantha is the matriarch of the trio living in Old Bonegrinder, and frequents Barovia village to sell her Dream Pastries.",
 		cr: 5,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Muriel Vinshaw",
@@ -772,6 +860,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Neferon",
@@ -781,6 +870,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Nikolai Wachter Jr.",
@@ -790,6 +880,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Offalia Wormwiggle",
@@ -799,6 +890,7 @@ export const npcs = [
 		alignment: "Neutral Good",
 		description: "Morgantha is the matriarch of the trio living in Old Bonegrinder, and frequents Barovia village to sell her Dream Pastries.",
 		cr: 5,
+		tags: [],
 	},
 	{
 		name: "Otto Belview",
@@ -808,6 +900,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Parrywimple",
@@ -817,6 +910,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Patrina Velikovna",
@@ -826,6 +920,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Piccolo",
@@ -835,6 +930,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Piddlewick II",
@@ -844,6 +940,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Rahadin",
@@ -853,6 +950,7 @@ export const npcs = [
 		alignment: "Lawful Evil",
 		description: "Rahadin is Strahd's chamberlain, bodyguard, and only true friend.",
 		cr: 10,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Rictavio",
@@ -862,6 +960,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Rosevalda Durst",
@@ -871,6 +970,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Rudolph Von Richten",
@@ -880,6 +980,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Sangzor",
@@ -889,6 +990,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Sasha Ivliskova",
@@ -898,6 +1000,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Savasha",
@@ -907,6 +1010,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Savid Ygorovich",
@@ -916,6 +1020,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Skennis",
@@ -925,6 +1030,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Sorvia",
@@ -934,6 +1040,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.BAROVIA],
 	},
 	{
 		name: "Stefania Martikova",
@@ -943,6 +1050,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Stella Wachter",
@@ -952,6 +1060,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Strahd Von Zarovich",
@@ -961,6 +1070,7 @@ export const npcs = [
 		alignment: "Lawful Evil",
 		description: "Count Strahd von Zarovich is a vampire and the dark lord of the valley of Barovia.",
 		cr: 17,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Szoldar Szoldarovich",
@@ -970,6 +1080,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Tatyana Federovna",
@@ -979,6 +1090,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Thornbolt Durst",
@@ -988,6 +1100,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Udo Lukovich",
@@ -997,6 +1110,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Urwin Martikov",
@@ -1006,6 +1120,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Vargas Vallakovich",
@@ -1015,6 +1130,7 @@ export const npcs = [
 		alignment: "Lawful Evil",
 		description: "Baron Vargas Vallakovich is the burgomaster of Vallaki, and credits his extreme ruling methods as keeping Strahd out of the territory.",
 		cr: 0.125,
+		tags: [],
 	},
 	{
 		name: "Vasilka",
@@ -1024,6 +1140,7 @@ export const npcs = [
 		alignment: "Lawful Neutral",
 		description: "Vasilka is the Abbot's secret weapon to freeing Barovia from Strahd.",
 		cr: 5,
+		tags: [],
 	},
 	{
 		name: "Victor Vallakovich",
@@ -1033,6 +1150,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Viggo Martikov",
@@ -1042,6 +1160,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Vilnius",
@@ -1051,6 +1170,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Vladimir Horngaard",
@@ -1060,6 +1180,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Volenta Popofsky",
@@ -1069,6 +1190,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Wensencia",
@@ -1078,6 +1200,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Willemina",
@@ -1087,6 +1210,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Wintersplinter",
@@ -1096,6 +1220,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Yaldabaoth",
@@ -1105,6 +1230,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Yeska",
@@ -1114,6 +1240,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Yevgeni Krushkin",
@@ -1123,6 +1250,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Yolanda Martikova",
@@ -1132,6 +1260,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Zuleika Toranescu",
@@ -1141,6 +1270,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 	{
 		name: "Zygfrek Belview",
@@ -1150,5 +1280,6 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
+		tags: [],
 	},
 ];

@@ -7,6 +7,7 @@ export const store = configureStore({
         party: partyReducer,
         enemies: enemyReducer
 
+
     },
     middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

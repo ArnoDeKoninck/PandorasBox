@@ -17,6 +17,23 @@ export enum SavingThrows {
 	WIS,
 }
 
+export enum Factions {
+	RAVENLOFT = "Ravenloft",
+	VISTANI = "Vistani",
+	BAROVIA = "Barovia",
+	KREZK = "Krezk",
+	VALLAKI = "Vallaki",
+	DARK_POWERS = "Dark Powers",
+	MARTIKOVS = "Martikovs",
+	ORDER_OF_THE_SILVER_DRAGON = "Order of the Silver Dragon",
+	SOULLESS = "Soulless",
+	WOR_GOL = "Wor'Gol",
+	BEREZ = "Berez",
+	OLD_BONEGRINDER = "Old Bonegrinder",
+	BELVIEWS = "Belviews",
+	KEEPERS_OF_THE_FEATHER = "Keepers of the feather",
+}
+
 export enum DamageTypes {
 	ACID,
 	BLUDGEONING,

@@ -1,6 +1,6 @@
-import { Factions } from "src/types/GlobalTypes";
+import { Npc, Factions } from "src/types/GlobalTypes";
 
-export const npcs = [
+export const npcs: Npc[] = [
 	{
 		name: "Abbot",
 		image: "abbot.webp",
@@ -720,7 +720,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
-		tags: [],
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Luvash",
@@ -1190,7 +1190,7 @@ export const npcs = [
 		alignment: "True Neutral",
 		description: "placeholder",
 		cr: 1,
-		tags: [],
+		tags: [Factions.RAVENLOFT],
 	},
 	{
 		name: "Wensencia",

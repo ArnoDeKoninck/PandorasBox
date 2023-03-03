@@ -18,6 +18,7 @@ export enum SavingThrows {
 }
 
 export enum Factions {
+	ALL = "All factions",
 	RAVENLOFT = "Ravenloft",
 	VISTANI = "Vistani",
 	BAROVIA = "Barovia",
@@ -172,6 +173,17 @@ export interface Entity {
 	weapon?: Weapon;
 	damage?: Damage;
 	onHit?: number;
+}
+
+export interface Npc {
+	name: string;
+	image: string;
+	species: string;
+	age: string;
+	alignment: string;
+	description: string;
+	cr: number;
+	tags: Factions[];
 }
 
 export interface AbilityScore {

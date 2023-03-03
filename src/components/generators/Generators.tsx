@@ -17,6 +17,7 @@ interface props {
 }
 
 function Generators({ partyLevel, getEncounter, getLoot, encounter, loot, rollInitiative }: props) {
+	partyLevel = 3;
 	return (
 		<Card sx={{ minHeight: "304px" }}>
 			<CardContent>

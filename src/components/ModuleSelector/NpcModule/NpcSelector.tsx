@@ -1,5 +1,5 @@
 import { Search } from "@mui/icons-material";
-import { Grid, Card, Typography, CardMedia, TextField, InputAdornment, MenuItem, DialogContentText, Dialog, DialogContent } from "@mui/material";
+import { Grid, Card, Typography, CardMedia, TextField, InputAdornment, MenuItem, Dialog, DialogContent } from "@mui/material";
 import { useState } from "react";
 import { npcs } from "src/data/npcs";
 import { Npc, Factions } from "src/types/GlobalTypes";

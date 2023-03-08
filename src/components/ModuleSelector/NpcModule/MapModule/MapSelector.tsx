@@ -15,6 +15,7 @@ function MapSelector() {
 	const [mousePosition, setMousePosition] = React.useState<MousePosition>({ x: 0, y: 0 });
 	const [selectedMap, setSelectedMap] = React.useState<Maps>(AllMaps.filter((map) => map.name === "Barovia")[0]);
 	const [isMapAlternative, setMapAlternative] = useState<boolean>(false);
+	const [showIcons, setShowIcons] = useState<boolean>(true);
 
 	const getMousePosition = (e: any) => {
 		const map = e.target.getBoundingClientRect();
@@ -61,6 +62,11 @@ function MapSelector() {
 										</TextField>
 									</FormControl>
 								</Grid>
+								<Grid item xs={2}>
+									<FormGroup>
+										<FormControlLabel control={<Switch checked={showIcons} onChange={() => setShowIcons(!showIcons)} color={"error"} />} label="Toggle Landmarks" />
+									</FormGroup>
+								</Grid>
 								{selectedMap.name === "Death House" && (
 									<Grid item xs={2}>
 										<FormGroup>
@@ -72,43 +78,46 @@ function MapSelector() {
 						</Grid>
 						<Grid item xs={12}>
 							<Card sx={{ position: "relative" }}>
-								{selectedMap.locations.map((location) => (
-									<Tooltip
-										title={
-											<div>
-												{location.name}
-												<Divider sx={{ marginBottom: "5px" }} />
-												{location.flavorText}
-												{location.note}
-												{location.events && (
-													<div style={{ marginTop: "1rem" }}>
-														Events:
-														<ul>{location.events}</ul>
+								{selectedMap.locations.map(
+									(location) =>
+										showIcons && (
+											<Tooltip
+												title={
+													<div>
+														{location.name}
+														<Divider sx={{ marginBottom: "5px" }} />
+														{location.flavorText}
+														{location.note}
+														{location.events && (
+															<div style={{ marginTop: "1rem" }}>
+																Events:
+																<ul>{location.events}</ul>
+															</div>
+														)}
 													</div>
-												)}
-											</div>
-										}
-										componentsProps={{ tooltip: { sx: { backgroundColor: customTheme.palette.primary.dark, fontSize: "1rem", maxWidth: 500, maxHeight: 250, overflow: "auto" } } }}
-									>
-										<div style={{ zIndex: 2, position: "absolute", left: `${location.coordinates.x}%`, top: `${location.coordinates.y}%`, borderRadius: "20px" }}>
-											<IconButton
-												size="small"
-												component="span"
-												sx={{
-													backgroundColor: customTheme.palette.primary.dark,
-													"&:hover > *": {
-														color: customTheme.palette.primary.dark,
-													},
-													"&:hover img": {
-														filter: "none !important",
-													},
-												}}
+												}
+												componentsProps={{ tooltip: { sx: { backgroundColor: customTheme.palette.primary.dark, fontSize: "1rem", maxWidth: 500, maxHeight: 250, overflow: "auto" } } }}
 											>
-												{getLocationIcon(location.type)}
-											</IconButton>
-										</div>
-									</Tooltip>
-								))}
+												<div style={{ zIndex: 2, display: `${showIcons ? "default" : "invisible"}`, position: "absolute", left: `${location.coordinates.x}%`, top: `${location.coordinates.y}%`, borderRadius: "20px" }}>
+													<IconButton
+														size="small"
+														component="span"
+														sx={{
+															backgroundColor: customTheme.palette.primary.dark,
+															"&:hover > *": {
+																color: customTheme.palette.primary.dark,
+															},
+															"&:hover img": {
+																filter: "none !important",
+															},
+														}}
+													>
+														{getLocationIcon(location.type)}
+													</IconButton>
+												</div>
+											</Tooltip>
+										)
+								)}
 								<CardMedia sx={{ boxSizing: "border-box" }} component="img" src={`./` + selectedMap.img} onMouseMove={getMousePosition} />
 							</Card>
 						</Grid>

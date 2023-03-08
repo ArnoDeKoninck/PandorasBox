@@ -51,4 +51,94 @@ export const BaroviaLocations: PointOfIntrest[] = [
 		type: "village",
 		note: "Tall shapes loom out of the dense fog that surrounds everything. The muddy ground underfoot gives way to slick, wet cobblestones. The tall shapes become recognizable as village dwellings. The windows of each house stare out from pools of blackness. No sound cuts the silence except for mournful sobbing that echoes through the streets from a distance",
 	},
+	{
+		name: "Tser Pool Encampment",
+		coordinates: { x: 65, y: 60 },
+		type: "village",
+		note: "The road gradually disappears and is replaced by a twisted, muddy path through the trees. Deep ruts in the earth are evidence of the comings and goings of wagons. The canopy of mist and branches suddenly gives way to black clouds boiling far above. There is a clearing here, next to a river that widens to form a small lake several hundred feet across. Five colorful round tents, each ten feet in diameter, are pitched outside a ring of four barrel-topped wagons. A much larger tent stands near the shore of the lake, its sagging form lit from within. Near this tent, eight unbridled horses drink from the river. The mournful strains of an accordion clash with the singing of several brightly clad figures around bonfire. A footpath continues beyond this encampment, meandering north between the river and the forest's edge.",
+	},
+	{
+		name: "Old Bonegrinder",
+		coordinates: { x: 56, y: 61 },
+		type: "location",
+		note: "The Old Svalich Road transitions here from being a winding path through the Balinok Mountains to a lazy trail that hugs the mountainside as it descends into a fog-filled valley. In the heart of the valley you see a walled town near the shores of a great mountain lake, its waters dark and still. A branch in the road leads west to a promontory, atop which is perched a dilapidated stone windmill, its warped wooden vanes stripped bare.",
+	},
+	{
+		name: "Stone Megaliths",
+		coordinates: { x: 50, y: 63 },
+		type: "location",
+		note: "The four ancient stones near the windmill were erected centuries ago by the valley's original human inhabitants. Each moss-covered stone bears a crude carving of a city, each of which is associated with a different season. The city of winter is shown covered with snow, the city of spring is arrayed in flowers, the city of summer has a sunburst overhead, and the city of autumn is covered with leaves. If the characters ask any of the priests or scholarly NPCs in Barovia about the stones, the characters are told that ancient legends tell of the Four Cities, said to be the cities of paradise where the Morninglord, Mother Night, and the other ancient gods first dwelled.",
+		events: [
+			<li>
+				Several ravens circle overhead, and one pecks at something on top of the stone that depicts the city of autumn. Upon inspection, the characters see the raven is pecking at a dream pastry, and on the ground in the center of the stone circle is a small pile of children's teeth. The hags placed
+				these here to desecrate the stones and as an offering to the entity they worship, the wicked archfey Ceithlenn of the Crooked Teeth.
+			</li>,
+		],
+	},
+	{
+		name: "Vallaki",
+		coordinates: { x: 39, y: 32 },
+		type: "village",
+		note: "The Old Svalich Road meanders into a valley watched over by dark, brooding mountains to the north and south. The woods recede, revealing a sullen mountain burg surrounded by a wooden palisade. Thick fog presses up against this wall, as though looking for a way inside, hoping to catch the town aslumber. The dirt road ends at a set of sturdy iron gates with a pair of shadowy figures standing behind them. Planted in the ground and flanking the road outside the gates are a half-dozen pikes with wolves' heads impaled on them.",
+	},
+	{
+		name: "Krezk",
+		coordinates: { x: 10, y: 28 },
+		type: "village",
+		note: "The road branches north and climbs a rocky escarpment, ending at a gatehouse built into a twenty-foot-high wall of stone reinforced with buttresses every fifty feet or so. The wall encloses a settlement on the side of a snow-dusted mountain spur. Beyond the wall you see the tops of snow-covered pines and thin, white wisps of smoke. The somber toll of a bell comes from a stone abbey that clings to the mountainside high above the settlement. The steady chime is inviting—a welcome change from the deathly silence and oppressive fog to which you have grown accustomed. It's hard to tell at this distance, but there seems to be a switchback road clinging to the cliffs that lead up from the walled settlement to the abbey.",
+	},
+	{
+		name: "Yester Hill",
+		coordinates: { x: 6, y: 61 },
+		type: "location",
+		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
+	},
+	{
+		name: "Filatov's Estate",
+		coordinates: { x: 14, y: 28 },
+		type: "location",
+		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
+	},
+	{
+		name: "Castle Ravenloft",
+		coordinates: { x: 70.5, y: 49 },
+		type: "village",
+		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
+	},
+	{
+		name: "The Amber Temple",
+		coordinates: { x: 33, y: 82 },
+		type: "location",
+		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
+	},
+	{
+		name: "Argynvostholt",
+		coordinates: { x: 32, y: 47 },
+		type: "location",
+		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
+	},
+	{
+		name: "Ruins of Berez",
+		coordinates: { x: 32, y: 61 },
+		type: "location",
+		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
+	},
+	{
+		name: "Tolenka Pass",
+		coordinates: { x: 26, y: 73 },
+		type: "location",
+		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
+	},
+	{
+		name: "The Wizards of Wines",
+		coordinates: { x: 10, y: 45 },
+		type: "location",
+		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
+	},
+	{
+		name: "Van Richten's Tower",
+		coordinates: { x: 22.7, y: 26 },
+		type: "location",
+		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
+	},
 ];

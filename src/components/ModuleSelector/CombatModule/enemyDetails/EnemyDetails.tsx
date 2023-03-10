@@ -6,18 +6,19 @@ import EnemyDetailsCard from "./EnemyDetailsCard";
 import { EnemyList } from "../../../../data/Monsters/Monsters";
 import { useAppDispatch, useAppSelector } from "src/app/hooks";
 import { addEntityToEnemies, removeEntityFromEnemies } from "src/features/enemySlice";
+import { useState } from "react";
 
 function EnemyDetails() {
+	const [selectedEnemy, setSelectedEnemy] = useState<string>("Select the Enemy to add to the fight");
 	const classes = useStyles();
-
-	const currentEnemies = useAppSelector((state) => state.enemies);
+	const currentEnemies = useAppSelector((state) => state.enemies.entities);
 	const dispatch = useAppDispatch();
-
 	const handleAddEnemy = (enemyName: string) => {
+		setSelectedEnemy(enemyName);
 		//Checks if the clicked enemy matches one in the enemy list and adds it to enemies
-		const selectedEnemy = EnemyList.find((enemy) => enemy.name === enemyName);
-		if (selectedEnemy) {
-			dispatch(addEntityToEnemies(selectedEnemy));
+		const filteredEnemy = EnemyList.find((enemy) => enemy.name === enemyName);
+		if (filteredEnemy) {
+			dispatch(addEntityToEnemies(filteredEnemy));
 		}
 	};
 
@@ -33,7 +34,7 @@ function EnemyDetails() {
 						<Grid container alignItems={"center"} gap={2}>
 							<Grid item sm={3} xs={12}>
 								<FormControl fullWidth>
-									<TextField size={"small"} className={classes.headerTitle} id="enemies" select value={currentEnemies.entities[currentEnemies.entities.length] ?? "Select the Enemy to add to the fight"} onChange={(e) => handleAddEnemy(e.target.value)} label="Add Enemies to the fight">
+									<TextField size={"small"} className={classes.headerTitle} id="enemies" select value={selectedEnemy} onChange={(e) => handleAddEnemy(e.target.value)} label="Add Enemies to the fight">
 										<MenuItem value={"Select the Enemy to add to the fight"}>Select an Enemy to add to the fight</MenuItem>
 										{EnemyList.map((enemy: Entity, i) => (
 											<MenuItem key={i} value={enemy.name}>
@@ -45,8 +46,8 @@ function EnemyDetails() {
 							</Grid>
 							<Grid item sm={9} xs={12}>
 								<Grid container>
-									{currentEnemies.entities &&
-										currentEnemies.entities.map((enemy, index) => (
+									{currentEnemies &&
+										currentEnemies.map((enemy, index) => (
 											<Grid item key={index} marginLeft={1}>
 												<Chip label={enemy.name} onDelete={() => handleRemoveEnemy(index)} />
 											</Grid>
@@ -57,8 +58,8 @@ function EnemyDetails() {
 					</Grid>
 					<Grid item xs={12}>
 						<Grid container>
-							{currentEnemies.entities &&
-								currentEnemies.entities.map((enemy, index) => (
+							{currentEnemies &&
+								currentEnemies.map((enemy, index) => (
 									<Grid key={index} item lg={3} md={4} sm={12} padding={1}>
 										{<EnemyDetailsCard index={index} />}
 									</Grid>

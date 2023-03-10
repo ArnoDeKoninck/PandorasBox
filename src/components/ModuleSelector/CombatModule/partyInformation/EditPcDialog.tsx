@@ -1,6 +1,7 @@
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, Divider, CardMedia, Typography, TextField } from "@mui/material";
 import React from "react";
-
+import { useAppDispatch, useAppSelector } from "src/app/hooks";
+import { updatePartyMember } from "src/features/partySlice";
 import { Entity, Status } from "../../../../types/GlobalTypes";
 import HealthBarControls from "../HealthBar/HealthBarControls";
 import SetStatus from "../Status/SetStatus";
@@ -8,18 +9,21 @@ import StatusChip from "../Status/StatusChip";
 import ClassResource from "./ClassResource";
 
 interface EditPcDialogProps {
-	setOpenEditPcDialog: (input: Entity | undefined) => void;
-	pc: Entity;
+	setOpenEditDialog: (input: boolean) => void;
+	selectedPc: Entity;
 }
-function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
-	const [currentHp, setCurrentHp] = React.useState<number>(pc.currentHealth);
-	const [tempHp, setTempHp] = React.useState<number>(pc.tempHealth ?? 0);
-	const [status, setStatus] = React.useState<Status[]>(pc.status);
-	const [initiative, setInitiative] = React.useState<string>(pc.initiative.toString());
-	const [resources, setResources] = React.useState<number[] | undefined>(pc.resources);
+function EditPcDialog({ selectedPc, setOpenEditDialog }: EditPcDialogProps) {
+	const party = useAppSelector((state) => state.party.members);
+	const dispatch = useAppDispatch();
+	const partyIndex = party.indexOf(selectedPc);
+	const [currentHp, setCurrentHp] = React.useState<number>(selectedPc.currentHealth);
+	const [tempHp, setTempHp] = React.useState<number>(selectedPc.tempHealth ?? 0);
+	const [status, setStatus] = React.useState<Status[]>(selectedPc.status);
+	const [initiative, setInitiative] = React.useState<string>(selectedPc.initiative.toString());
+	const [resources, setResources] = React.useState<number[] | undefined>(selectedPc.resources);
 
 	const handleClose = () => {
-		setOpenEditPcDialog(undefined);
+		setOpenEditDialog(false);
 	};
 
 	const removeStatus = (statusToRemove: Status) => {
@@ -28,29 +32,28 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 	};
 
 	const onSubmit = () => {
-		pc.currentHealth = currentHp;
-		pc.tempHealth = tempHp ?? 0;
-		pc.status = status ?? undefined;
-		pc.initiative = parseInt(initiative);
-		pc.resources = resources;
-		setResources(pc.resources);
+		const updatedPc: Entity = {
+			...selectedPc,
+			...{ currentHealth: currentHp, tempHealth: tempHp, status: status, initiative: parseInt(initiative), resources: resources },
+		};
+		dispatch(updatePartyMember({ index: partyIndex, newValues: updatedPc }));
 		handleClose();
 	};
 
 	return (
-		<Dialog open={pc ? true : false} onClose={handleClose} fullWidth maxWidth={"lg"}>
-			<DialogTitle>{`Edit ${pc.name}`}</DialogTitle>
+		<Dialog open={selectedPc ? true : false} onClose={handleClose} fullWidth maxWidth={"lg"}>
+			<DialogTitle>{`Edit ${selectedPc.name}`}</DialogTitle>
 			<Divider />
 			<DialogContent>
 				<Grid container>
 					<Grid item xs={2}>
-						<CardMedia component="img" height={200} src={`./images/${pc.image}`} />
+						<CardMedia component="img" height={200} src={`./images/${selectedPc.image}`} />
 					</Grid>
 					{/* Health bar container*/}
 					<Grid item xs={10}>
 						<Grid container alignItems="center" columnSpacing={2} rowSpacing={2}>
 							<Grid item xs={7}>
-								<HealthBarControls currentHp={currentHp} tempHp={tempHp} maxHealth={pc.maxHealth} onCurrentHpChange={setCurrentHp} onTempChange={setTempHp} />
+								<HealthBarControls currentHp={currentHp} tempHp={tempHp} maxHealth={selectedPc.maxHealth} onCurrentHpChange={setCurrentHp} onTempChange={setTempHp} />
 							</Grid>
 							<Grid item xs={5}>
 								<Grid container rowGap={4}>
@@ -75,7 +78,7 @@ function EditPcDialog({ pc, setOpenEditPcDialog }: EditPcDialogProps) {
 							</Grid>
 							{resources && (
 								<Grid item xs={5}>
-									<ClassResource entity={pc} setResources={setResources} resources={resources} />
+									<ClassResource entity={selectedPc} setResources={setResources} resources={resources} />
 								</Grid>
 							)}
 

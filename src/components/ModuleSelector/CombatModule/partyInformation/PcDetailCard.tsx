@@ -1,17 +1,19 @@
 import { Card, CardContent, Grid, CardMedia, Typography, LinearProgress, TextField } from "@mui/material";
+import { useState } from "react";
+import { useAppSelector } from "src/app/hooks";
 import { useStyles } from "../../../../customTheme";
 import { Entity, Status } from "../../../../types/GlobalTypes";
 import StatusChip from "../Status/StatusChip";
 import { getClassResources } from "./ClassResource";
+import EditPcDialog from "./EditPcDialog";
 
 interface PcDetailCardProps {
 	pc: Entity;
-	partyLevel: number;
-	setOpenEditPcDialog: (input: Entity | undefined) => void;
 }
-function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps) {
+function PcDetailCard({ pc }: PcDetailCardProps) {
+	const [openEditDialog, setOpenEditDialog] = useState<Boolean>(false);
+	const partyLevel = useAppSelector((state) => state.party.partyLevel);
 	const classes = useStyles();
-
 	return (
 		<Card className={classes.itemCard}>
 			<CardContent>
@@ -85,10 +87,11 @@ function PcDetailCard({ pc, partyLevel, setOpenEditPcDialog }: PcDetailCardProps
 							</Grid>
 						</Grid>
 						<Grid item xs={1}>
-							<Typography className={classes.link} align={"center"} onClick={() => setOpenEditPcDialog(pc)}>
+							<Typography className={classes.link} align={"center"} onClick={() => setOpenEditDialog(true)}>
 								Edit
 							</Typography>
 						</Grid>
+						{openEditDialog && pc && <EditPcDialog selectedPc={pc} setOpenEditDialog={setOpenEditDialog} />}
 					</Grid>
 				</Grid>
 			</CardContent>

@@ -5,19 +5,19 @@ interface EnemyState {
     entities: Entity[],
 }
 
-const initialEnemyState: EnemyState = {
-    entities: [],
-
-}
-
 interface UpdateEnemy {
     enemy: Entity,
     index: number
 }
 
+const localStorageCache = localStorage.getItem('enemies');
+const cachedEnemies = localStorageCache? JSON.parse(localStorageCache)as EnemyState: {entities:[]}as EnemyState
+
+
+
 const enemySlice = createSlice({
     name: 'enemies',
-    initialState: initialEnemyState,
+    initialState: cachedEnemies,
     reducers: {
         //adding an Entity to Enemies.
         addEntityToEnemies(state, action: PayloadAction<Entity>){

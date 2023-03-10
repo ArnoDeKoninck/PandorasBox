@@ -8,22 +8,18 @@ import { useAppDispatch, useAppSelector } from "src/app/hooks";
 import { addPcToParty, changePartyLevel, removePcFromParty } from "src/features/partySlice";
 import { useState } from "react";
 
-interface props {
-	setOpenEditPcDialog: (input: Entity | undefined) => void;
-}
-
-function PartyDetails({ setOpenEditPcDialog }: props) {
+function PartyDetails() {
 	const classes = useStyles();
-	const [selectedPc, setSelectedPc] = useState("Select the PC to add to the party");
+	const [selectedPcToAdd, setSelectedPcToAdd] = useState<string>("Select the PC to add to the party");
 	const currentParty = useAppSelector((state) => state.party.members);
 	const partyLevel = useAppSelector((state) => state.party.partyLevel);
+	console.log(currentParty);
 
 	const dispatch = useAppDispatch();
 
 	const handleSelectPc = (e: any) => {
-		setSelectedPc(e);
+		setSelectedPcToAdd(e);
 		const pcToAdd = PCs.find((pc) => pc.name === e);
-		console.log(pcToAdd);
 		dispatch(addPcToParty(pcToAdd!));
 	};
 
@@ -36,7 +32,7 @@ function PartyDetails({ setOpenEditPcDialog }: props) {
 	};
 
 	const levelArray = [...Array(21).keys()].slice(1);
-	console.log(partyLevel);
+
 	return (
 		<ThemeProvider theme={customTheme}>
 			<Card sx={{ borderTopLeftRadius: 0 }}>
@@ -45,7 +41,7 @@ function PartyDetails({ setOpenEditPcDialog }: props) {
 						<Grid container alignItems={"center"}>
 							<Grid item md={3} xs={12}>
 								<FormControl fullWidth>
-									<TextField size={"small"} className={classes.headerTitle} select id="pcs" value={selectedPc} label="Add PCs to the party" onChange={(e) => handleSelectPc(e.target.value)}>
+									<TextField size={"small"} className={classes.headerTitle} select id="pcs" value={selectedPcToAdd} label="Add PCs to the party" onChange={(e) => handleSelectPc(e.target.value)}>
 										<MenuItem value={"Select the PC to add to the party"}>Select a PC to add to the party</MenuItem>
 										{PCs.map((pc) => (
 											<MenuItem key={pc.name} value={pc.name}>
@@ -105,7 +101,7 @@ function PartyDetails({ setOpenEditPcDialog }: props) {
 							{currentParty &&
 								currentParty.map((pc) => (
 									<Grid key={pc.name} item lg={3} md={4} sm={12} padding={1}>
-										<PcDetailCard partyLevel={partyLevel} pc={pc} setOpenEditPcDialog={setOpenEditPcDialog} />
+										<PcDetailCard pc={pc} />
 									</Grid>
 								))}
 						</Grid>

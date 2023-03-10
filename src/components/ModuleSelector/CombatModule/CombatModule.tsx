@@ -1,35 +1,22 @@
 import { Grid, Divider } from "@mui/material";
 import { pink } from "@mui/material/colors";
-import { Entity } from "../../../types/GlobalTypes";
+import { useAppSelector } from "src/app/hooks";
 import EnemyDetails from "./enemyDetails/EnemyDetails";
 import InitiativeTracker from "./InitiativeTracker/InitiativeTracker";
-import EditPcDialog from "./partyInformation/EditPcDialog";
 import PartyDetails from "./partyInformation/PartyDetails";
 
-export interface CombatModuleProps {
-	combat: Entity[];
-	setCombat: (input: Entity[]) => void;
-	party: Entity[];
-	setParty: (input: Entity[]) => void;
-	setOpenEditPcDialog: (input: Entity | undefined) => void;
-	enemies: Entity[];
-	setEnemies: (input: Entity[]) => void;
-	enemyIndex: number;
-	setEnemyIndex: (input: number) => void;
-	setOpenEditEnemyDialog: (input: Entity | undefined) => void;
-	combatTurn: number;
-	setCombatTurn: (input: number) => void;
-	openEditPcDialog: Entity | undefined;
-	openEditEnemyDialog: Entity | undefined;
-}
+function CombatModule() {
+	const party = useAppSelector((state) => state.party.members);
+	const enemies = useAppSelector((state) => state.enemies.entities);
+	const combatTurn = useAppSelector((state) => state.combatTurn);
 
-function CombatModule({ combat, setOpenEditPcDialog, combatTurn, setCombatTurn, openEditPcDialog }: CombatModuleProps) {
+	const combat = [...party, ...enemies];
 	return (
 		<Grid container gap={2} wrap="nowrap">
 			<Grid item flexGrow={1}>
 				<Grid container flexDirection={"column"}>
 					<Grid item xs={12}>
-						<PartyDetails setOpenEditPcDialog={setOpenEditPcDialog} />
+						<PartyDetails />
 					</Grid>
 					{combat && (
 						<Grid item xs={12}>
@@ -42,9 +29,8 @@ function CombatModule({ combat, setOpenEditPcDialog, combatTurn, setCombatTurn, 
 				</Grid>
 			</Grid>
 			<Grid item flexGrow={1} sx={{ maxWidth: "200px" }}>
-				<InitiativeTracker combat={combat} combatTurn={combatTurn} onChangeTurn={setCombatTurn} />
+				<InitiativeTracker combat={combat} combatTurn={combatTurn} />
 			</Grid>
-			{openEditPcDialog && <EditPcDialog pc={openEditPcDialog} setOpenEditPcDialog={setOpenEditPcDialog} />}
 		</Grid>
 	);
 }

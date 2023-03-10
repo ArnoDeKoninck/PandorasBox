@@ -1,33 +1,14 @@
 import { Button, ButtonGroup, Container, Grid } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
-import React, { useEffect } from "react";
+import { useState } from "react";
 import { customTheme } from "./customTheme";
-import Generators from "./components/generators/Generators";
-import { Encounter, Encounter_Variant } from "./types/EncounterTypes";
-import { Item } from "./types/ItemTypes";
-import { Entity, SessionData, ViewModules } from "./types/GlobalTypes";
+
+import { SessionData, ViewModules } from "./types/GlobalTypes";
 import ModuleSelector from "./components/ModuleSelector/ModuleSelector";
-import { CombatModuleProps } from "./components/ModuleSelector/CombatModule/CombatModule";
 import Jukebox from "./components/Jukebox/Jukebox";
-import { useAppSelector } from "./app/hooks";
 
 function App() {
-	const sessionData = localStorage.getItem("SessionData");
-	const savedData = sessionData ? JSON.parse(sessionData) : "";
-	const defaultSession =
-		savedData !== ""
-			? savedData
-			: {
-					combat: [],
-					combatTurn: 0,
-					currentModule: ViewModules.COMBAT,
-					encounter: [],
-					enemies: [],
-					enemyIndex: 0,
-					party: [],
-					partyLevel: 1,
-			  };
-	const [session, setSession] = React.useState<SessionData>(defaultSession);
+	/*const [session, setSession] = React.useState<SessionData>(sessionData);
 	const [encounter, getEncounter] = React.useState<Encounter | Encounter_Variant | undefined>(undefined);
 	const [loot, getLoot] = React.useState<Item[] | undefined>();
 	const [party, setParty] = React.useState<Entity[]>(session.party);
@@ -37,11 +18,10 @@ function App() {
 	const [openEditEnemyDialog, setOpenEditEnemyDialog] = React.useState<Entity | undefined>(undefined);
 	const [combat, setCombat] = React.useState<Entity[]>(session.combat);
 	const [combatTurn, setCombatTurn] = React.useState<number>(session.combatTurn);
-	const [currentModule, setCurrentModule] = React.useState<ViewModules>(session.currentModule);
+	const [currentModule, setCurrentModule] = React.useState<ViewModules>(session.currentModule);*/
 
-	const partyLevel = useAppSelector((state) => state.party.partyLevel);
-
-	useEffect(() => {
+	const [currentModule, setCurrentModule] = useState<ViewModules>(ViewModules.NPCS);
+	/*useEffect(() => {
 		setSession({
 			combat,
 			combatTurn,
@@ -68,8 +48,8 @@ function App() {
 			return true;
 		}
 	};
-
-	const combatProps: CombatModuleProps = {
+	*/
+	/*const combatProps: CombatModuleProps = {
 		combat,
 		enemies,
 		combatTurn,
@@ -84,7 +64,7 @@ function App() {
 		setOpenEditEnemyDialog,
 		setOpenEditPcDialog,
 		setParty,
-	};
+	};*/
 
 	return (
 		<Container maxWidth={false} sx={{ paddingLeft: "0 !important" }}>
@@ -94,27 +74,31 @@ function App() {
 						<Grid item xs={12} md={6}>
 							<Jukebox />
 						</Grid>
-
+						{/*
+						Generators module
 						<Grid item xs={12} md={6}>
 							<Generators rollInitiative={rollInitiative} encounter={encounter} loot={loot} partyLevel={partyLevel} getEncounter={getEncounter} getLoot={getLoot} />
 						</Grid>
-						<Grid item xs={12}>
-							<ButtonGroup variant="text" aria-label="outlined primary button group">
-								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomLeftRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.COMBAT)}>
-									Combat
-								</Button>
-								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.GENERATORS)}>
-									Generators
-								</Button>
-								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.NPCS)}>
-									Npcs
-								</Button>
-								<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.MAP)}>
-									Map
-								</Button>
-							</ButtonGroup>
-							<ModuleSelector moduleToShow={currentModule} combatProps={combatProps} />
-						</Grid>
+						*/}
+						{
+							<Grid item xs={12}>
+								<ButtonGroup variant="text" aria-label="outlined primary button group">
+									<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomLeftRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.COMBAT)}>
+										Combat
+									</Button>
+									<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.GENERATORS)}>
+										Generators
+									</Button>
+									<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.NPCS)}>
+										Npcs
+									</Button>
+									<Button sx={{ margin: 0, backgroundColor: customTheme.palette.primary.main, borderBottomRightRadius: 0, color: customTheme.palette.secondary.light, borderColor: customTheme.palette.secondary.light }} onClick={() => setCurrentModule(ViewModules.MAP)}>
+										Map
+									</Button>
+								</ButtonGroup>
+								<ModuleSelector moduleToShow={currentModule} />
+							</Grid>
+						}
 					</Grid>
 				</Grid>
 			</ThemeProvider>

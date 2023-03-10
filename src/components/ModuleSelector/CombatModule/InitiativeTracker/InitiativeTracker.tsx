@@ -1,17 +1,20 @@
 import { Card, CardContent, CardMedia, Divider, Grid, IconButton, Typography } from "@mui/material";
+import { useAppDispatch } from "src/app/hooks";
 import { FastForward, FastRewind, Refresh } from "@mui/icons-material";
 import { Encounter } from "../../../../types/EncounterTypes";
 import { Entity } from "../../../../types/GlobalTypes";
 import { green } from "@mui/material/colors";
 import customTheme, { useStyles } from "../../../../customTheme";
+import { updateCombatTurn } from "src/features/combatTurnSlice";
+import { update } from "lodash";
 
 interface InitiativeProps {
 	combat: (Entity | Encounter)[];
 	combatTurn: number;
-	onChangeTurn: (input: number) => void;
 }
 
-function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps) {
+function InitiativeTracker({ combat, combatTurn }: InitiativeProps) {
+	const dispatch = useAppDispatch();
 	const classes = useStyles();
 	if (combat.filter((entity) => entity.initiative === undefined).length > 0) {
 		return <div>No initiative found</div>;
@@ -19,22 +22,23 @@ function InitiativeTracker({ combat, combatTurn, onChangeTurn }: InitiativeProps
 	const sortedCombat = combat.sort((a, b) => b.initiative! - a.initiative!);
 	const onNextTurn = () => {
 		if (combatTurn + 1 > sortedCombat!.length - 1) {
-			onChangeTurn(0);
+			dispatch(updateCombatTurn(0));
 		} else {
-			onChangeTurn(combatTurn + 1);
+			dispatch(updateCombatTurn(combatTurn + 1));
 		}
 	};
 
 	const onPreviousTurn = () => {
 		if (combatTurn - 1 < 0) {
-			onChangeTurn(sortedCombat!.length - 1);
+			dispatch(updateCombatTurn(sortedCombat!.length - 1));
 		} else {
-			onChangeTurn(combatTurn - 1);
+			dispatch(updateCombatTurn(combatTurn - 1));
 		}
 	};
 
 	const onResetTurns = () => {
 		combat = [];
+		dispatch(updateCombatTurn(0));
 	};
 	return (
 		<Card>

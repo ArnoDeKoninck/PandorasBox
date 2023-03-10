@@ -1,5 +1,6 @@
 import { Grid, TextField, Typography } from "@mui/material";
 import { useAppSelector } from "src/app/hooks";
+
 import { Classes, Entity } from "../../../../types/GlobalTypes";
 
 interface Props {
@@ -20,7 +21,6 @@ function getResourceUI(entity: Entity, level: number, resources: number[], setRe
 	const handleChangeResource = (input: number, indexNumber: number) => {
 		setResources(resources.map((resource, index) => (index === indexNumber ? input : resource)));
 	};
-	entity.resources = getClassResources(entity.class!, level).resource;
 	switch (entity.class) {
 		case Classes.BARBARIAN:
 			return (

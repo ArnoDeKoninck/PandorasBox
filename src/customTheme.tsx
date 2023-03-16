@@ -208,17 +208,7 @@ customTheme = createTheme(customTheme, {
 		},
 		MuiLinearProgress: {
 			styleOverrides: {
-				root: {
-					height: "20px",
-					borderRadius: "5px",
-					"& .MuiLinearProgress-dashed": {
-						background: customTheme.palette.error.dark,
-						animation: "none",
-					},
-					"& .MuiLinearProgress-colorSuccess": {
-						background: customTheme.palette.info.light,
-					},
-				},
+				root: {},
 			},
 		},
 	},
@@ -294,6 +284,31 @@ export const useStyles = makeStyles((theme: Theme) =>
 			padding: 0,
 			width: "2rem",
 			height: "2rem",
+		},
+		achievementProgressBar: {
+			height: window.innerHeight * 0.01,
+			borderRadius: "5px",
+			"& .MuiLinearProgress-dashed": {
+				background: customTheme.palette.info.dark,
+				animation: "none",
+			},
+			"& .MuiLinearProgress-colorSuccess": {
+				background: customTheme.palette.info.light,
+			},
+			"& .MuiLinearProgress-colorPrimary": {
+				backgroundColor: "yellow !important",
+			},
+		},
+		healthBarProgressBar: {
+			height: window.innerHeight * 0.02,
+			borderRadius: "5px",
+			"& .MuiLinearProgress-dashed": {
+				background: customTheme.palette.error.dark,
+				animation: "none",
+			},
+			"& .MuiLinearProgress-colorSuccess": {
+				background: customTheme.palette.info.light,
+			},
 		},
 	})
 );

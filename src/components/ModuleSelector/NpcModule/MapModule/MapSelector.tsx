@@ -1,10 +1,13 @@
 import { LocalGroceryStore, LocationCity, LocationOn, PriorityHigh, SavedSearch, SportsBar } from "@mui/icons-material";
 import { Card, CardMedia, Divider, FormControl, FormControlLabel, FormGroup, Grid, IconButton, MenuItem, Switch, TextField, Tooltip } from "@mui/material";
 import React, { useState } from "react";
+import { CR_FirstFloorLocations, CR_OutsideLocations } from "src/data/MapLocations/CastleRavenloft/CR_FirstFloor";
 import { DeathHouseEscapeLocations, DeathHouseLocations } from "src/data/MapLocations/DeathHouse/DeathHouseLocations";
 import customTheme, { useStyles } from "../../../../customTheme";
-import { AllMaps } from "../../../../data/maps/maps";
+import { AllMaps, CastleRavenloftMaps } from "../../../../data/maps/maps";
 import { Maps } from "../../../../types/GlobalTypes";
+import { v4 as uuid } from "uuid";
+import { isMap } from "util/types";
 
 interface MousePosition {
 	x: number;
@@ -14,7 +17,7 @@ interface MousePosition {
 function MapSelector() {
 	const [mousePosition, setMousePosition] = React.useState<MousePosition>({ x: 0, y: 0 });
 	const [selectedMap, setSelectedMap] = React.useState<Maps>(AllMaps.filter((map) => map.name === "Barovia")[0]);
-	const [isMapAlternative, setMapAlternative] = useState<boolean>(false);
+	const [isMapAlternative, setMapAlternative] = useState<number>(0);
 	const [showIcons, setShowIcons] = useState<boolean>(true);
 
 	const getMousePosition = (e: any) => {
@@ -23,24 +26,47 @@ function MapSelector() {
 		const offsetX = e.nativeEvent.offsetX;
 		setMousePosition({ x: (offsetX / map.width) * 100, y: (offsetY / map.height) * 100 });
 	};
-	console.log(mousePosition);
+	//console.log(mousePosition);
 	const changeMap = (mapName: string) => {
 		const map = AllMaps.filter((map) => map.name === mapName);
 		setSelectedMap(map[0] as Maps);
 	};
 
 	const classes = useStyles();
+	const swapToAlternativeMap = (input: number) => {
+		console.log("Do I get my input: " + input);
+		setMapAlternative((prevState) => (prevState === 0 ? input : 0));
 
-	const swapToAlternativeMap = () => {
-		setMapAlternative((prevState) => !prevState);
-
-		if (!isMapAlternative) {
+		if (input !== 0) {
+			//when map is not default
 			if (selectedMap.name === "Death House") {
+				//When map is Death house and switched to alternative, switch to death house escape module
 				selectedMap.locations = DeathHouseEscapeLocations;
+			}
+			if (selectedMap.name === "Castle Ravenloft") {
+				console.log("Do i get here?");
+				switch (input) {
+					case 0:
+						selectedMap.img = "./images/cr_outside.webp";
+						selectedMap.locations = CR_OutsideLocations;
+						break;
+					case 1:
+						selectedMap.img = "./images/cr_first_floor.webp";
+						selectedMap.locations = CR_FirstFloorLocations;
+						break;
+					default: {
+						selectedMap.img = "./images/cr_outside.webp";
+						selectedMap.locations = CR_OutsideLocations;
+					}
+				}
 			}
 		} else {
 			if (selectedMap.name === "Death House") {
 				selectedMap.locations = DeathHouseLocations;
+			}
+			if (selectedMap.name === "Castle Ravenloft") {
+				selectedMap.img = "./images/cr_outside.webp";
+				selectedMap.locations = CR_OutsideLocations;
 			}
 		}
 	};
@@ -55,13 +81,26 @@ function MapSelector() {
 									<FormControl fullWidth>
 										<TextField size={"small"} className={classes.headerTitle} select id="maps" value={selectedMap.name} label="Choose the map" onChange={(e: any) => changeMap(e.target.value)}>
 											{AllMaps.map((map) => (
-												<MenuItem key={map.name} value={map.name}>
+												<MenuItem key={uuid()} value={map.name}>
 													{map.name}
 												</MenuItem>
 											))}
 										</TextField>
 									</FormControl>
 								</Grid>
+								{selectedMap.name === "Castle Ravenloft" && (
+									<Grid item xs={2}>
+										<FormControl fullWidth>
+											<TextField size={"small"} className={classes.headerTitle} select id="Castle Ravenloft floors" value={isMapAlternative} label="Choose the floor" onChange={(e: any) => swapToAlternativeMap(e.target.value)}>
+												{CastleRavenloftMaps.map((map, index) => (
+													<MenuItem key={uuid()} value={index}>
+														{map.name}
+													</MenuItem>
+												))}
+											</TextField>
+										</FormControl>
+									</Grid>
+								)}
 								<Grid item xs={2}>
 									<FormGroup>
 										<FormControlLabel control={<Switch checked={showIcons} onChange={() => setShowIcons(!showIcons)} color={"error"} />} label="Toggle Landmarks" />
@@ -70,7 +109,7 @@ function MapSelector() {
 								{selectedMap.name === "Death House" && (
 									<Grid item xs={2}>
 										<FormGroup>
-											<FormControlLabel control={<Switch checked={isMapAlternative} onChange={swapToAlternativeMap} color={"error"} />} label="Toggle Skill Challenge" />
+											<FormControlLabel control={<Switch checked={isMapAlternative ? true : false} onChange={() => swapToAlternativeMap(isMapAlternative === 0 ? 1 : 0)} color={"error"} />} label="Toggle Skill Challenge" />
 										</FormGroup>
 									</Grid>
 								)}
@@ -82,24 +121,30 @@ function MapSelector() {
 									(location) =>
 										showIcons && (
 											<Tooltip
+												key={uuid()}
 												title={
-													<div>
+													<div key={uuid()}>
 														{location.name}
-														<Divider sx={{ marginBottom: "5px" }} />
+														<Divider sx={{ marginBottom: "5px" }} key={uuid()} />
 														{location.flavorText}
 														{location.note}
 														{location.events && (
-															<div style={{ marginTop: "1rem" }}>
+															<div style={{ marginTop: "1rem" }} key={uuid()}>
 																Events:
-																<ul>{location.events}</ul>
+																<ul key={uuid()}>
+																	{location.events.map((event) => (
+																		<li key={uuid()}>{event}</li>
+																	))}
+																</ul>
 															</div>
 														)}
 													</div>
 												}
 												componentsProps={{ tooltip: { sx: { backgroundColor: customTheme.palette.primary.dark, fontSize: "1rem", maxWidth: 500, maxHeight: 250, overflow: "auto" } } }}
 											>
-												<div style={{ zIndex: 2, display: `${showIcons ? "default" : "invisible"}`, position: "absolute", left: `${location.coordinates.x}%`, top: `${location.coordinates.y}%`, borderRadius: "20px" }}>
+												<div style={{ zIndex: 2, display: `${showIcons ? "default" : "invisible"}`, position: "absolute", left: `${location.coordinates.x}%`, top: `${location.coordinates.y}%`, borderRadius: "20px" }} key={uuid()}>
 													<IconButton
+														key={uuid()}
 														size="small"
 														component="span"
 														sx={{
@@ -134,6 +179,7 @@ export const getLocationIcon = (locationType: string) => {
 		case "location":
 			return (
 				<LocationOn
+					key={uuid()}
 					sx={{
 						color: customTheme.palette.secondary.main,
 					}}
@@ -142,6 +188,7 @@ export const getLocationIcon = (locationType: string) => {
 		case "village":
 			return (
 				<LocationCity
+					key={uuid()}
 					sx={{
 						color: customTheme.palette.secondary.main,
 					}}
@@ -150,6 +197,7 @@ export const getLocationIcon = (locationType: string) => {
 		case "shop":
 			return (
 				<LocalGroceryStore
+					key={uuid()}
 					sx={{
 						color: customTheme.palette.secondary.main,
 					}}
@@ -158,6 +206,7 @@ export const getLocationIcon = (locationType: string) => {
 		case "tavern":
 			return (
 				<SportsBar
+					key={uuid()}
 					sx={{
 						color: customTheme.palette.secondary.main,
 					}}
@@ -166,6 +215,7 @@ export const getLocationIcon = (locationType: string) => {
 		case "search":
 			return (
 				<SavedSearch
+					key={uuid()}
 					sx={{
 						color: customTheme.palette.secondary.main,
 					}}
@@ -174,6 +224,7 @@ export const getLocationIcon = (locationType: string) => {
 		case "event":
 			return (
 				<PriorityHigh
+					key={uuid()}
 					sx={{
 						color: customTheme.palette.secondary.main,
 					}}
@@ -182,6 +233,7 @@ export const getLocationIcon = (locationType: string) => {
 		case "trap":
 			return (
 				<img
+					key={uuid()}
 					alt="trap_icon"
 					src="./images/trap.svg"
 					style={{

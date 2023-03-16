@@ -12,8 +12,11 @@ interface UpdatePartyMember {
     newValues: Entity
 }
 
-const localStorageCache = localStorage.getItem('party');
-const cachedParty = localStorageCache? JSON.parse(localStorageCache)as PartyState: {members:[], partyLevel:1}as PartyState
+const localStorageCache = {members: localStorage.getItem('party'), partyLevel: localStorage.getItem('partyLevel')};
+const cachedParty = localStorageCache.members && localStorageCache.partyLevel? 
+{members:JSON.parse(localStorageCache.members), partyLevel: JSON.parse(localStorageCache.partyLevel) }as PartyState
+: 
+{members:[], partyLevel:1}as PartyState
 
 
 const partySlice = createSlice({
@@ -27,21 +30,24 @@ const partySlice = createSlice({
             const pcToAdd = action.payload;
             pcToAdd.resources = getClassResources(action.payload.class!, state.partyLevel).resource;
             state.members = [...state.members, pcToAdd]
+            localStorage.setItem('party', JSON.stringify(state.members))
 
            }
            
         },
         //Update the current status of the selected partymember
         updatePartyMember(state, action:PayloadAction<UpdatePartyMember>){
-            state.members[action.payload.index] = action.payload.newValues
-
+            state.members[action.payload.index] = action.payload.newValues;
+            localStorage.setItem('party', JSON.stringify(state.members))
         },
         //Removes the selected PC from the party
         removePcFromParty(state, action: PayloadAction<Entity>){
            state.members = state.members.filter((pc) => pc.name !== action.payload.name)
+           localStorage.setItem('party', JSON.stringify(state.members))
         },
         changePartyLevel(state, action:PayloadAction<number>){
             state.partyLevel = action.payload;
+            localStorage.setItem('partyLevel', JSON.stringify(state.partyLevel))
         }
 
     }

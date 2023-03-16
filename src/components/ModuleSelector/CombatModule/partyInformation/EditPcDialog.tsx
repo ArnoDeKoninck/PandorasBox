@@ -1,6 +1,8 @@
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, Divider, CardMedia, Typography, TextField } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, Divider, CardMedia, Typography, TextField, LinearProgress } from "@mui/material";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "src/app/hooks";
+import { useStyles } from "src/customTheme";
+import { Achievement } from "src/features/achievementSlice";
 import { updatePartyMember } from "src/features/partySlice";
 import { Entity, Status } from "../../../../types/GlobalTypes";
 import HealthBarControls from "../HealthBar/HealthBarControls";
@@ -14,6 +16,8 @@ interface EditPcDialogProps {
 }
 function EditPcDialog({ selectedPc, setOpenEditDialog }: EditPcDialogProps) {
 	const party = useAppSelector((state) => state.party.members);
+	const partyAchievements = useAppSelector((state) => state.achievements);
+	const achievements = partyAchievements.find((achievement) => achievement.pc === selectedPc.name)?.achievements as Achievement[];
 	const dispatch = useAppDispatch();
 	const partyIndex = party.indexOf(selectedPc);
 	const [currentHp, setCurrentHp] = React.useState<number>(selectedPc.currentHealth);
@@ -21,6 +25,7 @@ function EditPcDialog({ selectedPc, setOpenEditDialog }: EditPcDialogProps) {
 	const [status, setStatus] = React.useState<Status[]>(selectedPc.status);
 	const [initiative, setInitiative] = React.useState<string>(selectedPc.initiative.toString());
 	const [resources, setResources] = React.useState<number[] | undefined>(selectedPc.resources);
+	const classes = useStyles();
 
 	const handleClose = () => {
 		setOpenEditDialog(false);
@@ -91,6 +96,15 @@ function EditPcDialog({ selectedPc, setOpenEditDialog }: EditPcDialogProps) {
 										setInitiative(e.target.value);
 									}}
 								/>
+							</Grid>
+							<Grid item xs={12}>
+								<Grid container>
+									{achievements.map((achievement) => (
+										<Grid item xs={8}>
+											<LinearProgress className={classes.achievementProgressBar} variant="buffer" value={100 / (achievement.targetValue / achievement.currentValue)} valueBuffer={achievement.currentValue} />
+										</Grid>
+									))}
+								</Grid>
 							</Grid>
 						</Grid>
 					</Grid>

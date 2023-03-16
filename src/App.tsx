@@ -3,7 +3,7 @@ import { ThemeProvider } from "@mui/system";
 import { useState } from "react";
 import { customTheme } from "./customTheme";
 
-import { SessionData, ViewModules } from "./types/GlobalTypes";
+import { ViewModules } from "./types/GlobalTypes";
 import ModuleSelector from "./components/ModuleSelector/ModuleSelector";
 import Jukebox from "./components/Jukebox/Jukebox";
 

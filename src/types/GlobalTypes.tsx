@@ -168,11 +168,11 @@ export interface Entity {
 	description?: string;
 	age?: string;
 	class?: Classes | string;
-
 	exp?: number;
 	weapon?: Weapon;
 	damage?: Damage;
 	onHit?: number;
+	achievements?: [{ name: string; currentValue: number; targetValue: number; reward: string }];
 }
 
 export interface Npc {

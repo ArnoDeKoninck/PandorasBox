@@ -6,7 +6,6 @@ import { Entity } from "../../../../types/GlobalTypes";
 import { green } from "@mui/material/colors";
 import customTheme, { useStyles } from "../../../../customTheme";
 import { updateCombatTurn } from "src/features/combatTurnSlice";
-import { update } from "lodash";
 
 interface InitiativeProps {
 	combat: (Entity | Encounter)[];

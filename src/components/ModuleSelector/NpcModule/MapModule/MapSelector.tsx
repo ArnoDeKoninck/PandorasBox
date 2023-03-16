@@ -7,7 +7,6 @@ import customTheme, { useStyles } from "../../../../customTheme";
 import { AllMaps, CastleRavenloftMaps } from "../../../../data/maps/maps";
 import { Maps } from "../../../../types/GlobalTypes";
 import { v4 as uuid } from "uuid";
-import { isMap } from "util/types";
 
 interface MousePosition {
 	x: number;
@@ -26,7 +25,7 @@ function MapSelector() {
 		const offsetX = e.nativeEvent.offsetX;
 		setMousePosition({ x: (offsetX / map.width) * 100, y: (offsetY / map.height) * 100 });
 	};
-	//console.log(mousePosition);
+	console.log(mousePosition);
 	const changeMap = (mapName: string) => {
 		const map = AllMaps.filter((map) => map.name === mapName);
 		setSelectedMap(map[0] as Maps);

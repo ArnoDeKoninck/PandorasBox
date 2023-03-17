@@ -1,12 +1,13 @@
 import { LocalGroceryStore, LocationCity, LocationOn, PriorityHigh, SavedSearch, SportsBar } from "@mui/icons-material";
 import { Card, CardMedia, Divider, FormControl, FormControlLabel, FormGroup, Grid, IconButton, MenuItem, Switch, TextField, Tooltip } from "@mui/material";
 import React, { useState } from "react";
-import { CR_FirstFloorLocations, CR_OutsideLocations } from "src/data/MapLocations/CastleRavenloft/CR_FirstFloor";
+import { CR_FirstFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR_FirstFloor";
 import { DeathHouseEscapeLocations, DeathHouseLocations } from "src/data/MapLocations/DeathHouse/DeathHouseLocations";
 import customTheme, { useStyles } from "../../../../customTheme";
 import { AllMaps, CastleRavenloftMaps } from "../../../../data/maps/maps";
 import { Maps } from "../../../../types/GlobalTypes";
 import { v4 as uuid } from "uuid";
+import { CR_OutsideLocations } from "src/data/MapLocations/CastleRavenloft/CR_Outside";
 
 interface MousePosition {
 	x: number;
@@ -130,11 +131,7 @@ function MapSelector() {
 														{location.events && (
 															<div style={{ marginTop: "1rem" }} key={uuid()}>
 																Events:
-																<ul key={uuid()}>
-																	{location.events.map((event) => (
-																		<li key={uuid()}>{event}</li>
-																	))}
-																</ul>
+																<ul key={uuid()}>{location.events}</ul>
 															</div>
 														)}
 													</div>

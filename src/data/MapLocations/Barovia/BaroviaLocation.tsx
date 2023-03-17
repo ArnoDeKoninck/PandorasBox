@@ -1,5 +1,5 @@
 import { PointOfIntrest } from "../../../types/GlobalTypes";
-
+import { v4 as uuid } from "uuid";
 export const BaroviaLocations: PointOfIntrest[] = [
 	{
 		name: "Death House",
@@ -25,7 +25,7 @@ export const BaroviaLocations: PointOfIntrest[] = [
 		type: "location",
 		note: "Towering trees, whose tops are lost in heavy grey mist, block out all but a death-grey light. The tree trunks are unnaturally close to one another, and the woods have the silence of a forgotten grave, yet exude the feeling of an unvoiced scream.",
 		events: [
-			<li key="passive perception">
+			<li key={uuid()}>
 				PC with the highest passive perception notices a scent of death in the air. If the party follows it read:
 				<p>
 					"The foul scent leads you to a human corpse half-buried in the underbrush about fifteen feet from the road. The young man appears to be a commoner. His muddy clothes are torn and raked with claw marks. Crows havebeen at the body, which is surrounded by paw prints. The man has obviously
@@ -33,7 +33,7 @@ export const BaroviaLocations: PointOfIntrest[] = [
 				</p>
 				The letter has a large wax seal with a "B" stamped in it. The parchment is worn and flimsy. If opened give the party handout "Kolyan Indirovich Letter (Version 2). The letter is dated a week ago.
 			</li>,
-			<li key="overstaying the forest" style={{ marginTop: "1rem" }}>
+			<li key={uuid()} style={{ marginTop: "1rem" }}>
 				If the party lingers in the woods a wolf howl is heard. Every round another wolf adds to the howling and appears to be getting closer. After 5 rounds, triggers an encounter with 5 Dire wolves. If the party tries to leave Barovia, the Dire wolves are joined by a pack of 20 wolves. They stop
 				chasing the party if the party seems to be returning to the road and in the direction of the village of Barovia.
 			</li>,
@@ -69,7 +69,7 @@ export const BaroviaLocations: PointOfIntrest[] = [
 		type: "location",
 		note: "The four ancient stones near the windmill were erected centuries ago by the valley's original human inhabitants. Each moss-covered stone bears a crude carving of a city, each of which is associated with a different season. The city of winter is shown covered with snow, the city of spring is arrayed in flowers, the city of summer has a sunburst overhead, and the city of autumn is covered with leaves. If the characters ask any of the priests or scholarly NPCs in Barovia about the stones, the characters are told that ancient legends tell of the Four Cities, said to be the cities of paradise where the Morninglord, Mother Night, and the other ancient gods first dwelled.",
 		events: [
-			<li>
+			<li key={uuid()}>
 				Several ravens circle overhead, and one pecks at something on top of the stone that depicts the city of autumn. Upon inspection, the characters see the raven is pecking at a dream pastry, and on the ground in the center of the stone circle is a small pile of children's teeth. The hags placed
 				these here to desecrate the stones and as an offering to the entity they worship, the wicked archfey Ceithlenn of the Crooked Teeth.
 			</li>,

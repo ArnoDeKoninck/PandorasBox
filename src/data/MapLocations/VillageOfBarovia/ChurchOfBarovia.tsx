@@ -1,5 +1,5 @@
 import { PointOfIntrest } from "../../../types/GlobalTypes";
-
+import { v4 as uuid } from "uuid";
 export const ChurchOfBaroviaLocations: PointOfIntrest[] = [
 	{
 		name: "Office",
@@ -12,7 +12,7 @@ export const ChurchOfBaroviaLocations: PointOfIntrest[] = [
 		coordinates: { x: 25.5, y: 33.7 },
 		type: "location",
 		note: "The chapel is a shambles, with overturned and broken pews littering the dusty floor. Dozens of candles mounted in candlesticks and candelabras light every dusty corner in a fervent attempt to rid the chapel of shadows. At the far end of the church sits a claw-scarred altar, behind which kneels a priest in soiled vestments. Next to him hangs a long, thick rope that stretches up into the bell tower.",
-		events: [<li>If party has not ventured downstairs add: 'From beneath the chapel floor, you hear a young man's voice cry out, "Father! I'm starving!"'</li>],
+		events: [<li key={uuid()}>If party has not ventured downstairs add: 'From beneath the chapel floor, you hear a young man's voice cry out, "Father! I'm starving!"'</li>],
 	},
 	{
 		name: "Hall",
@@ -37,7 +37,7 @@ export const ChurchOfBaroviaLocations: PointOfIntrest[] = [
 		coordinates: { x: 33, y: 60 },
 		type: "location",
 		note: "Time and neglect have punched holes in the ceiling of this moldy room, which contains a few broken roof shingles amid puddles of water. In one corner, set into the floor, is a heavy wooden trapdoor held shut with a chain and a padlock. A young man's screams of anguish can be heard through the door.",
-		events: [<li>Donavich lost the key. A DC 12 Lockpick check can open the lock. The sound of screaming stops when someone fiddles with the lock. An extra DC 12 strength check is required since the wooden frame is swollen stuck. </li>],
+		events: [<li key={uuid()}>Donavich lost the key. A DC 12 Lockpick check can open the lock. The sound of screaming stops when someone fiddles with the lock. An extra DC 12 strength check is required since the wooden frame is swollen stuck. </li>],
 	},
 	{
 		name: "Undercroft",

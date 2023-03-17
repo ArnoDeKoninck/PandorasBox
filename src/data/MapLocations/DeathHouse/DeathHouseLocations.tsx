@@ -1,4 +1,5 @@
 import { PointOfIntrest } from "../../../types/GlobalTypes";
+import { v4 as uuid } from "uuid";
 
 export const DeathHouseLocations: PointOfIntrest[] = [
 	{
@@ -37,7 +38,7 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		type: "search",
 		note: "A sweeping, red marble staircase curving upward to the second floor. The wood-paneled walls in the main hall are ornately sculpted with images of vines, flowers, nymphs, and satyrs and follow the staircase upward.",
 		events: [
-			<p>
+			<p key={uuid()}>
 				Characters who search the walls for secret doors or otherwise inspect the paneling can, with a successful DC 12 Wisdom (Perception) check, see serpents and skulls inconspicuously woven into the wall designs. The decorative paneling follows the staircase as it circles upward to the second
 				floor.
 			</p>,
@@ -60,7 +61,7 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		coordinates: { x: 20.3, y: 85 },
 		type: "search",
 		note: "The east cabinet sports a lock that can be picked with thieves' tools and a successful DC 15 Dexterity check. ",
-		events: [<p>If opened, it holds a heavy crossbow, a light crossbow, a hand crossbow, and 20 bolts for each weapon.</p>],
+		events: [<p key={uuid()}>If opened, it holds a heavy crossbow, a light crossbow, a hand crossbow, and 20 bolts for each weapon.</p>],
 	},
 	{
 		name: "Wine Cabinet",
@@ -85,7 +86,7 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		coordinates: { x: 23.8, y: 77.8 },
 		type: "search",
 		note: "A dumbwaiter: a 2-foot-wide stone shaft containing a wooden elevator box attached to a simple rope-and-pulley mechanism that must be operated manually. (The shaft connects to the servants' quarters and the master bedroom). Hanging on the wall next to the dumbwaiter is a tiny brass bell attached by wires to buttons in those other areas.",
-		events: [<p>A Small character can squeeze into the elevator box with a successful DC 10 Dexterity (Acrobatics) check. The dumbwaiter's rope-and-pulley mechanism can support 200 pounds of weight before breaking.</p>],
+		events: [<p key={uuid()}>A Small character can squeeze into the elevator box with a successful DC 10 Dexterity (Acrobatics) check. The dumbwaiter's rope-and-pulley mechanism can support 200 pounds of weight before breaking.</p>],
 	},
 	{
 		name: "Dining Room",
@@ -93,7 +94,7 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		type: "location",
 		note: "The centerpiece of this wood-paneled dining room is a carved mahogany table surrounded by eight high-backed chairs with sculpted armrests and cushioned seats. A crystal chandelier hangs above the table, which is covered with resplendent silverware and crystalware polished to a dazzling shine. Mounted above the marble fireplace is a mahogany-framed painting of an alpine vale. Red silk drapes cover the windows, and a tapestry depicting hunting dogs and horse-mounted aristocrats chasing after a wolf hangs from an iron rod bolted to the south wall.",
 		events: [
-			<p>
+			<p key={uuid()}>
 				The wall paneling is carved with elegant images of deer among the trees. Characters who search the walls for secret doors or otherwise inspect the paneling can, with a successful DC 12 Wisdom (Perception) check, see twisted faces carved into the tree trunks and wolves lurking amid the carved
 				foliage.
 			</p>,
@@ -153,7 +154,7 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		type: "search",
 		note: "The bookshelves hold hundreds of tomes covering a range of topics including history, warfare, and alchemy. There are also several shelves containing first-edition collected works of poetry and fiction.",
 		events: [
-			<p>
+			<p key={uuid()}>
 				A secret door behind one bookshelf can be unlocked and swung open by pulling on a switch disguised to look like a red-covered book with a blank spine. A character inspecting the bookshelf spots the fake book with a successful DC 13 Wisdom (Perception) check. Unless the secret door is propped
 				open, springs in the hinges cause it to close on its own. Beyond the secret door lies area 9.
 			</p>,
@@ -171,7 +172,7 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		type: "search",
 		note: "A heavy wooden chest with clawed iron feet stands against the south wall, its lid half-closed. Sticking out of the chest is a skeleton in leather armor. Close inspection reveals that the skeleton belongs to a human who triggered a poisoned dart trap. Three darts are stuck in the dead adventurer's armor and ribcage. The dart-firing mechanism inside the chest no longer functions. Clutched in the skeleton's left hand is a letter bearing the seal of Strahd von Zarovich, which the adventurer tried to remove from the chest.",
 		events: [
-			<p>
+			<p key={uuid()}>
 				The chest contains three blank books with black leather covers (worth 25 gp each), three spell scrolls (bless, protection from poison, and spiritual weapon), the deed to the house, the deed to a windmill, and a signed will. The windmill referred to in the second deed is situated in the
 				mountains east of Vallaki. The will is signed by Gustav and Elisabeth Durst and bequeathes the house, the windmill, and all other family property to Rosavalda and Thornboldt Durst in the event of their parents' deaths. The books, scrolls, deeds, and will age markedly if taken from the house
 				but remain intact.
@@ -189,7 +190,7 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		coordinates: { x: 34.8, y: 90.1 },
 		type: "search",
 		note: "A frightened old hound dog is hiding beneath the harpsichord. The dog wears an aged leather collar bearing the name, “Lancelot.”. Lancelot is rail thin and starving, terrified of any character who approaches him. However",
-		events: [<p>He can be coaxed from his hiding place with a DC 10 Wisdom (Animal Handling) check, rolled with advantaged if offered food. Lancelot offers the players an alternative choice for the sacrifice in the "One Must Die" sequence later in the adventure.</p>],
+		events: [<p key={uuid()}>He can be coaxed from his hiding place with a DC 10 Wisdom (Animal Handling) check, rolled with advantaged if offered food. Lancelot offers the players an alternative choice for the sacrifice in the "One Must Die" sequence later in the adventure.</p>],
 	},
 	{
 		name: "Balcony",
@@ -293,8 +294,8 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		type: "location",
 		note: "This dusty chamber is packed with old furniture (chairs, coat racks, standing mirrors, dress mannequins, and the like), all draped in dusty white sheets. Near an iron stove, underneath one of the sheets, is an unlocked wooden trunk containing the skeletal remains of the family's nursemaid, wrapped in a tattered bedsheet stained with dry blood. A character inspecting the remains and succeeding on a DC 14 Wisdom (Medicine) check can verify that the woman was stabbed to death by multiple knife wounds.",
 		events: [
-			<p>Should the players find the nursemaid’s body, they can match the clothing on the corpse with Margaret’s ghostly clothes with a DC 10 Intelligence (History) check.</p>,
-			<p>
+			<p key={uuid()}>Should the players find the nursemaid’s body, they can match the clothing on the corpse with Margaret’s ghostly clothes with a DC 10 Intelligence (History) check.</p>,
+			<p key={uuid()}>
 				If the players somehow missed meeting Margaret, she appears now. Upon seeing her own corpse, Margaret dissolves into disbelieving tears. “No!” she cries. “What happened to me?!”. She then flies through the floor towards her rooms, where she remains should the players wish to confront her
 				further. By the time the players reach Margaret in her suite, she has already forgotten seeing her body and proceeds with thenormal encounter in the Nursemaid’s Suite section.
 			</p>,
@@ -330,16 +331,28 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		type: "event",
 		note: "Once players discover their remains, Rose and Thorn reappear within this room. Though this time, they appear ghostly and transparent. Upon seeing their bodies, Rose and Thorn suddenly regain the lost memories of their deaths. Though saddened, they are surprisingly at ease with the revelation. If asked about their acceptance, Rose tells the players she thinks, deep down, she always knew she was dead. Rose also expresses honest remorse for unwittingly trapping the party within the house. She admits it was not her intention and if she had had her memories, she would have warned them away instead of bidding them inside.",
 		events: [
-			<ul>
+			<ul key={uuid()}>
 				Rose gets new information:
-				<li style={{ marginTop: "1rem" }}>The children's parents would lock them in their room to keep them safe while they dealt with the monster in the basement.</li>
-				<li style={{ marginTop: "1rem" }}>The monster sounds like horrible screaming from the basement. It was their parents who told them it was monster after they inquired about the screams. Their parents told them nothing of its nature.</li>
-				<li style={{ marginTop: "1rem" }}>Rose could hear Walter’s wailing the last time she and Thorn were locked away. She doesn’t know why he was taken or who could have done so, but she worries for the baby’s safety.</li>
-				<li style={{ marginTop: "1rem" }}>Margaret never quit the family. Margaret was supposed to come check on Rose and Thorn if they were locked away for too long, but Margaret never came.</li>
-				<li style={{ marginTop: "1rem" }}>Rose and Thorn starved to death. They were “so very hungry, but no one came when we cried. And then the hunger went away and we grew very cold and went to sleep.</li>
+				<li key={uuid()} style={{ marginTop: "1rem" }}>
+					The children's parents would lock them in their room to keep them safe while they dealt with the monster in the basement.
+				</li>
+				<li key={uuid()} style={{ marginTop: "1rem" }}>
+					The monster sounds like horrible screaming from the basement. It was their parents who told them it was monster after they inquired about the screams. Their parents told them nothing of its nature.
+				</li>
+				<li key={uuid()} style={{ marginTop: "1rem" }}>
+					Rose could hear Walter’s wailing the last time she and Thorn were locked away. She doesn’t know why he was taken or who could have done so, but she worries for the baby’s safety.
+				</li>
+				<li key={uuid()} style={{ marginTop: "1rem" }}>
+					Margaret never quit the family. Margaret was supposed to come check on Rose and Thorn if they were locked away for too long, but Margaret never came.
+				</li>
+				<li key={uuid()} style={{ marginTop: "1rem" }}>
+					Rose and Thorn starved to death. They were “so very hungry, but no one came when we cried. And then the hunger went away and we grew very cold and went to sleep.
+				</li>
 			</ul>,
-			<p style={{ marginTop: "1rem" }}>She begs the players to find out what happened to Walter and their parents. And, if the monster still lives, she asks them to destroy the creature. She wishes no one else come to harm from the beast.</p>,
-			<p>
+			<p key={uuid()} style={{ marginTop: "1rem" }}>
+				She begs the players to find out what happened to Walter and their parents. And, if the monster still lives, she asks them to destroy the creature. She wishes no one else come to harm from the beast.
+			</p>,
+			<p key={uuid()}>
 				If the players didn't explore much and lack gear, Rose informs the party that her parents kept some hunting equipment in the den on the first floor. She encourages them to take what they need to slay the monster. Rose then reveals the secret staircase to basement by referring to her
 				dollhouse.
 			</p>,
@@ -350,7 +363,7 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		coordinates: { x: 32.5, y: 48.8 },
 		type: "search",
 		note: "A narrow spiral staircase made of creaky wood is contained within a 5-foot-wide shaft of mortared stone that starts in the attic and descends 50 feet to the dungeon level, passing through the lower levels of the house as it makes its descent. Thick cobwebs fill the shaft and reduce visibility in the staircase to 5 feet.",
-		events: [<p>The door materializes and can be found when:</p>, <p>The characters find Strahd's letter in the secret room behind the library</p>, <p>The characters find the replica secret door in the attic of the dollhouse</p>],
+		events: [<p key={uuid()}>The door materializes and can be found when:</p>, <p key={uuid()}>The characters find Strahd's letter in the secret room behind the library</p>, <p key={uuid()}>The characters find the replica secret door in the attic of the dollhouse</p>],
 	},
 	{
 		name: "Dungeon Level Access",
@@ -436,7 +449,7 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		type: "search",
 		note: "This room's chest contains a black leather eyepatch with a carnelian (worth 50 gp) sewn into it.",
 		flavorText: [
-			<p>
+			<p key={uuid()}>
 				Cultist’s Logbook. Bound in grimy black leather, this journal maintains a list of names, physical descriptions, and the negative results of some event. One of the head cultists maintained this logbook as a record of the cult’s victims. The second column logs the physical description of each
 				victim named in the first column, while the third column bears a single word for each entry: "Unsuccessful."
 			</p>,
@@ -489,11 +502,15 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		coordinates: { x: 85, y: 42.85 },
 		type: "location",
 		flavorText: [
-			<p style={{ fontStyle: "italic" }}>"This room is festooned with moldy skeletons that hang from rusty shackles against the walls.</p>,
-			<p style={{ fontStyle: "italic" }}>
+			<p key={uuid()} style={{ fontStyle: "italic" }}>
+				"This room is festooned with moldy skeletons that hang from rusty shackles against the walls.
+			</p>,
+			<p key={uuid()} style={{ fontStyle: "italic" }}>
 				A wide alcove in the south wall contains a painted wooden statue carved in the likeness of a gaunt, pale-faced man wearing a voluminous black cloak, his pale left hand resting on the head of a wolf that stands next to him. In his right hand, he holds a smoky-gray crystal orb.
 			</p>,
-			<p style={{ fontStyle: "italic" }}>The room has exits in the west and north walls. Chanting can be heard coming from the west."</p>,
+			<p key={uuid()} style={{ fontStyle: "italic" }}>
+				The room has exits in the west and north walls. Chanting can be heard coming from the west."
+			</p>,
 		],
 		note: "The statue depicts Strahd, to whom the cultists made sacrifices in the vain hope that he might reveal his darkest secrets to them. If the characters touch the statue or take the crystal orb from Strahd's hand, five shadows form around the statue and attack them. The shadows (the spirits of former cultists) pursue those who flee beyond the room's confines. The skeletons on the wall are harmless decor.",
 	},
@@ -652,10 +669,10 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		coordinates: { x: 78.8, y: 73 },
 		type: "location",
 		flavorText: [
-			<p style={{ fontStyle: "italic" }}>
+			<p key={uuid()} style={{ fontStyle: "italic" }}>
 				The chanting stops as you peer into this forty-foot-square room. The smooth masonry walls provide excellent acoustics. Featureless stone pillars support the ceiling, and a breach in the west wall leads to a dark cave heaped with refuse. Murky water covers most of the floor.{" "}
 			</p>,
-			<p>
+			<p key={uuid()}>
 				Stairs lead up to dry stone ledges that hug the walls. In the middle of the room, more stairs rise to form an octagonal dais that also rises above the water. Rusty chains with shackles dangle from the ceiling directly above a stone altar mounted on the dais. The altar is carved with hideous
 				depictions of grasping ghouls and is stained with dry blood.
 			</p>,
@@ -667,15 +684,15 @@ export const DeathHouseLocations: PointOfIntrest[] = [
 		coordinates: { x: 78.8, y: 76.8 },
 		type: "event",
 		flavorText: [
-			<p style={{ fontStyle: "italic" }}>
+			<p key={uuid()} style={{ fontStyle: "italic" }}>
 				The chanting rises once more as thirteen dark apparitions appear on the ledges overlooking the room. Each one resembles a black-robed figure holding a torch, but the torch's fire is black and seems to draw light into it. Where you'd expect to see faces are voids. "One must die!" they chant,
 				over and over. "One must die! One must die!"
 			</p>,
 		],
 		note: "Characters on the dais when the cultists appear must sacrifice a creature on the altar or face the cult's wrath; characters can ascertain what must be done with a successful DC 11 Intelligence (Religion) or Wisdom (Insight) check. To count as a sacrifice, a creature must die on the altar. The apparitions don't care what kind of creature is sacrificed, and they aren't fooled by illusions.",
 		events: [
-			<p>If the characters make the sacrifice, the cultists fade away, but their tireless chant of "He is the Ancient. He is the Land," echoes again in the dungeon. Strahd is aware of the sacrifice, and Death House now does nothing to hinder the characters</p>,
-			<p>
+			<p key={uuid()}>If the characters make the sacrifice, the cultists fade away, but their tireless chant of "He is the Ancient. He is the Land," echoes again in the dungeon. Strahd is aware of the sacrifice, and Death House now does nothing to hinder the characters</p>,
+			<p key={uuid()}>
 				If the characters leave the dais without making the sacrifice, the cultists' chant changes: "Lorghoth the Decayer, we awaken thee!" This chant rouses the shambling mound and prompts it to attack. It pursues prey beyond the room but won't leave the dungeon. It can move through tunnels without
 				squeezing and completely fills its space. At the start of the shambling mound's first turn, the chant changes again: "The end comes! Death, be praised!" If the shambling mound dies, the chanting stops and the apparitions vanish forever.
 			</p>,

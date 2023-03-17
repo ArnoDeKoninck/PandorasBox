@@ -1,12 +1,12 @@
 import { PointOfIntrest } from "../../../types/GlobalTypes";
-
+import { v4 as uuid } from "uuid";
 export const OldBonegrinderLocations: PointOfIntrest[] = [
 	{
 		name: "Old Bonegrinder",
 		coordinates: { x: 64.78, y: 89.38 },
 		type: "location",
 		note: "The onion-domed edifice leans forward and to one side, as though trying to turn away from the stormy gray sky. You see gray brick walls and dirt-covered windows on the upper floors. A decrepit wooden platform encircles the windmill above a flimsy doorway leading to the building's interior. Perched on a wooden beam above the door is a raven. It hops about and squawks at you, seemingly agitated.",
-		events: [<li>A character who succeeds on a DC 12 Wisdom (Insight) check senses that the raven is trying to warn the party. After delivering its message, the raven flies off toward Vallaki, the town in the valley below</li>],
+		events: [<li key={uuid()}>A character who succeeds on a DC 12 Wisdom (Insight) check senses that the raven is trying to warn the party. After delivering its message, the raven flies off toward Vallaki, the town in the valley below</li>],
 	},
 	//Area 01 (First floor)
 	{
@@ -14,7 +14,7 @@ export const OldBonegrinderLocations: PointOfIntrest[] = [
 		coordinates: { x: 58, y: 78 },
 		type: "location",
 		note: "A large brick oven takes up most of one side of the room. The oven emits warmth and you can smell something sweet baking inside. Surrounding the oven on some shelves are several jars of condiments and ingredients. There's also a couple rubbish bins filled with animal bones and bits of discarded dough",
-		events: [<li>If the party explores the room: Small human bones litter the flagstone floor.</li>],
+		events: [<li key={uuid()}>If the party explores the room: Small human bones litter the flagstone floor.</li>],
 	},
 	{
 		name: "Oven",
@@ -53,7 +53,7 @@ export const OldBonegrinderLocations: PointOfIntrest[] = [
 		type: "location",
 		note: "A haggard, heavyset old woman with a face as wrinkled as a boiled apple sweeps the floor, pushing around a few old bones and stirring up a cloud of white dust with her broom. She wears a bloodstained, flour-caked apron. A long, sharp bodkin impales her bundled-up mound of gray hair. The dirt-caked windows allow very little light to enter this eight-foot-high chamber, most of which is taken up by a large millstone connected to a wooden gear shaft that rises through the ceiling in the center of the room. A stone staircase continues up, toward the sound of loud cackling.",
 		events: [
-			<li>
+			<li key={uuid()}>
 				She doesn't mind visitors, as long as they've come to do business. She tries to sell her latest batch of dream pastries, charging 1 gp for each one. She's proud of her confections and claims that she uses only the finest ingredients. If the characters seem uninterested in her wares, she
 				bellows, "Begone!" If they attack or refuse to leave, she calls out to her daughters and turns to fight.
 			</li>,
@@ -66,9 +66,11 @@ export const OldBonegrinderLocations: PointOfIntrest[] = [
 		type: "location",
 		note: "Dancing around a thick wooden gear shaft in the center of this cramped, circular room are two ugly young women wearing silk shawls and gowns of stitched flesh. Long needles stick out of their tangled mops of black hair. The women cackle with glee. In a rotting wooden closet are three crates, stacked one atop another, with small doors set into them. Next to the closet is a heap of discarded clothing. A ladder climbs to a wooden trapdoor in the nine-foot-high ceiling. A moldy bed with a tattered canopy stands nearby.",
 		events: [
-			<li>The trapdoor leading up can be opened</li>,
-			<li>Each crate is 3 feet square. The top one is empty, but the middle and lower ones each contain a captive child. The outward-facing side of each crate is fitted with a small door that has an iron latch and iron hinges. It can be unlatched and opened easily from the outside.</li>,
-			<li>
+			<li key={uuid()}>The trapdoor leading up can be opened</li>,
+			<li key={uuid()}>
+				Each crate is 3 feet square. The top one is empty, but the middle and lower ones each contain a captive child. The outward-facing side of each crate is fitted with a small door that has an iron latch and iron hinges. It can be unlatched and opened easily from the outside.
+			</li>,
+			<li key={uuid()}>
 				The two captured children were taken from the village of Barovia after being given to the hags by their parents in exchange for dream pastries. The boy, Freek, is seven years old. The girl, Myrtle, is barely five. Their crates are full of crumbs, as the hags are fattening them up. If freed,
 				neither child wants to go home, because of what their parents did. They both speak kindly of Ismark and Ireena in Barovia, hoping to be taken to them.
 			</li>,
@@ -86,6 +88,6 @@ export const OldBonegrinderLocations: PointOfIntrest[] = [
 		coordinates: { x: 83, y: 30 },
 		type: "search",
 		note: "a domed chamber filled with old machinery. There's not much room to move around. Light slips into this attic through small holes in the walls.",
-		events: [<li>Characters searching this space find a few old, abandoned bird's nests.</li>],
+		events: [<li key={uuid()}>Characters searching this space find a few old, abandoned bird's nests.</li>],
 	},
 ];

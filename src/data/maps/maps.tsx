@@ -5,7 +5,8 @@ import { DeathHouseLocations } from "../MapLocations/DeathHouse/DeathHouseLocati
 import { VillageOfBaroviaLocations } from "../MapLocations/VillageOfBarovia/VillageOfBarovia";
 import { TserPoolEncampmentLocations } from "../MapLocations/TserPoolEncampment/TserPoolEncampment";
 import { OldBonegrinderLocations } from "../MapLocations/OldBonegrinder/OldBonegrinder";
-import { CR_FirstFloorLocations, CR_OutsideLocations } from "../MapLocations/CastleRavenloft/CR_FirstFloor";
+import { CR_FirstFloorLocations } from "../MapLocations/CastleRavenloft/CR_FirstFloor";
+import { CR_OutsideLocations } from "../MapLocations/CastleRavenloft/CR_Outside";
 
 export const AllMaps: Maps[] = [
 	{ name: "Barovia", img: "/images/barovia_worldmap.webp", locations: BaroviaLocations },

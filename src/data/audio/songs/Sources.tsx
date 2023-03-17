@@ -1,13 +1,13 @@
 import { SongType } from "../../../types/GlobalTypes";
 
-export const songTagList = ["all", "clown", "dramatic", "drums", "epic", "generic", "intense", "middle_eastern", "upbeat", "vistani"];
+export const songTagList = ["all", "clown", "dramatic", "drums", "epic", "generic", "intense", "middle_eastern", "upbeat", "vistani", "eerie"];
 export const songCategoryList = ["Combat", "Boss"];
 
 export enum songTags {
 	CLOWN = "clown",
 	DRAMATIC = "dramatic",
 	DRUMS = "drums",
-	EARIE = "earie",
+	EERIE = "eerie",
 	EPIC = "epic",
 	GENERIC = "generic",
 	INTENSE = "intens",
@@ -30,17 +30,17 @@ export const DeathHouseBasementPlaylist: SongType[] = [
 	{
 		name: "The stars my solaceby Inon Zur",
 		url: "https://youtu.be/68GWCgYEHGM",
-		tags: [songTags.EARIE, songTags.DRAMATIC],
+		tags: [songTags.EERIE, songTags.DRAMATIC],
 	},
 	{
 		name: "Those who writhe below by will savino",
 		url: "https://youtu.be/wNNnss-1kbQ",
-		tags: [songTags.EARIE],
+		tags: [songTags.EERIE],
 	},
 	{
 		name: "Forgotten by Inon Zur",
 		url: "https://youtu.be/yNkMS7rIWpE",
-		tags: [songTags.EARIE],
+		tags: [songTags.EERIE],
 	},
 ];
 export const CombatSongList: SongType[] = [
@@ -106,19 +106,25 @@ export const BossThemeList: SongType[] = [
 		tags: [songTags.DRAMATIC],
 		boss: "",
 	},
+	{
+		name: "And The sky turned black",
+		url: "https://youtu.be/eB6DCu4uLCo?t=43",
+		tags: [songTags.DRAMATIC, songTags.DRUMS, songTags.EERIE],
+		boss: "Rahadin",
+	},
 ];
 export const VistaniHuntingPlaylist: SongType[] = [
 	{
 		name: "Svanrand by Heilung",
 		url: "https://youtu.be/VGzOj5JTMnE?t=15",
-		tags: [songTags.EARIE, songTags.EPIC],
+		tags: [songTags.EERIE, songTags.EPIC],
 	},
 ];
 export const WalterBossFightPlaylist: SongType[] = [
 	{
 		name: "Covetous demon by Motoi Sakuraba",
 		url: "https://youtu.be/DTCp8E0E5CE",
-		tags: [songTags.EARIE, songTags.EPIC],
+		tags: [songTags.EERIE, songTags.EPIC],
 		boss: "Walter",
 	},
 	{
@@ -130,7 +136,7 @@ export const WalterBossFightPlaylist: SongType[] = [
 	{
 		name: "Covetous demon by Motoi Sakuraba",
 		url: "https://youtu.be/Xph2Phcj0LA?t=112",
-		tags: [songTags.EARIE, songTags.EPIC],
+		tags: [songTags.EERIE, songTags.EPIC],
 		boss: "Walter",
 	},
 ];

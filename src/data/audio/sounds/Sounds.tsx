@@ -57,4 +57,5 @@ export const SoundList: SoundType[] = [
 		name: "Wolves Howling",
 		url: ["audio/sounds/wolvesHowling_001.mp3", "audio/sounds/wolvesHowling_002.mp3"],
 	},
+	{ name: "Rahadin's Deathly Choir", url: ["https://youtu.be/EjeGHxEx4VE"] },
 ];

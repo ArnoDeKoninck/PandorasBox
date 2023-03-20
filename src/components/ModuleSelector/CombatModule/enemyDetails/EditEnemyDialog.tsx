@@ -12,10 +12,10 @@ interface EditEnemyDialogProps {
 	index: number;
 }
 function EditEnemyDialog({ open, index, setOpenEditEnemyDialog }: EditEnemyDialogProps) {
-	const enemies = useAppSelector((state) => state.enemies.entities);
+	const enemies = useAppSelector((state) => state.enemies);
 	const dispatch = useAppDispatch();
 
-	const currentEnemy = enemies[index];
+	const currentEnemy = enemies.entities[index];
 	const [updatedEnemy, setUpdatedEnemy] = useState<Entity>(currentEnemy);
 
 	const handleClose = () => {
@@ -46,16 +46,16 @@ function EditEnemyDialog({ open, index, setOpenEditEnemyDialog }: EditEnemyDialo
 
 	return (
 		<Dialog open={open ? true : false} onClose={handleClose} fullWidth maxWidth={"lg"}>
-			<DialogTitle>{`Edit ${enemies[index].name}`}</DialogTitle>
+			<DialogTitle>{`Edit ${enemies.entities[index].name}`}</DialogTitle>
 			<Divider />
 			<DialogContent>
 				<Grid container>
 					<Grid item xs={2}>
-						<CardMedia component="img" height={200} src={`./images/${enemies[index].image}`} />
+						<CardMedia component="img" height={200} src={`./images/${enemies.entities[index].image}`} />
 					</Grid>
 					{/* Health bar container*/}
 					<Grid item xs={10}>
-						<StatBlockModule entities={enemies} index={index} onChange={setUpdatedEnemy}></StatBlockModule>
+						<StatBlockModule entities={enemies.entities} index={index} onChange={setUpdatedEnemy}></StatBlockModule>
 					</Grid>
 				</Grid>
 			</DialogContent>

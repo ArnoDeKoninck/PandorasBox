@@ -37,7 +37,7 @@ function EnemyDetailsCard({ index }: PcDetailCardProps) {
 									<Grid item xs={12}>
 										<Grid container spacing={1}>
 											<Grid item xs={7}>
-												<LinearProgress color="success" variant="buffer" value={100 / (enemy.maxHealth / enemy.currentHealth)} valueBuffer={enemy.currentHealth + (enemy.tempHealth ?? 0)} />
+												<LinearProgress className={classes.smallHealthBar} color="success" variant="buffer" value={100 / (enemy.maxHealth / enemy.currentHealth)} valueBuffer={enemy.currentHealth + (enemy.tempHealth ?? 0)} />
 											</Grid>
 											<Grid item xs={5}>
 												<Typography>{`${enemy.currentHealth + (enemy.tempHealth ?? 0)}${enemy.tempHealth ? "(+" + enemy.tempHealth + ")" : ""}/${enemy.maxHealth} HP`}</Typography>

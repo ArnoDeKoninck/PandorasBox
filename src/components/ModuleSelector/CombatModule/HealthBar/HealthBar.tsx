@@ -11,7 +11,7 @@ function HealthBar({ currentHp, tempHp, maxHealth }: HealthBarProps) {
 	return (
 		<Grid container columnGap={1}>
 			<Grid item xs={8}>
-				<LinearProgress className={classes.healthBarProgressBar} color="success" variant="buffer" value={100 / (maxHealth / currentHp)} valueBuffer={currentHp + tempHp} />
+				<LinearProgress className={classes.healthBar} color="success" variant="buffer" value={100 / (maxHealth / currentHp)} valueBuffer={currentHp + tempHp} />
 			</Grid>
 			<Grid item xs={3}>
 				<Typography>{`${currentHp + tempHp}${tempHp ? "(+" + tempHp + ")" : ""}/${maxHealth} HP`}</Typography>

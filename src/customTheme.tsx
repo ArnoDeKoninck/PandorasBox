@@ -299,8 +299,19 @@ export const useStyles = makeStyles((theme: Theme) =>
 				backgroundColor: "yellow !important",
 			},
 		},
-		healthBarProgressBar: {
+		healthBar: {
 			height: window.innerHeight * 0.02,
+			borderRadius: "5px",
+			"& .MuiLinearProgress-dashed": {
+				background: customTheme.palette.error.dark,
+				animation: "none",
+			},
+			"& .MuiLinearProgress-colorSuccess": {
+				background: customTheme.palette.info.light,
+			},
+		},
+		smallHealthBar: {
+			height: window.innerHeight * 0.01,
 			borderRadius: "5px",
 			"& .MuiLinearProgress-dashed": {
 				background: customTheme.palette.error.dark,

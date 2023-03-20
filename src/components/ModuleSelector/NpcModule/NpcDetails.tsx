@@ -17,7 +17,7 @@ function NpcDetailsDialog({ changeOpen, npc }: NpcProps) {
 		<Grid container>
 			<Grid item xs={12}>
 				<Card>
-					<CardContent>
+					<CardContent sx={{ height: window.innerHeight * 0.8 }}>
 						<Grid container justifyContent={"space-between"}>
 							<Grid item>
 								<Typography sx={{ fontSize: "2rem" }}>{npc.name}</Typography>
@@ -63,7 +63,7 @@ function NpcDetailsDialog({ changeOpen, npc }: NpcProps) {
 						<CardContent>
 							<Grid container justifyContent={"center"}>
 								<Typography sx={{ fontSize: "2rem" }}>{npc.name}</Typography>
-								<CardMedia component="img" height={window.innerHeight * 0.8} src={`images/${npc.image}`} sx={{ objectFit: "contain", position: "relative" }} />
+								<CardMedia component="img" height={window.innerHeight ? window.innerHeight * 0.8 : window.screen.height * 0.8} src={`images/${npc.image}`} sx={{ objectFit: "contain", position: "relative" }} />
 								<IconButton
 									onClick={() => setIsEnlarged(false)}
 									sx={{

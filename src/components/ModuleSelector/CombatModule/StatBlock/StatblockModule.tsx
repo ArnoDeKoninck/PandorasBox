@@ -19,19 +19,18 @@ function StatBlockModule({ index, onChange }: StatBlockProps) {
 	const [currentHp, setCurrentHp] = useState<number>(entity.currentHealth);
 	const [tempHp, setTempHp] = useState<number>(entity.tempHealth ?? 0);
 	const [currentStatus, setCurrentStatus] = useState<Status[]>(entity.status);
-	const [initiative, setInitiative] = useState<number>(entity.initiative);
+	const [initiative, setInitiative] = useState<string>(entity.initiative.toString());
 
 	useEffect(() => {
-		setUpdatedEntity({ ...entity, ...{ currentHealth: currentHp, tempHealth: tempHp, status: currentStatus, initiative: initiative } });
-		onChange(updatedEntity);
+		const updatedValues = { ...entity, ...{ currentHealth: currentHp, tempHealth: tempHp, status: currentStatus, initiative: parseInt(initiative) } };
+		setUpdatedEntity(updatedValues);
+		onChange(updatedValues);
 	}, [currentHp, tempHp, currentStatus, initiative, entity.type, index, onChange, entity, updatedEntity]);
 
 	const removeStatus = (statusToRemove: Status) => {
 		const newStatusArray = currentStatus.filter((status) => status !== statusToRemove);
 		setCurrentStatus(newStatusArray);
 	};
-
-	console.log(entity.abilities?.map((ability) => ability.description));
 	return (
 		<Grid container>
 			<Grid item xs={12}>
@@ -240,9 +239,9 @@ function StatBlockModule({ index, onChange }: StatBlockProps) {
 										<TextField
 											inputProps={{ min: 0, style: { textAlign: "center" } }}
 											label={"Initiative"}
-											value={initiative ?? 0}
+											defaultValue={entity.initiative}
 											onChange={(e: any) => {
-												setInitiative(isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value));
+												setInitiative(e.target.value);
 											}}
 										/>
 									</Grid>

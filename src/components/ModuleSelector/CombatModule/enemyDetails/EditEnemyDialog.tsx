@@ -1,5 +1,5 @@
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, Divider, CardMedia } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "src/app/hooks";
 import { updateEnemy } from "src/features/enemySlice";
 import { Entity } from "../../../../types/GlobalTypes";
@@ -12,10 +12,10 @@ interface EditEnemyDialogProps {
 	index: number;
 }
 function EditEnemyDialog({ open, index, setOpenEditEnemyDialog }: EditEnemyDialogProps) {
-	const enemies = useAppSelector((state) => state.enemies);
+	const enemies = useAppSelector((state) => state.enemies.entities);
 	const dispatch = useAppDispatch();
 
-	const currentEnemy = enemies.entities[index];
+	const currentEnemy = enemies[index];
 	const [updatedEnemy, setUpdatedEnemy] = useState<Entity>(currentEnemy);
 
 	const handleClose = () => {
@@ -46,16 +46,16 @@ function EditEnemyDialog({ open, index, setOpenEditEnemyDialog }: EditEnemyDialo
 
 	return (
 		<Dialog open={open ? true : false} onClose={handleClose} fullWidth maxWidth={"lg"}>
-			<DialogTitle>{`Edit ${enemies.entities[index].name}`}</DialogTitle>
+			<DialogTitle>{`Edit ${enemies[index].name}`}</DialogTitle>
 			<Divider />
 			<DialogContent>
 				<Grid container>
 					<Grid item xs={2}>
-						<CardMedia component="img" height={200} src={`./images/${enemies.entities[index].image}`} />
+						<CardMedia component="img" height={200} src={`./images/${enemies[index].image}`} />
 					</Grid>
 					{/* Health bar container*/}
 					<Grid item xs={10}>
-						<StatBlockModule entities={enemies.entities} index={index} onChange={setUpdatedEnemy}></StatBlockModule>
+						<StatBlockModule index={index} onChange={setUpdatedEnemy} />
 					</Grid>
 				</Grid>
 			</DialogContent>

@@ -76,7 +76,7 @@ function EnemyDetails() {
 							{currentEnemies &&
 								currentEnemies.map((enemy, index) => (
 									<Grid key={index} item lg={3} md={4} sm={12} padding={1}>
-										{<EnemyDetailsCard index={index} />}
+										<EnemyDetailsCard index={index} />
 									</Grid>
 								))}
 						</Grid>

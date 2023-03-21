@@ -12,7 +12,7 @@ interface PcDetailCardProps {
 function EnemyDetailsCard({ index }: PcDetailCardProps) {
 	const classes = useStyles();
 	const enemy = useAppSelector((state) => state.enemies.entities[index]);
-
+	console.log(enemy);
 	const [openEditEnemyDialog, setOpenEditEnemyDialog] = useState<Entity | undefined>(undefined);
 
 	return (

@@ -11,7 +11,7 @@ interface UpdateEnemy {
 }
 
 const localStorageCache = {entities :localStorage.getItem('enemies')};
-const cachedEnemies = localStorageCache.entities? {entities: JSON.parse(localStorageCache.entities)}as EnemyState: {entities: []as Entity[]} as EnemyState 
+const cachedEnemies = localStorageCache.entities? {entities: JSON.parse(localStorageCache.entities)}as EnemyState: {entities: [] as Entity[]} as EnemyState 
 
 
 

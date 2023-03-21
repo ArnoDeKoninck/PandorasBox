@@ -10,7 +10,6 @@ function CombatModule() {
 	const enemies = useAppSelector((state) => state.enemies.entities);
 	const combatTurn = useAppSelector((state) => state.combatTurn);
 
-	console.log(enemies);
 	const combat = [...party, ...enemies];
 	return (
 		<Grid container gap={2} wrap="nowrap">

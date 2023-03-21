@@ -1,18 +1,20 @@
 import { Divider, Grid, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useAppSelector } from "src/app/hooks";
 import { Entity, Status } from "../../../../types/GlobalTypes";
 import HealthBarControls from "../HealthBar/HealthBarControls";
 import SetStatus from "../Status/SetStatus";
 import StatusChip from "../Status/StatusChip";
 
 interface StatBlockProps {
-	entities: Entity[];
 	index: number;
 	onChange: (input: Entity) => void;
 }
 
-function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
-	const entity = entities[index];
+function StatBlockModule({ index, onChange }: StatBlockProps) {
+	const enemies = useAppSelector((state) => state.enemies.entities);
+	const entity = enemies[index];
+
 	const [updatedEntity, setUpdatedEntity] = useState<Entity>(entity);
 	const [currentHp, setCurrentHp] = useState<number>(entity.currentHealth);
 	const [tempHp, setTempHp] = useState<number>(entity.tempHealth ?? 0);
@@ -22,13 +24,14 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 	useEffect(() => {
 		setUpdatedEntity({ ...entity, ...{ currentHealth: currentHp, tempHealth: tempHp, status: currentStatus, initiative: initiative } });
 		onChange(updatedEntity);
-	}, [currentHp, tempHp, currentStatus, initiative, entities, entity.type, index, onChange, entity, updatedEntity]);
+	}, [currentHp, tempHp, currentStatus, initiative, entity.type, index, onChange, entity, updatedEntity]);
 
 	const removeStatus = (statusToRemove: Status) => {
 		const newStatusArray = currentStatus.filter((status) => status !== statusToRemove);
 		setCurrentStatus(newStatusArray);
 	};
 
+	console.log(entity.abilities?.map((ability) => ability.description));
 	return (
 		<Grid container>
 			<Grid item xs={12}>
@@ -73,7 +76,7 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 												<Typography component="span" fontWeight={"bolder"}>
 													Saving Throws:
 												</Typography>
-												<Typography component="span">{entity.savingThrows?.join(", ")}</Typography>
+												<Typography component="span">{`${entity.savingThrows?.join(", ")}`}</Typography>
 											</Grid>
 										</Grid>
 									)}
@@ -97,7 +100,7 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 												<Typography component="span" fontWeight={"bolder"}>
 													Resistances:
 												</Typography>
-												<Typography component="span">{entity.resistances.join(", ")}</Typography>
+												<Typography component="span">{`${entity.resistances.join(", ")}`}</Typography>
 											</Grid>
 										</Grid>
 									)}
@@ -107,7 +110,7 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 												<Typography component="span" fontWeight={"bolder"}>
 													Senses:
 												</Typography>
-												<Typography component="span">{entity.senses.join(", ")}</Typography>
+												<Typography component="span">{`${entity.senses.join(", ")}`}</Typography>
 											</Grid>
 										</Grid>
 									)}
@@ -117,7 +120,7 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 												<Typography component="span" fontWeight={"bolder"}>
 													Languages:
 												</Typography>
-												<Typography component="span">{entity.languages.join(", ")}</Typography>
+												<Typography component="span">{`${entity.languages.join(", ")}`}</Typography>
 											</Grid>
 										</Grid>
 									)}
@@ -142,9 +145,7 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 												<Typography key={`abilityName ${index} `} component="span" fontWeight={"bolder"}>
 													{ability.name}
 												</Typography>
-												<Typography key={`skillDescription ${index} `} component="span">
-													{ability.description}
-												</Typography>
+												{ability.description && <div>{ability.description.map((description) => description.props.children)}</div>}
 											</Grid>
 										))}
 									</Grid>
@@ -163,9 +164,7 @@ function StatBlockModule({ entities, index, onChange }: StatBlockProps) {
 												<Typography key={`actionName ${index} `} component="span" fontWeight={"bolder"}>
 													{action.name}
 												</Typography>
-												<Typography key={`actionDescription ${index} `} component="span">
-													{action.description}
-												</Typography>
+												{action.description && <div>{action.description.map((description) => description.props.children)}</div>}
 											</Grid>
 										))}
 									</Grid>

@@ -311,7 +311,7 @@ export const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 		smallHealthBar: {
-			height: window.innerHeight * 0.01,
+			height: window.innerHeight * 0.005,
 			borderRadius: "5px",
 			"& .MuiLinearProgress-dashed": {
 				background: customTheme.palette.error.dark,

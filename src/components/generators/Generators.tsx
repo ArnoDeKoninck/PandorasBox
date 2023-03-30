@@ -1,17 +1,14 @@
 import { Card, FormControl, Grid, MenuItem, TextField, Typography } from "@mui/material";
-import { useAppSelector } from "src/app/hooks";
 import { customTheme, useStyles } from "../../customTheme";
 import { dayTimeEncounterList } from "src/data/Encounters/Encounters";
 import { useState } from "react";
-import { randomizeEncounterVariables } from "src/services/encounter-service/encounter-service";
-import { Encounter } from "src/types/EncounterTypes";
 import { v4 as uuid } from "uuid";
 import { AutoFixHigh, Diamond, Grass, LightMode } from "@mui/icons-material";
 function Generators() {
 	const [category, setCategory] = useState<string>("Encounters");
-	const [currentSelected, setCurrentSelected] = useState<number>(0);
+	//const [currentSelected, setCurrentSelected] = useState<number>(0);
 	const [amount, setAmount] = useState<number>(1);
-	const [currentEncounter, setCurrentEncounter] = useState<Encounter>(randomizeEncounterVariables(dayTimeEncounterList[0]));
+	//const [currentEncounter, setCurrentEncounter] = useState<Encounter>(randomizeEncounterVariables(dayTimeEncounterList[0]));
 	const [currentEncounterList, setCurrentEncounterList] = useState<string>("Daytime Encounters");
 
 	const encounterLists = [
@@ -27,7 +24,7 @@ function Generators() {
 			),
 		},
 	];
-	const partyLevel = useAppSelector((state) => state.party.partyLevel);
+	//const partyLevel = useAppSelector((state) => state.party.partyLevel);
 	const classes = useStyles();
 	const generatingCategories = [
 		{
@@ -61,10 +58,6 @@ function Generators() {
 			),
 		},
 	];
-	const animationTiming = 10;
-	//the Animation Delay Fraction for a specific array
-	const dayTimeEncounter_ADR = animationTiming / dayTimeEncounterList.length;
-	let endShuffleTimer: ReturnType<typeof setInterval>;
 
 	return (
 		<Grid container>

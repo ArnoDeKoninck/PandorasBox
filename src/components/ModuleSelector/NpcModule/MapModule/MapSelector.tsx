@@ -8,6 +8,8 @@ import { AllMaps, CastleRavenloftMaps } from "../../../../data/maps/maps";
 import { Maps } from "../../../../types/GlobalTypes";
 import { v4 as uuid } from "uuid";
 import { CR_OutsideLocations } from "src/data/MapLocations/CastleRavenloft/CR_Outside";
+import { CR_SecondFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR_SecondFloor";
+import { CR_ThirdFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR_ThirdFloor";
 
 interface MousePosition {
 	x: number;
@@ -34,8 +36,7 @@ function MapSelector() {
 
 	const classes = useStyles();
 	const swapToAlternativeMap = (input: number) => {
-		console.log("Do I get my input: " + input);
-		setMapAlternative((prevState) => (prevState === 0 ? input : 0));
+		setMapAlternative(input);
 
 		if (input !== 0) {
 			//when map is not default
@@ -44,7 +45,6 @@ function MapSelector() {
 				selectedMap.locations = DeathHouseEscapeLocations;
 			}
 			if (selectedMap.name === "Castle Ravenloft") {
-				console.log("Do i get here?");
 				switch (input) {
 					case 0:
 						selectedMap.img = "./images/cr_outside.webp";
@@ -53,6 +53,14 @@ function MapSelector() {
 					case 1:
 						selectedMap.img = "./images/cr_first_floor.webp";
 						selectedMap.locations = CR_FirstFloorLocations;
+						break;
+					case 2:
+						selectedMap.img = "./images/cr_second_floor.webp";
+						selectedMap.locations = CR_SecondFloorLocations;
+						break;
+					case 3:
+						selectedMap.img = "./images/cr_third_floor.webp";
+						selectedMap.locations = CR_ThirdFloorLocations;
 						break;
 					default: {
 						selectedMap.img = "./images/cr_outside.webp";

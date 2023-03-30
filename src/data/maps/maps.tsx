@@ -7,6 +7,8 @@ import { TserPoolEncampmentLocations } from "../MapLocations/TserPoolEncampment/
 import { OldBonegrinderLocations } from "../MapLocations/OldBonegrinder/OldBonegrinder";
 import { CR_FirstFloorLocations } from "../MapLocations/CastleRavenloft/CR_FirstFloor";
 import { CR_OutsideLocations } from "../MapLocations/CastleRavenloft/CR_Outside";
+import { CR_SecondFloorLocations } from "../MapLocations/CastleRavenloft/CR_SecondFloor";
+import { CR_ThirdFloorLocations } from "../MapLocations/CastleRavenloft/CR_ThirdFloor";
 
 export const AllMaps: Maps[] = [
 	{ name: "Barovia", img: "/images/barovia_worldmap.webp", locations: BaroviaLocations },
@@ -21,4 +23,6 @@ export const AllMaps: Maps[] = [
 export const CastleRavenloftMaps: Maps[] = [
 	{ name: "Outside", img: "/images/cr_outside.webp", locations: CR_OutsideLocations },
 	{ name: "First Floor", img: "/images/cr_first_floor.webp", locations: CR_FirstFloorLocations },
+	{ name: "Second Floor", img: "/images/cr_second_floor.webp", locations: CR_SecondFloorLocations },
+	{ name: "Third Floor", img: "/images/cr_third_floor.webp", locations: CR_ThirdFloorLocations },
 ];

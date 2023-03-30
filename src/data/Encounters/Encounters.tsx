@@ -1,5 +1,5 @@
 import { Encounter } from "../../types/EncounterTypes";
-import { peasant } from "../Monsters/Monsters";
+import { direWolf, peasant } from "../Monsters/Monsters";
 
 export const dayTimeEncounterList: Encounter[] = [
 	{
@@ -49,6 +49,7 @@ export const dayTimeEncounterList: Encounter[] = [
 		description: "A snarling wolf the size of a grizzly bear steps out of the fog. Notes: Can't be feared or charmed.",
 		minAmount: 1,
 		maxAmount: 6,
+		monster: direWolf,
 	},
 	{
 		name: "False Trail",
@@ -136,6 +137,7 @@ export const dayTimeEncounterList: Encounter[] = [
 		variant: [
 			{
 				name: "Vistani Bandits",
+				description: "Some Mortu are blockingt he roads up ahead, demanding tribute for safe passage.",
 				minAmount: 2,
 				maxAmount: 5,
 			},
@@ -150,6 +152,7 @@ export const dayTimeEncounterList: Encounter[] = [
 	},
 	{
 		name: "Wolves",
+		description: "A pack of oversized wolves lurk in the mists of the forest. Red Eyes glaring down at you.",
 		minAmount: 3,
 		maxAmount: 18,
 	},

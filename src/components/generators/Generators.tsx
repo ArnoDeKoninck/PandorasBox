@@ -1,54 +1,129 @@
-import { Button, Card, CardContent, Divider, Grid, Typography } from "@mui/material";
-import React from "react";
-import { customTheme } from "../../customTheme";
-import { rollEncounter } from "../../services/encounter-service/encounter-service";
-import { generateRandomTreasure, getLevelRangeIndex } from "../../services/loot-service/loot-service";
-import { Encounter, Encounter_Variant } from "../../types/EncounterTypes";
-import { Item } from "../../types/ItemTypes";
-import GeneratedOutput from "./GeneratedOutput";
+import { Card, FormControl, Grid, MenuItem, TextField, Typography } from "@mui/material";
+import { useAppSelector } from "src/app/hooks";
+import { customTheme, useStyles } from "../../customTheme";
+import { dayTimeEncounterList } from "src/data/Encounters/Encounters";
+import { useState } from "react";
+import { randomizeEncounterVariables } from "src/services/encounter-service/encounter-service";
+import { Encounter } from "src/types/EncounterTypes";
+import { v4 as uuid } from "uuid";
+import { AutoFixHigh, Diamond, Grass, LightMode } from "@mui/icons-material";
+function Generators() {
+	const [category, setCategory] = useState<string>("Encounters");
+	const [currentSelected, setCurrentSelected] = useState<number>(0);
+	const [amount, setAmount] = useState<number>(1);
+	const [currentEncounter, setCurrentEncounter] = useState<Encounter>(randomizeEncounterVariables(dayTimeEncounterList[0]));
+	const [currentEncounterList, setCurrentEncounterList] = useState<string>("Daytime Encounters");
 
-interface props {
-	partyLevel: number;
-	encounter: Encounter | Encounter_Variant | undefined;
-	loot: Item[] | undefined;
-	getEncounter: (input: any) => void;
-	getLoot: (input: any) => void;
-	rollInitiative: () => void;
-}
+	const encounterLists = [
+		{
+			name: "Daytime Encounters",
+			list: dayTimeEncounterList,
+			icon: (
+				<LightMode
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			),
+		},
+	];
+	const partyLevel = useAppSelector((state) => state.party.partyLevel);
+	const classes = useStyles();
+	const generatingCategories = [
+		{
+			name: "Encounters",
+			icon: (
+				<Grass
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			),
+		},
+		{
+			name: "Magic Items",
+			icon: (
+				<AutoFixHigh
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			),
+		},
+		{
+			name: "Treasure",
+			icon: (
+				<Diamond
+					sx={{
+						color: customTheme.palette.secondary.main,
+					}}
+				/>
+			),
+		},
+	];
+	const animationTiming = 10;
+	//the Animation Delay Fraction for a specific array
+	const dayTimeEncounter_ADR = animationTiming / dayTimeEncounterList.length;
+	let endShuffleTimer: ReturnType<typeof setInterval>;
 
-function Generators({ partyLevel, getEncounter, getLoot, encounter, loot, rollInitiative }: props) {
-	partyLevel = 3;
 	return (
-		<Card sx={{ minHeight: "304px" }}>
-			<CardContent>
-				<Grid container>
-					<Grid item xs={12}>
-						<Typography variant={"h5"}>Generators</Typography>
-						<Divider component={"h5"} />
+		<Grid container>
+			<Grid item xs={12}>
+				<Card sx={{ minHeight: "304px", borderRadius: "0 8px 8px 8px" }}>
+					<Grid container padding={3} gap={2}>
+						<Grid item xs={3} md={2} sx={{ paddingLeft: "0 !important" }}>
+							<FormControl fullWidth>
+								<TextField size={"small"} className={classes.headerTitle} select id="GeneratingCategory" label={"Category"} fullWidth value={category} onChange={(e: any) => setCategory(e.target.value)}>
+									{generatingCategories.map((category: { name: string; icon: JSX.Element }) => (
+										<MenuItem key={uuid()} value={category.name}>
+											<Grid container alignItems="center" justifyContent={"space-between"}>
+												<Grid item>
+													<Typography>{category.name}</Typography>
+												</Grid>
+												<Grid item>{category.icon}</Grid>
+											</Grid>
+										</MenuItem>
+									))}
+								</TextField>
+							</FormControl>
+						</Grid>
+						{category === "Encounters" && (
+							<Grid item xs={3} md={2}>
+								<FormControl fullWidth>
+									<TextField size={"small"} className={classes.headerTitle} select id="encounterLists" value={currentEncounterList} label="Encounter options" onChange={(e: any) => setCurrentEncounterList(e.target.value)}>
+										{encounterLists.map((item) => (
+											<MenuItem key={uuid()} value={item.name}>
+												<Grid container alignItems="center" justifyContent={"space-between"}>
+													<Grid item>
+														<Typography>{item.name}</Typography>
+													</Grid>
+													<Grid item>{item.icon}</Grid>
+												</Grid>
+											</MenuItem>
+										))}
+									</TextField>
+								</FormControl>
+							</Grid>
+						)}
+
+						<Grid item xs={3} md={1}>
+							<FormControl fullWidth>
+								<TextField
+									sx={{ "& .MuiOutlinedInput-root": { height: "47px !important" } }}
+									size={"small"}
+									className={`${classes.headerTitle} ${classes.maxHeight}`}
+									id="GenerateAmount"
+									label={"Amount"}
+									value={amount}
+									onChange={(e: any) => setAmount(isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value))}
+								/>
+							</FormControl>
+						</Grid>
+						<Grid item xs={12}></Grid>
 					</Grid>
-					<Grid container rowSpacing={2}>
-						<Grid item>
-							<Button onClick={() => getEncounter(rollEncounter())}>
-								<Typography color={customTheme.palette.secondary.main}>Generate Encounter</Typography>
-							</Button>
-						</Grid>
-						<Grid item>
-							<Button onClick={() => getLoot(generateRandomTreasure(getLevelRangeIndex(partyLevel)))}>
-								<Typography color={customTheme.palette.secondary.main}>Generate Treasure</Typography>
-							</Button>
-						</Grid>
-						<Grid item>
-							<Button onClick={() => rollInitiative()}>
-								<Typography color={customTheme.palette.secondary.main}>Roll Initiative</Typography>
-							</Button>
-						</Grid>
-						<Grid item xs={12}>
-							<GeneratedOutput encounter={encounter} loot={loot} />
-						</Grid>
-					</Grid>
-				</Grid>
-			</CardContent>
-		</Card>
+				</Card>
+			</Grid>
+		</Grid>
 	);
 }
 

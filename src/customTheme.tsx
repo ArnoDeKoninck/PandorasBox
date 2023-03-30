@@ -1,7 +1,6 @@
-import { createTheme } from "@mui/material";
+import { createTheme, Theme } from "@mui/material";
 import { grey, pink } from "@mui/material/colors";
 import { createStyles, makeStyles } from "@mui/styles";
-import { Theme } from "@mui/system";
 
 declare module "@mui/material/styles" {
 	interface Theme {
@@ -320,6 +319,31 @@ export const useStyles = makeStyles((theme: Theme) =>
 			"& .MuiLinearProgress-colorSuccess": {
 				background: customTheme.palette.info.light,
 			},
+		},
+		carouselItem: {
+			display: "flex",
+			alignItems: "center",
+			position: "absolute",
+			width: "100%",
+			height: "auto",
+			padding: "0 12px",
+			opacity: 0,
+			willChange: "transform, opacity",
+			transition: "ease-in-out",
+			animationFillMode: "forwards",
+			zIndex: 50,
+		},
+		carouselItemVisible: {
+			opacity: 1,
+		},
+		icon: {
+			backgroundColor: customTheme.palette.primary.dark,
+			"&:hover > *": {
+				color: customTheme.palette.primary.dark,
+			},
+		},
+		maxHeight: {
+			height: "100%",
 		},
 	})
 );

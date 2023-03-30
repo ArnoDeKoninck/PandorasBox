@@ -9,22 +9,17 @@ interface props {
 
 function EncounterCard({ encounter }: props) {
 	const classes = useStyles();
-	const { amount, dc, description, name, savingThrow } = encounter;
+
+	const { name, amount, description } = encounter;
 	return (
-		<Card style={{ backgroundColor: grey[800] }}>
+		<Card style={{ backgroundColor: grey[800], height: "10rem", width: "100%" }}>
 			<CardContent>
 				<Grid container rowSpacing={2} className={classes.headerTitle}>
 					<Grid container>
 						<Grid item>
-							<Typography component={"span"}>
-								{amount} {name}
-							</Typography>
-							{description && <Typography component={"span"}>{description}</Typography>}
-							{savingThrow && (
-								<Typography component={"span"}>
-									DC {dc} {savingThrow}
-								</Typography>
-							)}
+							<Typography component={"p"}>{`${amount} ${name}`}</Typography>
+							<Typography component={"p"}>{description}</Typography>
+							{encounter.savingThrow && encounter.dc && <Typography component={"p"}>DC {`${encounter.dc} ${encounter.savingThrow}`}</Typography>}
 						</Grid>
 					</Grid>
 				</Grid>

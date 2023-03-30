@@ -119,6 +119,7 @@ export enum Classes {
 	SORCERER = "Sorcerer",
 	WARLOCK = "Warlock",
 	WIZARD = "Wizard",
+	HOMEBREW_LYCANTHROPE = "Lycanthrope",
 }
 
 export interface Requirements {

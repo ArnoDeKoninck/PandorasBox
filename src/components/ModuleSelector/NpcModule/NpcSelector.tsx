@@ -69,7 +69,7 @@ function NpcSelector() {
 								<Grid container spacing={1} paddingRight={2}>
 									{filteredNpcs &&
 										filteredNpcs.map((npc) => (
-											<Grid key={npc.name} item xs={4} md={1}>
+											<Grid key={npc.name} item xs={4} md={2} lg={1}>
 												<Card className={classes.npcCard} onClick={(e) => handleOpenNpcDetails(e.currentTarget.innerText)}>
 													{npc.image && <CardMedia component="img" height="180" src={`./images/${npc.image}`} alt={npc.name} />}
 													<Typography align="center" className={classes.npcCardTitle}>

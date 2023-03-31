@@ -1,7 +1,7 @@
 import { SongType } from "../../../types/GlobalTypes";
 
 export const songTagList = ["all", "clown", "dramatic", "drums", "epic", "generic", "intense", "middle_eastern", "upbeat", "vistani", "eerie"];
-export const songCategoryList = ["Combat", "Boss"];
+export const songCategoryList = ["Combat", "Boss", "Ravenloft"];
 
 export enum songTags {
 	CLOWN = "clown",
@@ -14,6 +14,7 @@ export enum songTags {
 	MIDDLE_EASTERN = "middle_eastern",
 	UPBEAT = "upbeat",
 	VISTANI = "vistani",
+	BALLROOM = "ballroom",
 }
 
 export const DeathHouseBasementPlaylist: SongType[] = [
@@ -138,5 +139,33 @@ export const WalterBossFightPlaylist: SongType[] = [
 		url: "https://youtu.be/Xph2Phcj0LA?t=112",
 		tags: [songTags.EERIE, songTags.EPIC],
 		boss: "Walter",
+	},
+];
+
+export const RavenloftPlaylist: SongType[] = [
+	{
+		name: "Snow Waltz by Lindsey Stirling",
+		url: "https://youtu.be/YIqSFna1RTY",
+		tags: [songTags.UPBEAT, songTags.BALLROOM],
+	},
+	{
+		name: "Dance of the Damned by Peter Gundry",
+		url: "https://youtu.be/Q2fk4Ia1IZs",
+		tags: [songTags.BALLROOM],
+	},
+	{
+		name: "Tonight Ve' Dance by Peter Gundry",
+		url: "https://youtu.be/p5svu1l6PFw",
+		tags: [songTags.BALLROOM],
+	},
+	{
+		name: "Dance of the Damned by Peter Gundry",
+		url: "https://youtu.be/Q2fk4Ia1IZs",
+		tags: [songTags.BALLROOM],
+	},
+	{
+		name: "Dinner Ambiance",
+		url: "https://youtu.be/d_xXt28N9kw",
+		tags: [songTags.GENERIC],
 	},
 ];

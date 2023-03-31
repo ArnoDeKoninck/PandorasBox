@@ -71,7 +71,7 @@ function App() {
 			<ThemeProvider theme={customTheme}>
 				<Grid container justifyContent={"center"}>
 					<Grid container spacing={2}>
-						<Grid item xs={12} md={6}>
+						<Grid item xs={12}>
 							<Jukebox />
 						</Grid>
 						{/*

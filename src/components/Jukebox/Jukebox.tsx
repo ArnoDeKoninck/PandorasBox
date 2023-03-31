@@ -3,7 +3,7 @@ import { Card, CardContent, Grid, IconButton, MenuItem, TextField, Typography } 
 import React from "react";
 import ReactPlayer from "react-player";
 import customTheme, { useStyles } from "../../customTheme";
-import { BossThemeList, CombatSongList, songCategoryList, songTagList } from "../../data/audio/songs/Sources";
+import { BossThemeList, CombatSongList, RavenloftPlaylist, songCategoryList, songTagList } from "../../data/audio/songs/Sources";
 import { SoundList } from "../../data/audio/sounds/Sounds";
 import { SongType } from "../../types/GlobalTypes";
 
@@ -26,7 +26,16 @@ function Jukebox() {
 	const updateSongList = (input: string, key: string) => {
 		key === "Category" ? setCategory(input) : setMood(input);
 		if (key === "Category") {
-			input === "Combat" ? setSongList(CombatSongList) : input === "Boss" ? setSongList(BossThemeList) : setSongList(CombatSongList);
+			switch (input) {
+				case "Combat":
+					return setSongList(CombatSongList);
+				case "Boss":
+					return setSongList(BossThemeList);
+				case "Ravenloft":
+					return setSongList(RavenloftPlaylist);
+				default:
+					return setSongList(CombatSongList);
+			}
 		}
 	};
 
@@ -135,11 +144,11 @@ function Jukebox() {
 
 						{song && (
 							<Grid item xs={12}>
-								<ReactPlayer className={classes.audioControls} width="100%" height={isSongYoutube ? "300px" : "3rem"} controls url={song.url} onEnded={() => setRandomSong()} playing={playing} muted={muted} />
+								<ReactPlayer className={classes.audioControls} width="100%" height={isSongYoutube ? "30VH" : "3rem"} controls url={song.url} onEnded={() => setRandomSong()} playing={playing} muted={muted} />
 							</Grid>
 						)}
 
-						<Grid item xs={7}>
+						<Grid item xs={7} md={4}>
 							<TextField fullWidth select value={selectedSound} onChange={(e) => setSelectedSound(e.target.value)} label="Play Sound">
 								{SoundList.map((sound) => (
 									<MenuItem key={sound.url[(sound.url.length * Math.random()) << 0]} value={sound.url[(sound.url.length * Math.random()) << 0]}>
@@ -149,8 +158,8 @@ function Jukebox() {
 							</TextField>
 						</Grid>
 						{song && (
-							<Grid item xs={4}>
-								<ReactPlayer className={classes.audioControls} width="100%" height={isSoundYoutube ? "100px" : "3rem"} controls url={selectedSound} />
+							<Grid item xs={4} md={8}>
+								<ReactPlayer className={classes.audioControls} width="100%" height={isSoundYoutube ? "30VH" : "3rem"} controls url={selectedSound} />
 							</Grid>
 						)}
 					</Grid>

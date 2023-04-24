@@ -174,6 +174,7 @@ export interface Entity {
 	damage?: Damage;
 	onHit?: number;
 	achievements?: [{ name: string; currentValue: number; targetValue: number; reward: string }];
+	sounds?: SoundType[];
 }
 
 export interface Npc {

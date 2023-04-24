@@ -58,4 +58,7 @@ export const SoundList: SoundType[] = [
 		url: ["audio/sounds/wolvesHowling_001.mp3", "audio/sounds/wolvesHowling_002.mp3"],
 	},
 	{ name: "Rahadin's Deathly Choir", url: ["https://youtu.be/EjeGHxEx4VE"] },
+	{ name: "Heavy sniffing", url: ["audio/sounds/heavy_sniffing.mp3"] },
 ];
+
+export const BearSounds: SoundType[] = [{ name: "bear sounds", url: ["audio/sounds/bear_sound_01.mp3", "audio/sounds/bear_sound_02.mp3", "audio/sounds/bear_sound_03.mp3", "audio/sounds/bear_sound_04.mp3", "audio/sounds/bear_sound_05.mp3"] }];

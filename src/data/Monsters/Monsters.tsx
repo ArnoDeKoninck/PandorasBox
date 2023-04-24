@@ -2,6 +2,7 @@ import { MartialWeaponList, SimpleWeaponList } from "../../lootTables/weaponTabl
 import { generateRandomWeapon } from "../../services/loot-service/loot-service";
 import { Entity } from "../../types/GlobalTypes";
 import { Weapon } from "../../types/ItemTypes";
+import { BearSounds } from "../audio/sounds/Sounds";
 
 export const animatedArmor: Entity = {
 	name: "Animated Armor",
@@ -398,4 +399,36 @@ export const wolf: Entity = {
 	image: "monster_wolf.webp",
 };
 
-export const EnemyList: Entity[] = [animatedArmor, bandit, brownBear, direWolf, peasant, scout, strahdVonZarovich, wolf];
+export const direbear_young: Entity = {
+	name: "Young Dire Bear",
+	type: "Monster",
+	size: "Large",
+	statBlock: [
+		{ name: "Str", value: 20 },
+		{ name: "Dex", value: 14 },
+		{ name: "Con", value: 16 },
+		{ name: "Int", value: 2 },
+		{ name: "Wis", value: 13 },
+		{ name: "Cha", value: 7 },
+	],
+	savingThrows: ["STR +7", "CON +5"],
+	skills: [{ name: "Perception", value: 3 }],
+	resistances: ["Resistance to non-magical weapons"],
+	senses: ["Passive perception 13"],
+	abilities: [{ name: "Keen Hearing and Smell", description: [<li>Advantage on Perception checks with hearing or smell</li>] }],
+	actions: [{ name: "Bite", description: [<li>Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: (1d8 + 4) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be grappled</li>] }],
+	exp: 1100,
+	cr: 6,
+	maxHealth: 85,
+	currentHealth: 85,
+	speed: 40,
+	initiative: 0,
+	species: "Beast",
+	status: [],
+	onHit: 6,
+	ac: 14,
+	image: "black_direbear.png",
+	sounds: BearSounds,
+};
+
+export const EnemyList: Entity[] = [animatedArmor, bandit, brownBear, direWolf, peasant, scout, strahdVonZarovich, wolf, direbear_young];

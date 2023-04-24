@@ -1,7 +1,8 @@
-import { Card, CardContent, Grid, CardMedia, Typography, LinearProgress, TextField } from "@mui/material";
+import { VolumeUp } from "@mui/icons-material";
+import { Card, CardContent, Grid, CardMedia, Typography, LinearProgress, TextField, IconButton } from "@mui/material";
 import { useState } from "react";
 import { useAppSelector } from "src/app/hooks";
-import { useStyles } from "../../../../customTheme";
+import customTheme, { useStyles } from "../../../../customTheme";
 import { Entity, Status } from "../../../../types/GlobalTypes";
 import StatusChip from "../Status/StatusChip";
 import EditEnemyDialog from "./EditEnemyDialog";
@@ -15,6 +16,21 @@ function EnemyDetailsCard({ index }: PcDetailCardProps) {
 	console.log(enemy);
 	const [openEditEnemyDialog, setOpenEditEnemyDialog] = useState<Entity | undefined>(undefined);
 
+	const playEnemySound = (enemy: Entity) => {
+		const sound = new Audio(getRandomEnemySound(enemy));
+		sound.play();
+	};
+
+	const getRandomEnemySound = (enemy: Entity) => {
+		if (enemy.sounds) {
+			switch (enemy.name) {
+				case "Young Dire Bear":
+					return enemy.sounds[0].url[Math.floor(Math.random() * (enemy.sounds[0].url.length - 1))];
+				default:
+					return "";
+			}
+		}
+	};
 	return (
 		<>
 			<Card className={classes.itemCard}>
@@ -28,9 +44,24 @@ function EnemyDetailsCard({ index }: PcDetailCardProps) {
 							<Grid item xs={9}>
 								<Grid container padding={"5px"}>
 									{/* General info container*/}
-									<Grid container>
-										<Grid item xs={4}>
+									<Grid container alignItems={"center"} spacing={1}>
+										<Grid item>
 											<Typography align={"left"}>{enemy.name}</Typography>
+										</Grid>
+										<Grid item paddingBottom={"5px"}>
+											<IconButton
+												color={"secondary"}
+												onClick={() => playEnemySound(enemy)}
+												sx={{
+													width: "20px",
+													height: "20px",
+													"&:hover > *": {
+														color: customTheme.palette.primary.dark,
+													},
+												}}
+											>
+												<VolumeUp fontSize="small" />
+											</IconButton>
 										</Grid>
 									</Grid>
 									{/* Health bar container*/}

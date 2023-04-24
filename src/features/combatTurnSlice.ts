@@ -10,7 +10,9 @@ const combatTurnSlice = createSlice({
     initialState: cachedCombatTurn,
     reducers: {
         updateCombatTurn(state, action:PayloadAction<number>){
-            state = action.payload
+           localStorage.setItem('combatTurn', JSON.stringify(action.payload))
+           return action.payload
+          
         }
     }
 })

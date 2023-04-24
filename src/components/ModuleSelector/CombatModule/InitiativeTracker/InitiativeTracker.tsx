@@ -13,6 +13,7 @@ interface InitiativeProps {
 }
 
 function InitiativeTracker({ combat, combatTurn }: InitiativeProps) {
+	console.log(combatTurn);
 	const dispatch = useAppDispatch();
 	const classes = useStyles();
 	if (combat.filter((entity) => entity.initiative === undefined).length > 0) {

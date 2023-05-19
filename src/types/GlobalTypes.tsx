@@ -181,11 +181,13 @@ export interface Npc {
 	name: string;
 	image: string;
 	species: string;
+	voice?: string;
 	age: string;
 	alignment: string;
-	description: string;
+	description: JSX.Element[];
 	cr: number;
 	tags: Factions[];
+	location?: string;
 }
 
 export interface AbilityScore {

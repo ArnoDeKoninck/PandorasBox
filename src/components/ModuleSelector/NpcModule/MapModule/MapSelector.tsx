@@ -1,4 +1,4 @@
-import { LocalGroceryStore, LocationCity, LocationOn, PriorityHigh, SavedSearch, SportsBar } from "@mui/icons-material";
+import { LocalGroceryStore, LocationCity, LocationOn, Person, PriorityHigh, SavedSearch, SportsBar } from "@mui/icons-material";
 import { Card, CardMedia, Divider, FormControl, FormControlLabel, FormGroup, Grid, IconButton, MenuItem, Switch, TextField, Tooltip } from "@mui/material";
 import React, { useState } from "react";
 import { CR_FirstFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR_FirstFloor";
@@ -247,5 +247,7 @@ export const getLocationIcon = (locationType: string) => {
 					}}
 				/>
 			);
+		case "npc":
+			return <Person id={uuid()} sx={{ color: customTheme.palette.secondary.main }} />;
 	}
 };

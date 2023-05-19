@@ -141,4 +141,22 @@ export const BaroviaLocations: PointOfIntrest[] = [
 		type: "location",
 		note: "The trail through the thick woods leads to a hill covered with dead grass and cairns of black rock. Dark, ominous clouds gather high above, and a single bolt of lightning strikes the hilltop. West of the hill, the land, the woods, and the sky vanish behind a towering wall of fog.",
 	},
+	{
+		name: "Ruins of the Abbey of Brilliant Worship",
+		coordinates: { x: 43.4, y: 55.8 },
+		type: "location",
+		note: "Rubble and stone is all that's left of this once great abbey in service of Sarenrae.",
+	},
+	{
+		name: "Descecrated Shrine of the Forest Fane",
+		coordinates: { x: 28, y: 35 },
+		type: "location",
+		note: "Rubble and stone is all that's left of this once great abbey in service of Sarenrae.",
+	},
+	{
+		name: "Vistani Camp",
+		coordinates: { x: 41, y: 30 },
+		type: "village",
+		note: "A near permanent encampment of the Vallakian Vistani",
+	},
 ];

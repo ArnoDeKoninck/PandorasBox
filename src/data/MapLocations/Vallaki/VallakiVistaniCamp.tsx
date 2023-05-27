@@ -160,4 +160,18 @@ export const Vallaki_VistaniCampLocations: PointOfIntrest[] = [
 			</li>,
 		],
 	},
+	{
+		name: "Saving Arabelle",
+		coordinates: { x: 16, y: 40 },
+		type: "event",
+		note: "Luvash will reward the party if they manage to return Arabelle safely to the Vistani camp. The party has to choose without touching anything and the options are the following:",
+		events: [
+			<li id={uuid()}>A wooden chest containing 250gp and an enchantment crystal 1d6 on the pdf at or below 600gp in cost.</li>,
+			<li id={uuid()}>An Iron chest with 600gp</li>,
+			<li id={uuid()}>An onyx jewelry box worth 250g with 6 jewelry pieces (each50gp) and a potion of poison in an unlabled vial (worth 100gp)</li>,
+			<li id={uuid()}>An ornate wooden throne (worth 750gp)</li>,
+			<li id={uuid()}>A tall wooden chest containing a Mythral breastplate</li>,
+			<li id={uuid()}>A tall expensive looking rug with a beautiful unicorn motif and a bulge in the middle containing Piddlewick the second. (worth 750gp)</li>,
+		],
+	},
 ];

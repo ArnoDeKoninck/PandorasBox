@@ -60,4 +60,104 @@ export const Vallaki_VistaniCampLocations: PointOfIntrest[] = [
 			</li>,
 		],
 	},
+	{
+		name: "Celegal's Hovel",
+		coordinates: { x: 27.5, y: 22 },
+		type: "shop",
+		note: "Celegal's stopped aging when the female dusk elves were slaughtered. He visually looks no older than 14 and is very shy and wants to be useful. He is fletcher and bowyer and is commisioned for the crafting of ammunition for the guards of Vallaki.",
+		events: [
+			<li id={uuid()}>
+				Celegal currently has this stock:
+				<ul id={uuid()}>
+					<li id={uuid()}>
+						Ammunition:
+						<ul id={uuid()}>
+							<li id={uuid()}>Crossbow Bolts x20 (2gp)</li>
+							<li id={uuid()}>Arrows x20 (2gp)</li>
+							<li id={uuid()}>Blowgun needles x50 (2gp)</li>
+							<li id={uuid()}>Sling bullets x20 (40cp)</li>
+							<li id={uuid()}>Accurate Crossbow Bolt (+1 attack) (25gp ea)</li>
+							<li id={uuid()}>Accurate Arrow (+1 attack) (25gp ea)</li>
+							<li id={uuid()}>Heavy Crossbow Bolt (+1 damage) (25gp ea)</li>
+							<li id={uuid()}>Heavy Arrow (+1 damage) (25gp ea)</li>
+							<li id={uuid()}>Crossbow Bolts +1 (50gp ea)</li>
+							<li id={uuid()}>Arrows +1 (50gp ea)</li>
+							<li id={uuid()}>Crossbow Bolts +2 (250gp ea)</li>
+							<li id={uuid()}>Arrows +2 (50gp)</li>
+						</ul>
+					</li>
+					<li id={uuid()}>
+						Weapons:
+						<ul id={uuid()}>
+							<li id={uuid()}>Light Crossbow (25gp)</li>
+							<li id={uuid()}>Quarterstaff (5gp)</li>
+							<li id={uuid()}>Shortbow (25gp)</li>
+							<li id={uuid()}>Sling (2gp)</li>
+							<li id={uuid()}>Hand Crossbow (75gp)</li>
+							<li id={uuid()}>Heavy Crossbow (50gp)</li>
+							<li id={uuid()}>Longbow (50gp)</li>
+							<li id={uuid()}>Net (5gp)</li>
+							<li id={uuid()}>Masterwork Longbow (150gp)</li>
+							<li id={uuid()}>Masterwork Shortbow (75gp)</li>
+						</ul>
+					</li>
+				</ul>
+			</li>,
+		],
+	},
+	{
+		name: "Emzikh's Hovel",
+		coordinates: { x: 82, y: 40 },
+		type: "shop",
+		note: "Emzikh is one of the oldest remaining dusk elves and a master alchemist. He has a stock of material components and alchemy supplies.",
+		events: [
+			<li id={uuid()}>
+				Emzikh currently has this stock:
+				<ul id={uuid()}>
+					<li id={uuid()}>
+						Potions:
+						<ul id={uuid()}>
+							<li id={uuid()}>Potion of Healing (50 gp)</li>
+							<li id={uuid()}>Potion of Fire breath (150 gp)</li>
+							<li id={uuid()}>Potion of Climbing (200 gp)</li>
+							<li id={uuid()}>Potion of Diminution (200 gp)</li>
+							<li id={uuid()}>Potions of Greater Healing (250 gp)</li>
+							<li id={uuid()}>Potion of Resistance (300 gp)</li>
+							<li id={uuid()}>Potion of Growth (400 gp)</li>
+							<li id={uuid()}>Potion of Superior Healing (1.000 gp)</li>
+							<li id={uuid()}>Oil of Clairvoyance (1.000 gp)</li>
+							<li id={uuid()}>Oil of Etherealness (3.000 gp)</li>
+							<li id={uuid()}>Potion of Supreme healing (5.000 gp)</li>
+							<li id={uuid()}>Potion of Frost Giant Strength (7.500 gp)</li>
+						</ul>
+					</li>
+					<li id={uuid()}>
+						Alchemy supplies:
+						<ul id={uuid()}>
+							<li id={uuid()}>Flask of Oil (5sp)</li>
+							<li id={uuid()}>Glass Vial (1gp)</li>
+							<li id={uuid()}>Glass bottle (2gp)</li>
+							<li id={uuid()}>Vial of Perfume (5gp)</li>
+							<li id={uuid()}>Vial of Acid (20gp)</li>
+							<li id={uuid()}>Component pouch (25gp)</li>
+							<li id={uuid()}>Vial of Alchemist's Fire (50gp)</li>
+							<li id={uuid()}>Vial of Antitoxin (50gp)</li>
+							<li id={uuid()}>Vial of Poison (100gp)</li>
+						</ul>
+					</li>
+					<li id={uuid()}>
+						Alchemy Tools:
+						<ul id={uuid()}>
+							<li id={uuid()}>Cook's Utensils (1gp)</li>
+							<li id={uuid()}>Herbalism Kit (5gp)</li>
+							<li id={uuid()}>Healer's Kit (5gp)</li>
+							<li id={uuid()}>Brewer Supplies (20gp)</li>
+							<li id={uuid()}>Alchemist Kit (50gp)</li>
+							<li id={uuid()}>Poisoner's kit (50gp)</li>
+						</ul>
+					</li>
+				</ul>
+			</li>,
+		],
+	},
 ];

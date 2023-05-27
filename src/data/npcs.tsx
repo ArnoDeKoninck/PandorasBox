@@ -1011,6 +1011,16 @@ export const npcs: Npc[] = [
 		tags: [],
 	},
 	{
+		name: "Rowley Piersym",
+		image: "rowley_piersym.png",
+		species: "Human",
+		age: "Late-60",
+		alignment: "Lawful good",
+		description: [<p id={uuid()}>Master weaponsmith and owner of Thimdul's Armaments in Vallaki</p>],
+		cr: 2,
+		tags: [Factions.VALLAKI],
+	},
+	{
 		name: "Rudolph Von Richten",
 		image: "rudolph_von_richten.webp",
 		species: "Human",

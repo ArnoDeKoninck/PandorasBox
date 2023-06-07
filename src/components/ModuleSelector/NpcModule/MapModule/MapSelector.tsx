@@ -5,7 +5,7 @@ import { CR_FirstFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR
 import { DeathHouseEscapeLocations, DeathHouseLocations } from "src/data/MapLocations/DeathHouse/DeathHouseLocations";
 import customTheme, { useStyles } from "../../../../customTheme";
 import { AllMaps, CastleRavenloftMaps } from "../../../../data/maps/maps";
-import { Maps } from "../../../../types/GlobalTypes";
+import { Maps, PointOfIntrest } from "../../../../types/GlobalTypes";
 import { v4 as uuid } from "uuid";
 import { CR_OutsideLocations } from "src/data/MapLocations/CastleRavenloft/CR_Outside";
 import { CR_SecondFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR_SecondFloor";
@@ -21,6 +21,8 @@ function MapSelector() {
 	const [selectedMap, setSelectedMap] = React.useState<Maps>(AllMaps.filter((map) => map.name === "Barovia")[0]);
 	const [isMapAlternative, setMapAlternative] = useState<number>(0);
 	const [showIcons, setShowIcons] = useState<boolean>(true);
+	const [selectedIcon, setSelectedicon] = useState<PointOfIntrest>();
+	const [iconSize, setIconSize] = useState<number>(window.innerWidth * 0.02);
 
 	const getMousePosition = (e: any) => {
 		const map = e.target.getBoundingClientRect();
@@ -28,10 +30,17 @@ function MapSelector() {
 		const offsetX = e.nativeEvent.offsetX;
 		setMousePosition({ x: (offsetX / map.width) * 100, y: (offsetY / map.height) * 100 });
 	};
-	console.log(mousePosition);
+	//console.log(mousePosition);
 	const changeMap = (mapName: string) => {
 		const map = AllMaps.filter((map) => map.name === mapName);
 		setSelectedMap(map[0] as Maps);
+	};
+
+	const handleClick = (location: PointOfIntrest) => {
+		const currentSelected = selectedIcon;
+		if (currentSelected === location) {
+			setSelectedicon(undefined);
+		} else setSelectedicon(location);
 	};
 
 	const classes = useStyles();
@@ -129,6 +138,7 @@ function MapSelector() {
 									(location) =>
 										showIcons && (
 											<Tooltip
+												open={selectedIcon === location}
 												key={uuid()}
 												title={
 													<div key={uuid()}>
@@ -146,13 +156,31 @@ function MapSelector() {
 												}
 												componentsProps={{ tooltip: { sx: { backgroundColor: customTheme.palette.primary.dark, fontSize: "1rem", maxWidth: 500, maxHeight: 250, overflow: "auto" } } }}
 											>
-												<div style={{ zIndex: 2, display: `${showIcons ? "default" : "invisible"}`, position: "absolute", left: `${location.coordinates.x}%`, top: `${location.coordinates.y}%`, borderRadius: "20px" }} key={uuid()}>
+												<div
+													style={{
+														zIndex: 2,
+														display: `${showIcons ? "default" : "invisible"}`,
+														position: "absolute",
+														left: `${location.coordinates.x}%`,
+														top: `${location.coordinates.y}%`,
+														borderRadius: "20px",
+													}}
+													key={uuid()}
+												>
 													<IconButton
 														key={uuid()}
 														size="small"
 														component="span"
+														onClick={() => handleClick(location)}
 														sx={{
-															backgroundColor: customTheme.palette.primary.dark,
+															height: iconSize,
+															width: iconSize,
+															maxHeight: "40px",
+															maxWidth: "40px",
+															minHeight: "20px",
+															minWidth: "20px",
+															backgroundColor: selectedIcon === location ? customTheme.palette.secondary.light : customTheme.palette.primary.dark,
+															"& > *": { color: selectedIcon === location ? customTheme.palette.primary.dark : customTheme.palette.secondary.light },
 															"&:hover > *": {
 																color: customTheme.palette.primary.dark,
 															},
@@ -161,13 +189,13 @@ function MapSelector() {
 															},
 														}}
 													>
-														{getLocationIcon(location.type)}
+														{getLocationIcon(location.type, iconSize)}
 													</IconButton>
 												</div>
 											</Tooltip>
 										)
 								)}
-								<CardMedia sx={{ boxSizing: "border-box" }} component="img" src={`./` + selectedMap.img} onMouseMove={getMousePosition} />
+								<CardMedia sx={{ boxSizing: "border-box" }} component="img" src={`./` + selectedMap.img} />
 							</Card>
 						</Grid>
 					</Grid>
@@ -178,31 +206,36 @@ function MapSelector() {
 }
 export default MapSelector;
 
-export const getLocationIcon = (locationType: string) => {
+export const getLocationIcon = (locationType: string, iconSize: number) => {
 	switch (locationType) {
 		case "location":
 			return (
 				<LocationOn
 					key={uuid()}
 					sx={{
+						height: iconSize * 0.7,
+						width: iconSize * 0.7,
+						maxHeight: "40px",
+						maxWidth: "40px",
+						minHeight: "20px",
+						minWidth: "20px",
 						color: customTheme.palette.secondary.main,
 					}}
 				/>
 			);
 		case "village":
-			return (
-				<LocationCity
-					key={uuid()}
-					sx={{
-						color: customTheme.palette.secondary.main,
-					}}
-				/>
-			);
+			return <LocationCity key={uuid()} sx={{ height: iconSize * 0.7, width: iconSize * 0.7, maxHeight: "40px", maxWidth: "40px", minHeight: "20px", minWidth: "20px", color: customTheme.palette.secondary.main }} />;
 		case "shop":
 			return (
 				<LocalGroceryStore
 					key={uuid()}
 					sx={{
+						height: iconSize * 0.7,
+						width: iconSize * 0.7,
+						maxHeight: "40px",
+						maxWidth: "40px",
+						minHeight: "15px",
+						minWidth: "15px",
 						color: customTheme.palette.secondary.main,
 					}}
 				/>
@@ -212,6 +245,12 @@ export const getLocationIcon = (locationType: string) => {
 				<SportsBar
 					key={uuid()}
 					sx={{
+						height: iconSize * 0.7,
+						width: iconSize * 0.7,
+						maxHeight: "40px",
+						maxWidth: "40px",
+						minHeight: "20px",
+						minWidth: "20px",
 						color: customTheme.palette.secondary.main,
 					}}
 				/>
@@ -221,6 +260,12 @@ export const getLocationIcon = (locationType: string) => {
 				<SavedSearch
 					key={uuid()}
 					sx={{
+						height: iconSize * 0.7,
+						width: iconSize * 0.7,
+						maxHeight: "40px",
+						maxWidth: "40px",
+						minHeight: "20px",
+						minWidth: "20px",
 						color: customTheme.palette.secondary.main,
 					}}
 				/>
@@ -230,6 +275,12 @@ export const getLocationIcon = (locationType: string) => {
 				<PriorityHigh
 					key={uuid()}
 					sx={{
+						height: iconSize * 0.7,
+						width: iconSize * 0.7,
+						maxHeight: "40px",
+						maxWidth: "40px",
+						minHeight: "20px",
+						minWidth: "20px",
 						color: customTheme.palette.secondary.main,
 					}}
 				/>
@@ -241,13 +292,17 @@ export const getLocationIcon = (locationType: string) => {
 					alt="trap_icon"
 					src="./images/trap.svg"
 					style={{
-						width: "1.5rem",
-						height: "1.5rem",
+						height: iconSize * 0.7,
+						width: iconSize * 0.7,
+						maxHeight: "40px",
+						maxWidth: "40px",
+						minHeight: "20px",
+						minWidth: "20px",
 						filter: "invert(84%) sepia(17%) saturate(353%) hue-rotate(195deg) brightness(95%) contrast(91%)",
 					}}
 				/>
 			);
 		case "npc":
-			return <Person id={uuid()} sx={{ color: customTheme.palette.secondary.main }} />;
+			return <Person id={uuid()} sx={{ height: iconSize * 0.7, width: iconSize * 0.7, maxHeight: "40px", maxWidth: "40px", minHeight: "20px", minWidth: "20px", color: customTheme.palette.secondary.main }} />;
 	}
 };

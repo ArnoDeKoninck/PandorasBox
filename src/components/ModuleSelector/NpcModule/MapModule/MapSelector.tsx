@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import { CR_FirstFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR_FirstFloor";
 import { DeathHouseEscapeLocations, DeathHouseLocations } from "src/data/MapLocations/DeathHouse/DeathHouseLocations";
 import customTheme, { useStyles } from "../../../../customTheme";
-import { AllMaps, CastleRavenloftMaps } from "../../../../data/maps/maps";
+import { AllMaps, CastleRavenloftMaps, KrezkMaps } from "../../../../data/maps/maps";
 import { Maps, PointOfIntrest } from "../../../../types/GlobalTypes";
 import { v4 as uuid } from "uuid";
 import { CR_OutsideLocations } from "src/data/MapLocations/CastleRavenloft/CR_Outside";
 import { CR_SecondFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR_SecondFloor";
 import { CR_ThirdFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR_ThirdFloor";
+import { AOSM_OutsideLocations, AOSM_UpperLocations, KrezkLocations } from "src/data/MapLocations/Krezk/Krezk";
 
 interface MousePosition {
 	x: number;
@@ -30,7 +31,8 @@ function MapSelector() {
 		const offsetX = e.nativeEvent.offsetX;
 		setMousePosition({ x: (offsetX / map.width) * 100, y: (offsetY / map.height) * 100 });
 	};
-	//console.log(mousePosition);
+	console.log(mousePosition);
+	console.log(selectedMap.img);
 	const changeMap = (mapName: string) => {
 		const map = AllMaps.filter((map) => map.name === mapName);
 		setSelectedMap(map[0] as Maps);
@@ -46,7 +48,7 @@ function MapSelector() {
 	const classes = useStyles();
 	const swapToAlternativeMap = (input: number) => {
 		setMapAlternative(input);
-
+		console.log(input);
 		if (input !== 0) {
 			//when map is not default
 			if (selectedMap.name === "Death House") {
@@ -77,6 +79,26 @@ function MapSelector() {
 					}
 				}
 			}
+			if (selectedMap.name === "Krezk") {
+				switch (input) {
+					case 0:
+						selectedMap.img = "./images/Krezk.jpg";
+						selectedMap.locations = KrezkLocations;
+						break;
+					case 1:
+						selectedMap.img = "./images/abbeyOfSaintMarkovia.jpg";
+						selectedMap.locations = AOSM_OutsideLocations;
+						break;
+					case 2:
+						selectedMap.img = "./images/AOSM_upperfloor.jpg";
+						selectedMap.locations = AOSM_UpperLocations;
+						break;
+					default: {
+						selectedMap.img = "./images/Krezk.jpg";
+						selectedMap.locations = KrezkLocations;
+					}
+				}
+			}
 		} else {
 			if (selectedMap.name === "Death House") {
 				selectedMap.locations = DeathHouseLocations;
@@ -84,6 +106,10 @@ function MapSelector() {
 			if (selectedMap.name === "Castle Ravenloft") {
 				selectedMap.img = "./images/cr_outside.webp";
 				selectedMap.locations = CR_OutsideLocations;
+			}
+			if (selectedMap.name === "Krezk") {
+				selectedMap.img = "./images/Krezk.jpg";
+				selectedMap.locations = KrezkLocations;
 			}
 		}
 	};
@@ -110,6 +136,19 @@ function MapSelector() {
 										<FormControl fullWidth>
 											<TextField size={"small"} className={classes.headerTitle} select id="Castle Ravenloft floors" value={isMapAlternative} label="Choose the floor" onChange={(e: any) => swapToAlternativeMap(e.target.value)}>
 												{CastleRavenloftMaps.map((map, index) => (
+													<MenuItem key={uuid()} value={index}>
+														{map.name}
+													</MenuItem>
+												))}
+											</TextField>
+										</FormControl>
+									</Grid>
+								)}
+								{selectedMap.name === "Krezk" && (
+									<Grid item xs={2}>
+										<FormControl fullWidth>
+											<TextField size={"small"} className={classes.headerTitle} select id="Abbey Of Saint Markovia" value={isMapAlternative} label="Choose the floor" onChange={(e: any) => swapToAlternativeMap(e.target.value)}>
+												{KrezkMaps.map((map, index) => (
 													<MenuItem key={uuid()} value={index}>
 														{map.name}
 													</MenuItem>

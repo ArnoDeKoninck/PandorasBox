@@ -891,7 +891,7 @@ export const npcs: Npc[] = [
 	},
 	{
 		name: "Martin Martikov",
-		image: "bray_martikov.webp",
+		image: "martin_martikov.webp",
 		species: "Human",
 		age: "8 years old",
 		alignment: "True Neutral",

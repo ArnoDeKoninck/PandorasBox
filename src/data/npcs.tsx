@@ -90,7 +90,7 @@ export const npcs: Npc[] = [
 	},
 	{
 		name: "Anna Krezkova",
-		image: "anna_krezkova.webp",
+		image: "anna_krezkova.png",
 		species: "Human",
 		age: "Late-40s",
 		alignment: "True Neutral",
@@ -367,7 +367,7 @@ export const npcs: Npc[] = [
 	},
 	{
 		name: "Dmitri Kreskov",
-		image: "dmitri_krezkov.webp",
+		image: "dmitri_krezkov.png",
 		species: "Human",
 		age: "Late-30s",
 		alignment: "True Neutral",
@@ -620,6 +620,16 @@ export const npcs: Npc[] = [
 		tags: [],
 	},
 	{
+		name: "Ilya Krezkov",
+		image: "ilya_krezkov.png",
+		species: "Human",
+		age: "14 years old",
+		alignment: "Chaotic Evil",
+		description: [<p id={uuid()}>Young Ilya died a month ago and was resurrected a few days ago. His soul is now corrupted and he has an unending hunger for flesh that is slowly killing him.</p>],
+		cr: 1,
+		tags: [Factions.KREZK],
+	},
+	{
 		name: "Ireena Kolyana",
 		image: "ireena_kolyana.webp",
 		species: "Human",
@@ -788,6 +798,16 @@ export const npcs: Npc[] = [
 		description: [<p id={uuid()}>Co-owner of the Beast's Rose Clothing shop in Vallaki and Wife of Gillie.</p>],
 		cr: 1,
 		tags: [Factions.VALLAKI],
+	},
+	{
+		name: "Luca",
+		image: "luca.png",
+		species: "Human",
+		age: "early 20s",
+		alignment: "Lawful Good",
+		description: [<p id={uuid()}>A gentle giant husker who takes care of the lifestock animals at Krezk. His lack of a soul makes him less intelligent than most commoners but he has a heart of gold and wouldn't hurt a fly.</p>],
+		cr: 1,
+		tags: [Factions.KREZK],
 	},
 	{
 		name: "Lucian Petrovich",

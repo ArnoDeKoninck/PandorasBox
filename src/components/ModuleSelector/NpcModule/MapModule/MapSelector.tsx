@@ -12,10 +12,10 @@ import { CR_SecondFloorLocations } from "src/data/MapLocations/CastleRavenloft/C
 import { CR_ThirdFloorLocations } from "src/data/MapLocations/CastleRavenloft/CR_ThirdFloor";
 import { AOSM_OutsideLocations, AOSM_UpperLocations, KrezkLocations } from "src/data/MapLocations/Krezk/Krezk";
 
-interface MousePosition {
+/*interface MousePosition {
 	x: number;
 	y: number;
-}
+}*/
 
 function MapSelector() {
 	//const [mousePosition, setMousePosition] = React.useState<MousePosition>({ x: 0, y: 0 });

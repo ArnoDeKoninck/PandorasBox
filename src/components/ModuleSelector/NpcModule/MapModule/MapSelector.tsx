@@ -18,20 +18,20 @@ interface MousePosition {
 }
 
 function MapSelector() {
-	const [mousePosition, setMousePosition] = React.useState<MousePosition>({ x: 0, y: 0 });
+	//const [mousePosition, setMousePosition] = React.useState<MousePosition>({ x: 0, y: 0 });
 	const [selectedMap, setSelectedMap] = React.useState<Maps>(AllMaps.filter((map) => map.name === "Barovia")[0]);
 	const [isMapAlternative, setMapAlternative] = useState<number>(0);
 	const [showIcons, setShowIcons] = useState<boolean>(true);
 	const [selectedIcon, setSelectedicon] = useState<PointOfIntrest>();
-	const [iconSize, setIconSize] = useState<number>(window.innerWidth * 0.02);
+	const [iconSize] = useState<number>(window.innerWidth * 0.02);
 
-	const getMousePosition = (e: any) => {
+	/*const getMousePosition = (e: any) => {
 		const map = e.target.getBoundingClientRect();
 		const offsetY = e.nativeEvent.offsetY;
 		const offsetX = e.nativeEvent.offsetX;
 		setMousePosition({ x: (offsetX / map.width) * 100, y: (offsetY / map.height) * 100 });
-	};
-	console.log(mousePosition);
+	};*/
+	//console.log(mousePosition);
 	console.log(selectedMap.img);
 	const changeMap = (mapName: string) => {
 		const map = AllMaps.filter((map) => map.name === mapName);
